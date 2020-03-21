@@ -1,0 +1,25 @@
+\babel@toc {italian}{}
+\babel@toc {italian}{}
+\contentsline {section}{\numberline {1}Introduzione: \textit {Network Alignment} e \textit {PPIN}}{2}% 
+\contentsline {section}{\numberline {2}\textit {Protein-Protein Interaction Networks}}{4}% 
+\contentsline {subsection}{\numberline {2.1}L'interattoma}{4}% 
+\contentsline {section}{\numberline {3}Propriet\IeC {\`a} delle PPIN}{5}% 
+\contentsline {subsection}{\numberline {3.1}\textit {Effetto del piccolo mondo}}{5}% 
+\contentsline {subsection}{\numberline {3.2}\textit {Scale-free networks}}{6}% 
+\contentsline {subsection}{\numberline {3.3}Transitivit\IeC {\`a}}{7}% 
+\contentsline {section}{\numberline {4}Sorgenti di dati, valutazione dell'affidabilit\IeC {\`a} e misurazione della confidenza}{7}% 
+\contentsline {section}{\numberline {5}Analisi topologica delle PPIN}{9}% 
+\contentsline {subsection}{\numberline {5.1}\textit {Centrality Analysis}}{9}% 
+\contentsline {subsection}{\numberline {5.2}\textit {Clustering Analysis}}{10}% 
+\contentsline {subsubsection}{\numberline {5.2.1}Metodi di \textit {Clustering Analysis}}{10}% 
+\contentsline {section}{\numberline {6}PPIN: \textit {Annotation enrichment analysis}}{11}% 
+\contentsline {section}{\numberline {7}MTGO}{12}% 
+\contentsline {subsection}{\numberline {7.1}Descrizione di MTGO}{12}% 
+\contentsline {subsubsection}{\numberline {7.1.1}Inizializzazione}{14}% 
+\contentsline {subsubsection}{\numberline {7.1.2}Iterazione}{15}% 
+\contentsline {subsubsection}{\numberline {7.1.3}Convergenza}{16}% 
+\contentsline {section}{\numberline {8}IsoRank}{17}% 
+\contentsline {subsection}{\numberline {8.1}Global vs. Local Network Alignment}{17}% 
+\contentsline {subsection}{\numberline {8.2}\textit {Score} e \textit {mapping}}{17}% 
+\contentsline {section}{\numberline {9}Conclusioni alla fine fine dopo i 4 metodi - scrivere meglio}{19}% 
+\contentsline {section}{\numberline {10}Bibliografia}{20}% 
