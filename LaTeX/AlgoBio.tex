@@ -459,6 +459,37 @@ BLABLA
 IsoRank mira a massimizzare la corrispondenza complessiva tra le due reti. Si basa sulla teoria dei grafici spettrali per calcolare i punteggi di allineamento di coppie di nodi di reti diverse; lo fa utilizzando l'euristico che due nodi sono una buona corrispondenza se anche i loro rispettivi vicini corrispondono bene. Così, il punteggio di una coppia di proteine dipende dal punteggio dei loro vicini, che, a loro volta, dipendono dai vicini dei loro vicini, e così via.
 Una volta che questi punteggi 'topologici' sono calcolati per tutte le coppie di nodi, i punteggi BLAST basati sulla sequenza sono inclusi nei punteggi di allineamento a coppie. IsoRank costruisce quindi l'allineamento dei nodi con la strategia avida e ripetitiva di identificare tra tutte le coppie di proteine la coppia con il punteggio più alto, producendo quella coppia e rimuovendo tutti i punteggi che coinvolgono uno qualsiasi dei due nodi identificati.
 
+
+\pagebreak
+\section{Struc2vec}
+Struc2vec è un framework flessibile per l'apprendimento di rappresentazioni latenti per l'identità strutturale dei nodi.
+Utilizza una gerarchia per misurare la somiglianza dei nodi in scale diverse e costruisce un grafo multilivello per codificare le somiglianze strutturali e generare il contesto strutturale per i nodi.
+
+L'identità strutturale è un concetto di simmetria in cui i nodi della rete vengono identificati in base alla struttura della rete e alla loro relazione con altri nodi.
+
+Struc2vec presenta prestazioni molto elevate nell'acquisizione di nozioni di identità strutturale in quanto supera i limiti degli approcci precedenti.
+Gli esperimenti numerici indicano che struc2vec migliora le prestazioni sulle attività di classificazione che dipendono maggiormente dall'identità strutturale.
+Struc2vec eccelle anche quando la rete originale è soggetta a forti rumori casuali (rimozione casuale degli archi nel grafo).
+
+In quasi tutte le reti, i nodi tendono ad avere una o più funzioni che determinano il loro ruolo nel sistema. Ad esempio, le proteine in una rete di interazione proteina-proteina (PPI) esercitano funzioni specifiche. 
+Intuitivamente, diversi nodi in tali reti possono eseguire funzioni simili, come catalizzatori nella rete PPI di una cella. Pertanto, i nodi possono spesso essere partizionati in classi equivalenti rispetto alla loro funzione nella rete.
+
+Le idee chiave di struc2vec sono:
+\begin{itemize}
+  \item Valutare la somiglianza strutturale tra i nodi indipendentemente dai loro attributi e quelli dei bordi, nonché la loro posizione nella rete.
+Così, due nodi che hanno una struttura locale simile saranno considerati così, indipendentemente dalla posizione di rete e le etichette dei nodi nei loro quartieri.
+Questo approccio inoltre non richiede un grafo connesso, identifica nodi strutturalmente simili anche in componenti connesse diverse.
+  \item Stabilire una gerarchia per misurare la somiglianza strutturale, consentendo nozioni progressivamente più rigorose di ciò che significa essere strutturalmente simili.
+In particolare, nella parte inferiore della gerarchia, la somiglianza strutturale tra i nodi dipende solo dai loro gradi, mentre nella parte superiore della gerarchia dipende dall'intera rete (dal punto di vista del nodo).
+  \item Generare contesti casuali per i nodi (vettori), che sono sequenze di nodi strutturalmente simili come osservato da un camminato casuale pesato che attraversa un grafo multistrato (e non la rete originale). 
+Pertanto, due nodi che appaiono frequentemente con contesti simili avranno probabilmente una struttura simile.
+\end{itemize}
+
+
+sdiwhffahahjha
+
+
+\pagebreak
 \section{Conclusioni alla fine fine dopo i 4 metodi - scrivere meglio}
 Negli ultimi anni, il corpus di dati PPI è cresciuto esponenzialmente e il rapido ritmo di accumulo dati continua. L'obiettivo di questo progetto è stato di far capire la struttura delle reti considerate (con dei rimandi alla teoria dei grafi) e le implicazioni  e le somiglianze dal punto di vista biologico. scrivere altro
 

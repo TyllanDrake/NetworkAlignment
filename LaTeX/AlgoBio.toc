@@ -21,5 +21,6 @@
 \contentsline {section}{\numberline {8}IsoRank}{17}% 
 \contentsline {subsection}{\numberline {8.1}Global vs. Local Network Alignment}{17}% 
 \contentsline {subsection}{\numberline {8.2}\textit {Score} e \textit {mapping}}{17}% 
-\contentsline {section}{\numberline {9}Conclusioni alla fine fine dopo i 4 metodi - scrivere meglio}{19}% 
-\contentsline {section}{\numberline {10}Bibliografia}{20}% 
+\contentsline {section}{\numberline {9}Struc2vec}{20}% 
+\contentsline {section}{\numberline {10}Conclusioni alla fine fine dopo i 4 metodi - scrivere meglio}{21}% 
+\contentsline {section}{\numberline {11}Bibliografia}{22}% 
