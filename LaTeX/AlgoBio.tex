@@ -485,7 +485,27 @@ In particolare, nella parte inferiore della gerarchia, la somiglianza struttural
 Pertanto, due nodi che appaiono frequentemente con contesti simili avranno probabilmente una struttura simile.
 \end{itemize}
 
+Considerando il problema delle rappresentazioni di apprendimento che catturano l'identità strutturale dei nodi nella rete. Un approccio corretto dovrebbe presentare due proprietà:
+\begin{itemize}
+  \item La distanza tra la rappresentazione latente dei nodi deve essere fortemente correlata alla loro somiglianza strutturale. Quindi, due nodi con strutture di rete locale identiche devono avere la stessa rappresentazione latente, mentre i nodi con identità strutturali diverse devono essere distanti.
+  \item La rappresentazione latente non deve dipendere da alcun attributo del nodo o degli archi, incluse le etichette dei nodi.
+Pertanto, i nodi strutturalmente simili devono avere una rappresentazione latente stretta, indipendente dagli attributi del nodo e dei lati nel proprio vicinato.
+L'identità strutturale dei nodi deve essere indipendente dalla sua "posizione" nella rete.
+\end{itemize}
 
+Struct2vec è quindi un framework generale per l'apprendimento di rappresentazioni latenti per i nodi, composto da quattro passaggi principali:
+\begin{itemize}
+  \item Determinare la somiglianza strutturale tra ogni coppia di vertici nel grafo per dimensioni di vicinato diverse.
+Ciò induce una gerarchia che fornisce maggiori informazioni per valutare la somiglianza strutturale a ogni livello della gerarchia.
+  \item Costruire un grafo multilivello pesato in cui tutti i nodi della rete sono presenti in ogni livello e ogni livello corrisponde a un livello della gerarchia nella misurazione della somiglianza strutturale.
+Inoltre, i pesi degli archi tra ogni coppia di nodi all'interno di ogni strato sono inversamente proporzionali alla loro somiglianza strutturale.
+  \item Utilizzare il grafo multilivello per generare il contesto (un vettore) per ogni nodo.
+In particolare, un cammino casuale sul grafo multilivello viene utilizzato per generare sequenze di nodi. 
+È probabile che queste sequenze includano nodi che sono più strutturalmente simili.
+  \item Applica una tecnica per imparare la rappresentazione latente da un contesto dato dalla sequenza di nodi, ad esempio Skip-Gram.
+\end{itemize}
+  
+  
 sdiwhffahahjha
 
 
