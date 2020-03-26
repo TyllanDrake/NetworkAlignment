@@ -504,8 +504,66 @@ In particolare, un cammino casuale sul grafo multilivello viene utilizzato per g
 È probabile che queste sequenze includano nodi che sono più strutturalmente simili.
   \item Applica una tecnica per imparare la rappresentazione latente da un contesto dato dalla sequenza di nodi, ad esempio Skip-Gram.
 \end{itemize}
-  
-  
+
+\subsection{Misurare la somiglianza strutturale}
+Sia $G=(V,E)$ un grafo indiretto, non pesato, dove $n=|V|$ e $k^*$ il suo diametro.
+Sia $R_k(u)$ l'insieme di nodi a distanza $k>=0$ da $u\in G$. In particolare, $R_1(u)$ rappresenta l'insieme dei vicini di $u$ ed in generale, $R_k(u)$ è l'anello di nodi a distanza $k$.
+Sia $s(S)$ la sequenza di gradi ordinati di un insieme di nodi $S\subset V$.
+Confrontando le sequenze di gradi ordinate degli anelli al distanza $k$ da $u$ e $v$ possiamo imporre una gerarchia per misurare la somiglianza strutturale di un insieme di nodi $S\subset V$.
+In particolare, sia $f_k(u,v)$ la \textit{distanza strutturale} tra $u$ e $v$ quando si considera l'anello di nodi a distanza $k$.
+
+--------EQUAZIONE 1 $f_k(u,v)=...$------------
+dove $g(D_1,D_2)>=0$ misura la distanza tra le sequenze di gradi ordinati $D_1$ e $D_2$ e $f_{-1}=0$.
+
+Se gli anelli di nodi a distanza $k$ di $u$ e $v$ sono isomorfi, e mappano $u$ in $v$, allora $f_{k-1}(u,v)$.
+
+Lo step finale consiste nel determinare la funzione che confronta due sequenze di gradi ordinati.
+Per realizzare ciò, viene adottata la Deformazione temporale dinamica (Dynamic Time Warping (DTW)) che trova l'ottimo allineamento tra due sequenze $A$ e $B$. In particolare, data una funzione di distanza $d(a,b)$ per gli elementi della sequenza, DTW accoppia ogni elemento $a\in A$ ad $b\in B$, in modo che la somma delle distanze tra gli elementi accoppiati è minima. Dato che gli elementi delle sequenze di $A$ e $B$ sono gradi di nodi, viene usata la seguente funzione di distanza:
+--------EQUAZIONE 2 $d(a,b)=...$ ------------
+
+Si noti che se $a=b$ allora $d(a,b)=0$. Quindi due liste uguali avranno distanza nulla.
+Infine, mentre viene utilizzato DTW per valutare la somiglianza tra due sequenze di gradi ordinate, qualsiasi altra funzione di costo potrebbe essere adottata in questo framework.
+
+\subsection{Costruzione del Grafo di contesto}
+Costruiamo un grafo pesato multilivello che codifica la somiglianza strutturale tra nodi.
+Sia $M$ il grafo multilivello dove il layer $k$ è definito usando l'anello di nodi a distanza $k$.
+Ogni livello $k=0,...,k^*$ è formato da un grafo completo, pesato, non diretto con l'insieme di nodi $V$ e quindi $\binom{n}{2}$ archi. Il peso dell'arco ttra due nodi in un livello è dato da:
+--------EQUAZIONE 3 $w_k(u,v)=...$ ------------
+Si noti che gli archi sono definiti solo se $f_k(u,v)$ è definito e che i pesi sono proporzionali alla distanza strutturale.
+I nodi che sono strutturalmente simili a $u$ avranno pesi più grandi nei livelli più alti.
+
+I livelli vengono connessi tra di loro con un arco diretto nel seguente modo: 
+--------EQUAZIONE 4 $...$ ------------
+dove $\Gamma_k(u)$ è il numero di archi incidenti ad $u$ che hanno peso maggiore della media dei pesi del grafo nel layer $k$.
+--------EQUAZIONE 5 $...$ ------------
+dove $..............$.
+$\Gamma_k(u)$ misura la similarità del nodo $u$ con gli altri nodi nel layer $k$.
+
+Salendo di livello il numero di nodi simili può solo decrescere.
+
+\subsection{Generare contesto per i nodi}
+Il grafo multilivello $M$ viene usato per generare contesto strutturale per ogni nodo $u\in V$.
+
+Struct2vec usa percorsi casuali per generare una sequenza di nodi per determinare il contesto di un determinato nodo. In particolare, consideriamo un camminata casuale su $M$ facendo scelte casuali in base ai pesi di $M$.
+Prima di ogni passo, la camminata casuale prima decide se cambiare livello o camminare sul livello corrente (con probabilità $q>0$ il cammino casuale rimane nel livello corrente).
+Se rimane nel livello corrente, la probabilità di passare dal nodo $u$ al nodo $v$ nel livello $k$ è data da: 
+--------EQUAZIONE 6 $...$ ------------
+dove $Z_k(u)$ è il fattore di normalizzazione per il vertice $u$ nel livello $k$, dato da: 
+--------EQUAZIONE 7 $...$ ------------
+
+Il cammino casuale preferisce visitare i nodi che sono strutturalmente più simili al vertice corrente.
+Pertanto, è probabile che il contesto di un nodo $u\in V$ abbia nodi strutturalmente simili, indipendentemente dalle loro etichette e dalla loro posizione nella rete originale $G$.
+
+Con probabilità di $1-q$, la camminata casuale decide di cambiare livello e si sposta sul nodo corrispondente nel livello $k+1$, o nel livello $k-1$  con probabilità proporzionale ai pesi degli archi. In particolare:
+--------EQUAZIONE 8 $...$ ------------
+
+Ogni volta che il cammino visita all'interno di un livello, include il vertice corrente come parte del suo contesto, indipendentemente dal livello. Pertanto, un vertice $u$ può avere un determinato contesto nel livello $k$, ma avere un sottoinsieme di questo contesto al livello $k-1$, poiché la somiglianza strutturale non può aumentare man mano che ci spostiamo ai livelli superiori.
+
+Infine, per ogni nodo $u\in V$, iniziamo un cammino casuale dal vertice corrispondente nel livello $0$. I cammini casuali hanno una lunghezza fissa e relativamente breve (numero di passi), e il processo viene ripetuto un certo numero di volte, dando origine a più cammini indipendenti (cioè, contesti multipli del nodo $u$).
+
+\subsection{Apprendere un modello linguistico}
+
+
 sdiwhffahahjha
 
 
