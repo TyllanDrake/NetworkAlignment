@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.6)  27 MAR 2020 15:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.6)  27 MAR 2020 16:25
 entering extended mode
 **./AlgoBio.tex
 (AlgoBio.tex
@@ -585,9 +585,9 @@ Overfull \hbox (18.61565pt too wide) in paragraph at lines 487--488
  []
 
 [20 <./struc1.jpg>]
-Overfull \hbox (4.67462pt too wide) in paragraph at lines 511--514
-[]\OT1/cmr/m/n/10.95 Utilizzare il gra-fo mul-ti-li-vel-lo per ge-ne-ra-re il c
-on-te-sto (un vet-to-re) per ogni no-do. In par-ti-co-la-re,
+Overfull \hbox (6.35773pt too wide) in paragraph at lines 510--511
+[]\OT1/cmr/m/n/10.95 Il me-to-do de-ter-mi-na la so-mi-glian-za strut-tu-ra-le 
+tra ogni cop-pia di ver-ti-ci nel gra-fo per di-men-sio-ni
  []
 
 [21]
@@ -629,7 +629,7 @@ s/cm/cmti10.pfb><C:/Users/lagge/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/p
 ublic/amsfonts/cm/cmti12.pfb><C:/Users/lagge/AppData/Local/Programs/MiKTeX 2.9/
 fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/lagge/AppData/Local/Programs
 /MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on AlgoBio.pdf (26 pages, 2347119 bytes).
+Output written on AlgoBio.pdf (26 pages, 2347133 bytes).
 PDF statistics:
  195 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
