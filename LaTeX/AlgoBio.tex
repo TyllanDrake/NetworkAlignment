@@ -470,6 +470,7 @@ L'identità strutturale è un concetto di simmetria in cui i nodi della rete ven
 Struc2vec presenta prestazioni molto elevate nell'acquisizione di nozioni di identità strutturale in quanto supera i limiti degli approcci precedenti.
 Gli esperimenti numerici indicano che struc2vec migliora le prestazioni sulle attività di classificazione che dipendono maggiormente dall'identità strutturale.
 Struc2vec eccelle anche quando la rete originale è soggetta a forti rumori casuali (rimozione casuale degli archi nel grafo).
+La sua complessità è $O(k^*n^3)$.
 
 In quasi tutte le reti, i nodi tendono ad avere una o più funzioni che determinano il loro ruolo nel sistema. Ad esempio, le proteine in una rete di interazione proteina-proteina (PPI) esercitano funzioni specifiche. 
 Intuitivamente, diversi nodi in tali reti possono eseguire funzioni simili, come catalizzatori nella rete PPI di una cella. Pertanto, i nodi possono spesso essere partizionati in classi equivalenti rispetto alla loro funzione nella rete.
@@ -562,6 +563,13 @@ Ogni volta che il cammino visita all'interno di un livello, include il vertice c
 Infine, per ogni nodo $u\in V$, iniziamo un cammino casuale dal vertice corrispondente nel livello $0$. I cammini casuali hanno una lunghezza fissa e relativamente breve (numero di passi), e il processo viene ripetuto un certo numero di volte, dando origine a più cammini indipendenti (cioè, contesti multipli del nodo $u$).
 
 \subsection{Apprendere un modello linguistico}
+L'attività può essere definita come apprendere la probabilità delle parole dato un contesto, che è la stessa utilizzata nelle applicazioni di elaborazione del linguaggio naturale.
+Dato un nodo, Skip-Gram mira a massimizzare la probabilità del suo contesto in una sequenza, in cui il contesto di un nodo è dato da una finestra di dimensioni $w$ centrato su di essa. Par fare ciò si usa Softmax Gerarchico. In cui, per ogni nodo $v_j\in V$, assegna un percorso specifico nell'albero di classificazione, definito da un insieme di nodi dell'albero $n(v_j,1),n(v_j,2),...,n(v_j,h)$, dove $n(v_j,h)=v_j$.
+--------EQUAZIONE 9 $...$ ------------
+dove $C$ è il classificatore binario presente in ogni nodo dell'albero. SI noti che $h=O(log{|V|})$.
+Qualsiasi altra tecnica per apprendere rappresentazioni latenti per i dati di testo può essere utilizzata in questo framework.
+
+
 
 
 sdiwhffahahjha
