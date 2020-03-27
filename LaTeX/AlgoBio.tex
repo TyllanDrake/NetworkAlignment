@@ -462,35 +462,43 @@ Una volta che questi punteggi 'topologici' sono calcolati per tutte le coppie di
 
 \pagebreak
 \section{Struc2vec}
-Struc2vec è un framework flessibile per l'apprendimento di rappresentazioni latenti per l'identità strutturale dei nodi.
-Utilizza una gerarchia per misurare la somiglianza dei nodi in scale diverse e costruisce un grafo multilivello per codificare le somiglianze strutturali e generare il contesto strutturale per i nodi.
+La \textit{structural identity} (traducibile con \textit{identità strutturale}) corrisponde ad un concetto di simmetria nel quale i nodi di una rete vengono identificati in base alla struttura della rete stessa e tramite relazioni con altri nodi. \\
 
-L'identità strutturale è un concetto di simmetria in cui i nodi della rete vengono identificati in base alla struttura della rete e alla loro relazione con altri nodi.
+\textit{struc2vec} è un framework flessibile per l'apprendimento di \textit{latent representations} (= tutte le informazioni importanti necessarie per rappresentare i dati originali) per l'identità strutturale dei nodi.
+\textit{struc2vec} utilizza una gerarchia per misurare la \textit{similarity} dei nodi su scale diverse e costruisce un grafo multi-livello (\textit{multilayer graph}) per codificare le somiglianze strutturali e generare il contesto strutturale (= ambiente che fornisce supporto per definire le connessioni/relazioni) per i nodi.
 
-Struc2vec presenta prestazioni molto elevate nell'acquisizione di nozioni di identità strutturale in quanto supera i limiti degli approcci precedenti.
-Gli esperimenti numerici indicano che struc2vec migliora le prestazioni sulle attività di classificazione che dipendono maggiormente dall'identità strutturale.
-Struc2vec eccelle anche quando la rete originale è soggetta a forti rumori casuali (rimozione casuale degli archi nel grafo).
-La sua complessità è $O(k^*n^3)$.
+\textit{struc2vec} presenta prestazioni molto elevate nell'acquisizione di nozioni di identità strutturale in quanto supera i limiti degli approcci precedenti. Gli esperimenti numerici indicano che \textit{struc2vec} migliora le prestazioni su attività di classificazione che dipendono principalmente dall'identità strutturale.
+\textit{struc2vec} eccelle anche quando la rete originale è soggetta a forti rumori casuali (e.g. rimozione casuale di archi dal grafo).
 
-In quasi tutte le reti, i nodi tendono ad avere una o più funzioni che determinano il loro ruolo nel sistema. Ad esempio, le proteine in una rete di interazione proteina-proteina (PPI) esercitano funzioni specifiche. 
-Intuitivamente, diversi nodi in tali reti possono eseguire funzioni simili, come catalizzatori nella rete PPI di una cella. Pertanto, i nodi possono spesso essere partizionati in classi equivalenti rispetto alla loro funzione nella rete.
+In quasi tutte le reti, i nodi tendono ad avere una o più funzioni che determinano il loro ruolo nel sistema; per esempio, le proteine in una rete di interazione proteina-proteina (PPIN) esercitano funzioni specifiche. 
+Intuitivamente, dunque, diversi nodi in tali reti possono eseguire funzioni simili e spesso possono essere partizionati in classi equivalenti rispetto alla loro funzione nella rete.
 
-Le idee chiave di struc2vec sono:
-\begin{itemize}
-  \item Valutare la somiglianza strutturale tra i nodi indipendentemente dai loro attributi e quelli dei bordi, nonché la loro posizione nella rete.
-Così, due nodi che hanno una struttura locale simile saranno considerati così, indipendentemente dalla posizione di rete e le etichette dei nodi nei loro quartieri.
+\begin{center}
+\includegraphics[scale=0.36]{struc1}
+
+\begin{small}\textit{\textbf{Figura 8.1}: Esempio di due nodi (u e v) strutturalmente simili (gradi 5 e 4, connessi a 3 e 2 triangoli, collegati al resto della rete da due nodi), ma molto distanti nella rete}.\end{small}
+\end{center}
+
+\subsection{Idee di base blabla scrivere qualcosa per introdurre}
+\begin{enumerate}
+\setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+  \item Valuta la \textit{structural similarity} tra i nodi indipendentemente da eventuali attributi associati a nodi o archi, o addirittura dalla loro posizione all'interno della rete. Quindi, due nodi che hanno una struttura locale simile saranno considerati "strutturalmente simili", indipendentemente dalla posizione di rete e le etichette dei nodi nei loro quartieri.
+  
 Questo approccio inoltre non richiede un grafo connesso, identifica nodi strutturalmente simili anche in componenti connesse diverse.
-  \item Stabilire una gerarchia per misurare la somiglianza strutturale, consentendo nozioni progressivamente più rigorose di ciò che significa essere strutturalmente simili.
-In particolare, nella parte inferiore della gerarchia, la somiglianza strutturale tra i nodi dipende solo dai loro gradi, mentre nella parte superiore della gerarchia dipende dall'intera rete (dal punto di vista del nodo).
-  \item Generare contesti casuali per i nodi (vettori), che sono sequenze di nodi strutturalmente simili come osservato da un camminato casuale pesato che attraversa un grafo multistrato (e non la rete originale). 
-Pertanto, due nodi che appaiono frequentemente con contesti simili avranno probabilmente una struttura simile.
-\end{itemize}
+  \item Stabilisce una gerarchia per valutare la \textit{structural similarity}.
+Ai livelli inferiori della gerarchia la \textit{structural similarity} tra i nodi dipende solamente dai loro gradi, per poi, man mano che si procede verso la cima, dipendere dall'intera rete (dal punto di vista del nodo).
+  \item Genera \textit{contexts} casuali per i nodi, che corrispondono a sequenze di nodi strutturalmente simili  (in seguito ad una \textit{random walk} pesata che attraversa un grafo multilayer (e non la rete originale). Pertanto, due nodi che appaiono frequentemente con contesti simili avranno molto probabilmente una struttura simile.
+\end{enumerate}
 
-Considerando il problema delle rappresentazioni di apprendimento che catturano l'identità strutturale dei nodi nella rete. Un approccio corretto dovrebbe presentare due proprietà:
+Consideriamo ora il problema delle \textit{learning representations} che catturano l'identità strutturale dei nodi nella rete. Un approccio corretto dovrebbe presentare queste due proprietà:
 \begin{itemize}
-  \item La distanza tra la rappresentazione latente dei nodi deve essere fortemente correlata alla loro somiglianza strutturale. Quindi, due nodi con strutture di rete locale identiche devono avere la stessa rappresentazione latente, mentre i nodi con identità strutturali diverse devono essere distanti.
-  \item La rappresentazione latente non deve dipendere da alcun attributo del nodo o degli archi, incluse le etichette dei nodi.
-Pertanto, i nodi strutturalmente simili devono avere una rappresentazione latente stretta, indipendente dagli attributi del nodo e dei lati nel proprio vicinato.
+\setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+  \item La distanza tra la \textit{latent representation} dei nodi dovrebbe essere fortemente correlata alla loro somiglianza strutturale. Per questo motivo, due nodi con strutture di rete locale identiche dovrebbero anche avere la stessa \textit{latent representation}, mentre i nodi con identità strutturali diverse dovrebbero essere lontani fra loro.
+  \item La \textit{latent representation} non deve dipendere da alcun attributo di nodi o archi, inclusi i \textit{labels} dei nodi. Dunque, nodi strutturalmente simili devono avere una rappresentazione latente stretta, indipendente dagli attributi del nodo e dei lati nel proprio vicinato.
 L'identità strutturale dei nodi deve essere indipendente dalla sua "posizione" nella rete.
 \end{itemize}
 
@@ -507,72 +515,38 @@ In particolare, un cammino casuale sul grafo multilivello viene utilizzato per g
 \end{itemize}
 
 \subsection{Misurare la somiglianza strutturale}
-Sia $G=(V,E)$ un grafo indiretto, non pesato, dove $n=|V|$ e $k^*$ il suo diametro.
-Sia $R_k(u)$ l'insieme di nodi a distanza $k>=0$ da $u\in G$. In particolare, $R_1(u)$ rappresenta l'insieme dei vicini di $u$ ed in generale, $R_k(u)$ è l'anello di nodi a distanza $k$.
-Sia $s(S)$ la sequenza di gradi ordinati di un insieme di nodi $S\subset V$.
-Confrontando le sequenze di gradi ordinate degli anelli al distanza $k$ da $u$ e $v$ possiamo imporre una gerarchia per misurare la somiglianza strutturale di un insieme di nodi $S\subset V$.
-In particolare, sia $f_k(u,v)$ la \textit{distanza strutturale} tra $u$ e $v$ quando si considera l'anello di nodi a distanza $k$.
+Il primo passo compiuto dall'algoritmo consiste nel determinare l'identità strutturale tra due nodi senza utilizzare attribuiti di sia nodi che archi. Intuitivamente, due nodi che hanno lo stesso grado sono strutturalmente simili, ma se i loro vicini hanno anch'essi lo stesso grado, allora sono ancora di più strutturalmente simili.
 
---------EQUAZIONE 1 $f_k(u,v)=...$------------
-dove $g(D_1,D_2)>=0$ misura la distanza tra le sequenze di gradi ordinati $D_1$ e $D_2$ e $f_{-1}=0$.
+Sia $G = (V,E)$ un grafo non orientato e non pesato dove $V$ è l'insieme dei vertici ed $E$ quello degli archi, dove $n = |V|$ indica in numero dei nodi e $k^*$ il diametro (= la più grande distanza tra coppie di nodi del grafo). Sia $R_k(u)$ l'insieme dei nodi a distanza esattamente $k \geq 0$ da $u$ in $G$. $R_1(u)$ denota l'insieme dei vicini di $u$ e in generale $R_k(u)$ denota l'anello di nodi distanti $k$. Sia $s(S)$ le sequenze di gradi ordinate di un insieme $S \subset V$ di nodi. Comparando le sequenze di gradi ordinate degli anelli a distanza $k$ fra $u$ e $v$ possiamo indicare con $f_k(u,v)$ la \textit{structural distance} tra $u$ e $v$ considerando i loro $k$-hop neighborhoods (tutti i nodi a distanza minore o uguale a $k$ e tutti gli archi tra di loro). In particolare, definiamo:
+\begin{center}
+$f_k(u,v) = f_{k-1}(u,v) + g(s(R_k(u)),s(R_k(v)))$, 
+\end{center}
+\begin{center}
+$k \geq 0$ e $|R_k(u)|, |R_k(v)| > 0$
+\end{center}
+dove $g(D_1,D_2) \geq 0$ misura la distanza tra le sequenze ordinate $D_1$ e $D_2$. Per confrontare i gradi di due sequenze si utilizza Dynamic Time Warping. DTW trova l'allineamento ottimo tra due sequenze $A$ e $B$. Data la funzione distanza $d(a,b)$ per gli elementi della sequenza, DTW confronta ogni elemento $a \in A$ e $b \in B$, di modo che la somma delle distanze tra elementi corrispondenti (\textit{matched}) sia minima. Dal momento che gli elementi delle sequenze $A$ e $B$ sono i gradi dei nodi, viene adottata la seguente formula:
+\begin{center}
+$d(a,b) = \displaystyle{\frac{max(a,b)}{min(a,b)}}-1$
+\end{center}
+A questo punto è necessario costruire un grafo a più strati pesato che codifichi la \textit{structural similarity} tra i nodi. Sia $M$ questo grafo dove il layer $k$ viene definito utilizzando i $k$-hop neighborhoods dei nodi. Ogni layer $k = 0,...,k^*$ è formato da un grafo no orientato completo e pesato con $V$ insieme dei nodi e $\displaystyle{\left(\frac{n}{2}\right)}$ archi. Il peso dell'arco tra due nodi in un layer è dato dalla seguente formula:
+\begin{center}
+$w_k(u,v) = e^{-f_k(u,v)}$, $k = 0,...,k^*$
+\end{center}
+I nodi che saranno strutturalmente simili a $u$ avranno pesi maggiori tra i vari layer di $M$. I layer vengono collegati utilizzando archi orientati: ogni vertice è collegato al corrispondente nei layer superiore ed inferiore. Perciò, ogni vertice $u \in V$ nel layer $k$ è collegato al corrispondente vertice $u$ nei layer $k+1$ e $k-1$. Il peso degli archi tra i layer è definito in questo modo:
+\begin{center}
+$w(u_k,u_{k+1}) = log(\Gamma_k(u) + e)$, $k = 0,...,k^*-1$
+\end{center}
+\begin{center}
+$w(u_k,u_{k-1}) = 1$, $k = 1,...,k^*$
+\end{center}
+dove $\Gamma_k(u)$ è il numero di archi incidenti in $u$ che hanno peso maggiore del peso medio di un arco nel grafo completo al layer $k$. In particolare:
+\begin{center}
+$\Gamma_k(u) = \displaystyle{\sum_{v \in V}} \mathbb{I}(w_k(u,v) > \bar w_k)$
+\end{center}
+misura la \textit{similarity} tra il nodo $u$ e gli altri nodi nel layer $k$.
+Per ogni nodo $u$ \textit{struc2vec} procede con una \textit{random walk} partendo dal layer 0. Queste \textit{random walk} hanno una lunghezza (= numero di passi) fissata e relativamente corta; il processo viene ripetuto un certo numero di volte, dando luogo a \textit{walks} multiple ed indipendenti.\\
 
-Se gli anelli di nodi a distanza $k$ di $u$ e $v$ sono isomorfi, e mappano $u$ in $v$, allora $f_{k-1}(u,v)$.
-
-Lo step finale consiste nel determinare la funzione che confronta due sequenze di gradi ordinati.
-Per realizzare ciò, viene adottata la Deformazione temporale dinamica (Dynamic Time Warping (DTW)) che trova l'ottimo allineamento tra due sequenze $A$ e $B$. In particolare, data una funzione di distanza $d(a,b)$ per gli elementi della sequenza, DTW accoppia ogni elemento $a\in A$ ad $b\in B$, in modo che la somma delle distanze tra gli elementi accoppiati è minima. Dato che gli elementi delle sequenze di $A$ e $B$ sono gradi di nodi, viene usata la seguente funzione di distanza:
---------EQUAZIONE 2 $d(a,b)=...$ ------------
-
-Si noti che se $a=b$ allora $d(a,b)=0$. Quindi due liste uguali avranno distanza nulla.
-Infine, mentre viene utilizzato DTW per valutare la somiglianza tra due sequenze di gradi ordinate, qualsiasi altra funzione di costo potrebbe essere adottata in questo framework.
-
-\subsection{Costruzione del Grafo di contesto}
-Costruiamo un grafo pesato multilivello che codifica la somiglianza strutturale tra nodi.
-Sia $M$ il grafo multilivello dove il layer $k$ è definito usando l'anello di nodi a distanza $k$.
-Ogni livello $k=0,...,k^*$ è formato da un grafo completo, pesato, non diretto con l'insieme di nodi $V$ e quindi $\binom{n}{2}$ archi. Il peso dell'arco ttra due nodi in un livello è dato da:
---------EQUAZIONE 3 $w_k(u,v)=...$ ------------
-Si noti che gli archi sono definiti solo se $f_k(u,v)$ è definito e che i pesi sono proporzionali alla distanza strutturale.
-I nodi che sono strutturalmente simili a $u$ avranno pesi più grandi nei livelli più alti.
-
-I livelli vengono connessi tra di loro con un arco diretto nel seguente modo: 
---------EQUAZIONE 4 $...$ ------------
-dove $\Gamma_k(u)$ è il numero di archi incidenti ad $u$ che hanno peso maggiore della media dei pesi del grafo nel layer $k$.
---------EQUAZIONE 5 $...$ ------------
-dove $..............$.
-$\Gamma_k(u)$ misura la similarità del nodo $u$ con gli altri nodi nel layer $k$.
-
-Salendo di livello il numero di nodi simili può solo decrescere.
-
-\subsection{Generare contesto per i nodi}
-Il grafo multilivello $M$ viene usato per generare contesto strutturale per ogni nodo $u\in V$.
-
-Struct2vec usa percorsi casuali per generare una sequenza di nodi per determinare il contesto di un determinato nodo. In particolare, consideriamo un camminata casuale su $M$ facendo scelte casuali in base ai pesi di $M$.
-Prima di ogni passo, la camminata casuale prima decide se cambiare livello o camminare sul livello corrente (con probabilità $q>0$ il cammino casuale rimane nel livello corrente).
-Se rimane nel livello corrente, la probabilità di passare dal nodo $u$ al nodo $v$ nel livello $k$ è data da: 
---------EQUAZIONE 6 $...$ ------------
-dove $Z_k(u)$ è il fattore di normalizzazione per il vertice $u$ nel livello $k$, dato da: 
---------EQUAZIONE 7 $...$ ------------
-
-Il cammino casuale preferisce visitare i nodi che sono strutturalmente più simili al vertice corrente.
-Pertanto, è probabile che il contesto di un nodo $u\in V$ abbia nodi strutturalmente simili, indipendentemente dalle loro etichette e dalla loro posizione nella rete originale $G$.
-
-Con probabilità di $1-q$, la camminata casuale decide di cambiare livello e si sposta sul nodo corrispondente nel livello $k+1$, o nel livello $k-1$  con probabilità proporzionale ai pesi degli archi. In particolare:
---------EQUAZIONE 8 $...$ ------------
-
-Ogni volta che il cammino visita all'interno di un livello, include il vertice corrente come parte del suo contesto, indipendentemente dal livello. Pertanto, un vertice $u$ può avere un determinato contesto nel livello $k$, ma avere un sottoinsieme di questo contesto al livello $k-1$, poiché la somiglianza strutturale non può aumentare man mano che ci spostiamo ai livelli superiori.
-
-Infine, per ogni nodo $u\in V$, iniziamo un cammino casuale dal vertice corrispondente nel livello $0$. I cammini casuali hanno una lunghezza fissa e relativamente breve (numero di passi), e il processo viene ripetuto un certo numero di volte, dando origine a più cammini indipendenti (cioè, contesti multipli del nodo $u$).
-
-\subsection{Apprendere un modello linguistico}
-L'attività può essere definita come apprendere la probabilità delle parole dato un contesto, che è la stessa utilizzata nelle applicazioni di elaborazione del linguaggio naturale.
-Dato un nodo, Skip-Gram mira a massimizzare la probabilità del suo contesto in una sequenza, in cui il contesto di un nodo è dato da una finestra di dimensioni $w$ centrato su di essa. Par fare ciò si usa Softmax Gerarchico. In cui, per ogni nodo $v_j\in V$, assegna un percorso specifico nell'albero di classificazione, definito da un insieme di nodi dell'albero $n(v_j,1),n(v_j,2),...,n(v_j,h)$, dove $n(v_j,h)=v_j$.
---------EQUAZIONE 9 $...$ ------------
-dove $C$ è il classificatore binario presente in ogni nodo dell'albero. SI noti che $h=O(log{|V|})$.
-Qualsiasi altra tecnica per apprendere rappresentazioni latenti per i dati di testo può essere utilizzata in questo framework.
-
-
-
-
-sdiwhffahahjha
+A \textit{struc2vec} è possibile applicare una serie di ottimizzazioni (a partire dall'implementazione di DTW, che raggiunge una complessità di $O(l)$ a fronte dell'$O(l^2)$ iniziale) che permettono di raggiungere una complessità di $O(k^*n^3)$ grazie alla riduzione della lunghezza delle sequenze dei gradi e del numero dei layer.
 
 
 \pagebreak
