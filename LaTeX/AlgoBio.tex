@@ -419,8 +419,7 @@ IsoRank rappresenta un approccio di analisi comparativa delle reti PPI al fine d
 \subsection{Global vs. Local Network Alignment}
 In generale, l'obiettivo in un problema di allineamento di rete è quello di trovare un sottografo comune (cioè un insieme di archi conservati) tra le reti in input. Corrispondentemente a questi archi conservati, esiste una mappatura tra i nodi delle reti. Per esempio, quando la proteina $a_1$ dalla rete $G_1$ viene mappata sulle proteine $a_2$ in $G_2$ e $a_3$ in $G_3$, allora $a_1$, $a_2$ e $a_3$ si riferiscono allo stesso nodo nell'insieme degli archi conservati. Ciò che rende difficile il problema è il compromesso (\textit{trade-off}) da ottenere: massimizzare la sovrapposizione (\textit{overlap}) tra le reti (cioè il numero di archi conservati), garantendo al tempo stesso che le proteine mappate siano il più possibile correlate.
 
-
-L'obiettivo nel GNA è quello di trovare il miglior allineamento complessivo tra le reti in ingresso. Un algoritmo LNA è essenzialmente destinato a trovare motivi/pattern simili tra due reti; in GNA, tuttavia, l'obiettivo è quello di trovare un'unica mappatura coerente che copra tutti i nodi tra tutti i grafi in input. Inoltre, deve esserci \textit{transitività}: se $a_1$ in $G_1$ viene mappata su $a_2$ in $G_2$ e $a_2$ viene mappata su $a_3$ e $a_4$ in $G_3$, allora anche $a_1$ dovrebbe essere mappato su $a_3$ e $a_4$. Il GNA può essere usato per confrontare gli interattomi e per comprendere le variazioni tra specie.
+L'obiettivo nel GNA è quello di trovare il miglior allineamento complessivo tra le reti in ingresso. Un algoritmo LNA è essenzialmente destinato a trovare motivi/pattern simili tra due reti (o sottoreti); nel GNA, tuttavia, l'obiettivo è quello di trovare un'unica mappatura coerente che copra tutti i nodi tra tutti i grafi in input. Inoltre, deve esserci \textit{transitività}: se $a_1$ in $G_1$ viene mappata su $a_2$ in $G_2$ e $a_2$ viene mappata su $a_3$ e $a_4$ in $G_3$, allora anche $a_1$ dovrebbe essere mappato su $a_3$ e $a_4$. Il GNA può essere usato per confrontare gli interattomi e per comprendere le variazioni tra specie.
 
 \subsection{\textit{Score} e \textit{mapping}}
 Consideriamo un semplice caso di GNA a coppie. L'input consiste in due PPIN $G_1$ e $G_2$. Ogni arco $e$ può aver associato un peso $w(e)$ ($0\leq w(e) \leq1$). Inoltre, l'input consiste anche di una \textit{similarity measure} tra i nodi delle due reti.
@@ -572,21 +571,35 @@ $S(f) = \displaystyle{\sum_{u \in V_1}n(u,f(u))} + \displaystyle{\sum_{(u,v) \in
 \end{center}
 dove $n : V_1 \times V_2 \rightarrow \mathbb{R}^+$ corrisponde allo score del mapping tra un nodo di $V_1$ e uno di $V_2$, mentre $e : E_1 \times E_2 \rightarrow \mathbb{R}^+$ corrisponde allo score del mapping tra un arco di $E_1$ e uno di $E_2$. Il \textit{Global Network Alignment problem} cerca di trovare un allineamento globale che massimizzi $S$.
 
+\subsection{Similarity scores e funzione obiettivo}
+In L-GRAAL si misura la relazione tra due proteine mappate $u$ e $f(u)$ utilizzando il loro allineamento di sequenza BLAST\footnote{BLAST è un algoritmo usato per comparare le informazioni contenute nelle strutture biologiche primarie.}:
 \begin{center}
 $n(u,f(u)) = \displaystyle{\frac{seqsim(u,f(u))}{max_{i,j}seqsim(i,j)}}$
 \end{center}
-
+dove $seqsim$ può essere un qualsiasi tipo di \textit{sequence-based similarity score}. Viene successivamente misurata la \textit{topological similarity} fra due proteine $u$ e $f(u)$ utilizzando il loro da 2- a 4-\textit{node graphlet degree similarity t}:
 \begin{center}
 $t(u,f(u)) = \frac{1}{15}\displaystyle{\sum \limits_{i=0}^{14}\frac{min(d_u^i,d_{f(u)}^i)}{max(d_u^i,d_{f(u)}^i}}$
 \end{center}
+Viene calcolata la \textit{topological similarity} fra due interazioni mappate (archi), $(u,v)$ e $(f(u),f(v))$, in base al loro \textit{graphlet degree similarity} dei loro nodi terminali mappati:
 
 \begin{center}
 $e(u,f(u),v,f(v)) = \displaystyle{\frac{1}{2}(t(u,f(u))+t(v,f(v)))}$
 \end{center}
+Lo score $e(u,f(u),v,f(v)) \in [0,1]$ e rewards mapping edges that are involved in similar local wiring patterns.
 
+\begin{center}
+\includegraphics[scale=0.36]{graal1}
+
+\begin{small}\textit{\textbf{Figura 8.1}: 2- to 5- graphlets e la loro automorphism orbits}.\end{small}
+\end{center}
+
+La funzione obiettivo di L-GRAAL, $S$, favorisce la relazione tra le proteine che vengono mappate o tra la \textit{topological similarity} tra le interazioni mappate, in accordo ad un parametro di \textit{balancing} $\alpha \in [0,1]$:
 \begin{center}
 $S(f) = \alpha \times \displaystyle{\sum_{u}n(u,f(u)) + (1- \alpha) \times \sum_{u,v}e(u,f(u),v,f(v))}$
 \end{center}
+
+\subsection{Two-step alignment search strategy}
+A causa della grande dimensione delle PPIN, risolvere il problema dell'allineamento delle reti cercando di considerare tutti i possibili mapping tra i nodi è, dal punto di vista computazionale, impossibile. Per questo motivo ottimizza, considerando solamente un subset di nodi, il mapping $u \longleftrightarrow v$ di modo che $\alpha n(u,v) + (1-\alpha)t(u,v) \geq 0.5$. L'algoritmo applica successivamente un algoritmo \textit{greedy} bla bla
 
 \begin{center}
 IP $= max_{x,y} \displaystyle{(\alpha \sum n(i,k) \times x_{ik} + (1- \alpha) \sum e(i,j,k,l) \times y_{ijkl}})$
@@ -606,13 +619,23 @@ $x_{ik} - y_{ijkl} \geq 0$, $\forall (i,j) \in E_1, \forall (k,l) \in E_2$,
 $LR(\lambda) = max_{x,y} \displaystyle{\sum n^{\lambda}(i,k) \times x_{ik} + \sum e^{\lambda}(i,j,k,l) \times y_{ijkl}}$
 \end{center}
 
+\begin{center}
+\includegraphics[scale=0.33]{graal2}
+
+\begin{small}\textit{\textbf{Figura 8.1}: Confronto L-GRAAL vs altri metodi}.\end{small}
+\end{center}
+
+Complessità $O(|V|^3 + |V|^2d^3)$, dove $|V|$ è il numero di nodi nelle reti e $d$ è il valore del grado (di un nodo) massimo. Risolvere $LR(\lambda)$ genera una soluzione rilassata del problema, che corrisponde ad un \textit{upper bound} alla Programmazione Intera. Per risolvere tale problema è necessario ricondursi alla formulazione duale del problema di minimizzazione di $LR(\lambda)$ su $\lambda)$. Si procede con gradient descent... Sfortunatamente, anche questo problema è $\mathcal{NP}$-completo e, in pratica, si risolve generando una sequenza finita di interazioni. L'algoritmo restituisce il risultato dopo un determinato limite temporale o dopo un numero di iterazioni fissato.
+
 \pagebreak
-\section{Conclusioni alla fine fine dopo i 4 metodi - scrivere meglio}
+\section{Conclusioni}
 Negli ultimi anni, il corpus di dati PPI è cresciuto esponenzialmente e il rapido ritmo di accumulo dati continua. L'obiettivo di questo progetto è stato di far capire la struttura delle reti considerate (con dei rimandi alla teoria dei grafi) e le implicazioni  e le somiglianze dal punto di vista biologico. scrivere altro
 
 \pagebreak 
 \section{Bibliografia} 
 \begin{enumerate}
+\item Vella, D., Marini, S., Vitali, F., Di Silvestre, D., Mauri, G., and Bellazzi, R. (2018). MTGO: PPI network analysis via topological and functional module identification. Sci. Rep. 8:5499. doi: 10.1038/s41598-018-23672-0
+
 \item Jeong, H., et al., Lethality and centrality in protein networks. Nature, 2001. 411(6833): p. 41-2.
 
 \item Rual, J.F., et al., Towards a proteome-scale map of the human protein-protein interaction network. Nature, 2005. 437(7062): p. 1173-8.
