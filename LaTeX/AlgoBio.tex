@@ -298,8 +298,12 @@ Il risultato di questo test ci fornisce una lista di termini che descrivono la r
 I principali limiti dell'\textit{Annotation enrichment analysis} derivano dalle \textit{annotation} stesse. Alcune aree della biologia sono annotate più approfonditamente e meglio descritte di altre, con termini più dettagliati e più precisi (nel nostro caso, solo le proteine più "popolari" sono meglio annotate). Questo introduce una certa "distorsione" nell'analisi statistica.
 
 È anche importante notare che i termini nell'Ontologia Genica (GO) possono essere assegnati sia da un curatore umano che esegue un'attenta annotazione manuale, sia da approcci computazionali che utilizzano le basi dell'annotazione manuale per dedurre quali termini descriverebbero in modo corretto i prodotti genici non scoperti. Ne consegue che un'altra limitazione è costituita dalla complessità e dal dettaglio dell'annotazione associati a grandi insiemi di geni/proteine. 
-
 \pagebreak
+
+\section{Introduzione ai metodi}
+Date due reti, "allinearle" significa trovare un mapping nodo-a-nodo (= \textit{alignement}) tra le reti che ottimizzano due obiettivi: (1) massimizzare il numero di proteine mappate (nodi) che sono correlate da un punto di vista funzionale e (2) massimizzare il numero di interazioni comuni (archi) tra le stesse.
+Il problema del \textit{Network alignment} è un problema intrattabile dovuto all'$\mathcal{NP}$-completezza sottostante al \textit{sub-graph isomorphism problem}, individuato da Spephen Cook nel 1971.
+
 \section{MTGO}
 Il metodo MTGO - \textit{Module detection via Topological information and GO knowledge} - costituisce un nuovo approccio di identificazione dei moduli funzionali nelle PPIN. Questo metodo combina le informazioni provenienti dalla topologia delle reti con la conoscenza biologica relativa alle proteine.
  
@@ -547,7 +551,60 @@ misura la \textit{similarity} tra il nodo $u$ e gli altri nodi nel layer $k$.
 Per ogni nodo $u$ \textit{struc2vec} procede con una \textit{random walk} partendo dal layer 0. Queste \textit{random walk} hanno una lunghezza (= numero di passi) fissata e relativamente corta; il processo viene ripetuto un certo numero di volte, dando luogo a \textit{walks} multiple ed indipendenti.\\
 
 A \textit{struc2vec} è possibile applicare una serie di ottimizzazioni (a partire dall'implementazione di DTW, che raggiunge una complessità di $O(l)$ a fronte dell'$O(l^2)$ iniziale) che permettono di raggiungere una complessità di $O(k^*n^3)$ grazie alla riduzione della lunghezza delle sequenze dei gradi e del numero dei layer.
+\pagebreak
 
+\section{L-GRAAL}
+A differenza dei metodi precedenti, L-GRAAL ottimizza una nuova funziona obiettivo
+
+
+
+
+
+
+
+
+
+da spostare nella sezione GNA
+
+Date due PPIN, $N_1 = (V_1, E_1)$ e $N_2 = (V_2, E_2)$ (con $|V_1| \leq |V_2|$, un \textit{allineamento globale}, $f: V_1 \rightarrow V_2$, è un mapping 1-a-1 dei nodi di $V_1$ con quelli di $V_2$. Ad un \textit{allineamento globale} viene associato uno score $S$ così definito:
+\begin{center}
+$S(f) = \displaystyle{\sum_{u \in V_1}n(u,f(u))} + \displaystyle{\sum_{(u,v) \in E_1}e(u,f(u),v,f(v))}$
+\end{center}
+dove $n : V_1 \times V_2 \rightarrow \mathbb{R}^+$ corrisponde allo score del mapping tra un nodo di $V_1$ e uno di $V_2$, mentre $e : E_1 \times E_2 \rightarrow \mathbb{R}^+$ corrisponde allo score del mapping tra un arco di $E_1$ e uno di $E_2$. Il \textit{Global Network Alignment problem} cerca di trovare un allineamento globale che massimizzi $S$.
+
+\begin{center}
+$n(u,f(u)) = \displaystyle{\frac{seqsim(u,f(u))}{max_{i,j}seqsim(i,j)}}$
+\end{center}
+
+\begin{center}
+$t(u,f(u)) = \frac{1}{15}\displaystyle{\sum \limits_{i=0}^{14}\frac{min(d_u^i,d_{f(u)}^i)}{max(d_u^i,d_{f(u)}^i}}$
+\end{center}
+
+\begin{center}
+$e(u,f(u),v,f(v)) = \displaystyle{\frac{1}{2}(t(u,f(u))+t(v,f(v)))}$
+\end{center}
+
+\begin{center}
+$S(f) = \alpha \times \displaystyle{\sum_{u}n(u,f(u)) + (1- \alpha) \times \sum_{u,v}e(u,f(u),v,f(v))}$
+\end{center}
+
+\begin{center}
+IP $= max_{x,y} \displaystyle{(\alpha \sum n(i,k) \times x_{ik} + (1- \alpha) \sum e(i,j,k,l) \times y_{ijkl}})$
+\end{center}
+con i seguenti vincoli:
+\begin{center}
+$\displaystyle{\sum_{k \in V_2}x_{ik} \leq 1}$, $\forall i \in V_1$,
+
+$\displaystyle{\sum_{i \in V_1}x_{ik} \leq 1}$, $\forall k \in V_2$,
+
+$x_{ij} - y_{ijkl} \geq 0$, $\forall (i,j) \in E_1, \forall (k,l) \in E_2$,
+
+$x_{ik} - y_{ijkl} \geq 0$, $\forall (i,j) \in E_1, \forall (k,l) \in E_2$,
+\end{center}
+
+\begin{center}
+$LR(\lambda) = max_{x,y} \displaystyle{\sum n^{\lambda}(i,k) \times x_{ik} + \sum e^{\lambda}(i,j,k,l) \times y_{ijkl}}$
+\end{center}
 
 \pagebreak
 \section{Conclusioni alla fine fine dopo i 4 metodi - scrivere meglio}
