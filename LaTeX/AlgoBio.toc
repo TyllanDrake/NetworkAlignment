@@ -26,5 +26,7 @@
 \contentsline {subsection}{\numberline {10.1}Idee di base blabla scrivere qualcosa per introdurre}{20}
 \contentsline {subsection}{\numberline {10.2}Misurare la somiglianza strutturale}{21}
 \contentsline {section}{\numberline {11}L-GRAAL}{23}
-\contentsline {section}{\numberline {12}Conclusioni alla fine fine dopo i 4 metodi - scrivere meglio}{24}
-\contentsline {section}{\numberline {13}Bibliografia}{25}
+\contentsline {subsection}{\numberline {11.1}Similarity scores e funzione obiettivo}{23}
+\contentsline {subsection}{\numberline {11.2}Two-step alignment search strategy}{24}
+\contentsline {section}{\numberline {12}Conclusioni}{26}
+\contentsline {section}{\numberline {13}Bibliografia}{27}
