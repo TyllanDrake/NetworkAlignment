@@ -38,7 +38,7 @@
 \Huge{\textbf{\begin{huge}Progetto di \textit{Algoritmi per la Bioinformatica}\end{huge}}}\\[3mm]
 \Huge{\textbf{Network Alignment}}\\[1mm]
 \Large{\textbf{- PPI: Protein-Protein Interaction -}}\\[1mm]
-\line(1,0){270}\\
+\line(1,0){470}\\
 \begin{flushright}
 \textbf{Studenti}: \textit{Luca Masiero}\\\textit{Stefano Ivancich}
 \end{flushright}
@@ -337,6 +337,7 @@ MTGO possiede l'abilità di individuare un insieme di termini GO fornendo un'int
 \begin{small}\textit{\textbf{Figura 7.2}: Confronto di MTGO con gli altri metodi}.\end{small}
 \end{center}
 
+\subsection{MTGO: inizializzazione, iterazioni e convergenza}
 Una PPIN può essere rappresentata tramite un grafo $G = (V,E)$ dove $V$ ed $E$ corrispondono ai nodi e agli archi della rete, rispettivamente. $V$ è l'insieme delle proteine ed è definito come $V =\left \{v_1, v_2, v_3, ..., v_N\right \}$ dove $N$ è il numero di proteine/nodi totale. $E$ rappresenta l'insieme delle relazioni tra i nodi della rete: $E = \left \{e_{i,j}\right \}$, $(i,j) \in$ [1,$N$]. Inoltre, $G$ detiene le proprietà topologiche PPI. Per integrare le informazioni relative alle funzioni biologiche all'interno della rete, ai nodi vengono associati i termini GO. MTGO calcola l'insieme $T = (L, \Delta)$, dove il $p$-esimo elemento è $t_p = (l_p, \delta_p)$, $l_p$ rappresenta l'\textit{ontology term}, mentre $\delta_p$ è l'$l_p$-insieme associato alla rete di proteine (si veda la \textit{\textbf{Figura 7.3}} per un esempio).
 
 \begin{center}
@@ -481,7 +482,7 @@ Intuitivamente, dunque, diversi nodi in tali reti possono eseguire funzioni simi
 \begin{small}\textit{\textbf{Figura 8.1}: Esempio di due nodi (u e v) strutturalmente simili (gradi 5 e 4, connessi a 3 e 2 triangoli, collegati al resto della rete da due nodi), ma molto distanti nella rete}.\end{small}
 \end{center}
 
-\subsection{Idee di base e struttura di \textit{struc2vec}}
+\subsection{\textit{struc2vec}: idee di base}
 Elenchiamo qui di seguito le idee fondamentali che stanno alla base di questo metodo:
 \begin{enumerate}
 \setlength{\itemsep}{1pt}
@@ -510,14 +511,20 @@ Tenendo presente queste due proprietà, \textit{struct2vec} può essere suddivis
 \setlength{\itemsep}{1pt}
   \setlength{\parskip}{0pt}
   \setlength{\parsep}{0pt}
-  \item Per prima cosa determina la somiglianza strutturale tra ogni coppia di vertici nel grafo per dimensioni di \textit{neighborhood} diverse; questo fatto porta alla generazione di una gerarchia che fornisce maggiori informazioni per valutare la somiglianza strutturale ad ogni livello della stessa.
-  \item Costruisce un grafo multi-livello pesato in cui tutti i nodi della rete compaiono in ogni layer e ogni layer corrisponde ad un livello della gerarchia nella misurazione della \textit{structural similarity}.
-  \item Utilizza il grafo multi-livello per generare (tramite \textit{random walks} sequenze di nodi. È probabile che queste sequenze includano nodi che sono più strutturalmente simili di altri.
-  \item Data la sequenza di nodi, apprende la \textit{latent representation}.
+  \item Determinazione della somiglianza strutturale tra ogni coppia di vertici nel grafo per dimensioni di \textit{neighborhood} diverse; questo fatto porta alla generazione di una gerarchia che fornisce maggiori informazioni per valutare la somiglianza strutturale ad ogni livello della stessa.
+  \item Costruzione di un grafo multi-livello pesato in cui tutti i nodi della rete compaiono in ogni layer e ogni layer corrisponde ad un livello della gerarchia nella misurazione della \textit{structural similarity}.
+  \item Utilizzo del grafo multi-livello per generare (tramite \textit{random walks} sequenze di nodi. È probabile che queste sequenze includano nodi che sono più strutturalmente simili di altri.
+  \item Data la sequenza di nodi, apprendimento della \textit{latent representation}.
 \end{enumerate}
 
-\subsection{Misurare la somiglianza strutturale}
+\subsection{\textit{struc2vec}: descrizione delle iterazioni}
 Il primo passo compiuto dall'algoritmo consiste nel determinare l'identità strutturale tra due nodi senza utilizzare attribuiti di nodi o di archi. Intuitivamente, due nodi che hanno lo stesso grado sono strutturalmente simili, ma se i loro vicini hanno anch'essi lo stesso grado, allora sono ancora di più strutturalmente simili.\\
+
+\begin{center}
+\includegraphics[scale=0.4]{struc2}
+
+\begin{small}\textit{\textbf{Figura 8.1}: Confronto di struc2vec con due algoritmi allo stato dell'arte; il metodo eccelle nell'individuazione di structural identity fra nodi}.\end{small}
+\end{center}
 
 Sia $G = (V,E)$ un grafo non orientato e non pesato dove $V$ è l'insieme dei vertici ed $E$ quello degli archi, dove $n = |V|$ indica in numero dei nodi e $k^*$ il diametro (= la più grande distanza tra coppie di nodi del grafo). Sia $R_k(u)$ l'insieme dei nodi a distanza esattamente $k \geq 0$ da $u$ in $G$. $R_1(u)$ denota l'insieme dei vicini di $u$ e in generale $R_k(u)$ denota l'anello di nodi distanti $k$. Sia $s(S)$ la sequenza ordinata di gradi di un \textit{set} $S \subset V$ di nodi. Comparando le sequenze di gradi ordinate degli anelli a distanza $k$ fra $u$ e $v$ possiamo indicare con $f_k(u,v)$ la \textit{structural distance} tra $u$ e $v$ considerando i loro $k$-hop \textit{neighborhoods} (tutti i nodi a distanza minore o uguale a $k$ e tutti gli archi tra di loro). In particolare, definiamo:
 \begin{center}
@@ -528,11 +535,16 @@ $k \geq 0$ e $|R_k(u)|, |R_k(v)| > 0$
 \end{center}
 dove $g(D_1,D_2) \geq 0$ misura la distanza tra le sequenze ordinate $D_1$ e $D_2$. 
 
-Per confrontare i gradi di due sequenze si utilizza Dynamic Time Warping. DTW trova l'allineamento ottimo fra due sequenze $A$ e $B$. Data una funzione distanza $d(a,b)$ per gli elementi della sequenza, DTW confronta ogni elemento $a \in A$ e $b \in B$, di modo che la somma delle distanze tra elementi corrispondenti (\textit{matched}) sia minima. Dal momento che gli elementi delle sequenze $A$ e $B$ sono i gradi dei nodi, viene adottata la seguente formula:
+Per confrontare i gradi di due sequenze si utilizza \textit{Dynamic Time Warping}\footnote{Algoritmo che permette l'allineamento tra due sequenze, e che può portare ad una misura di distanza tra le due sequenze allineate.}. DTW trova l'allineamento ottimo fra due sequenze $A$ e $B$. Data una funzione distanza $d(a,b)$ per gli elementi della sequenza, DTW confronta ogni elemento $a \in A$ e $b \in B$, di modo che la somma delle distanze tra elementi corrispondenti (\textit{matched}) sia minima. Dal momento che gli elementi delle sequenze $A$ e $B$ sono i gradi dei nodi, viene adottata la seguente formula:
 \begin{center}
 $d(a,b) = \displaystyle{\frac{max(a,b)}{min(a,b)}}-1$
 \end{center}
-A questo punto è necessario costruire un grafo a più strati pesato che codifichi la \textit{structural similarity} tra i nodi. Sia $M$ questo grafo dove il layer $k$ viene definito utilizzando i $k$-hop neighborhoods dei nodi. Ogni layer $k = 0,...,k^*$ è formato da un grafo no orientato completo e pesato con $V$ insieme dei nodi e $\displaystyle{\left(\frac{n}{2}\right)}$ archi. Il peso dell'arco tra due nodi in un layer è dato dalla seguente formula:
+
+Notare che quando $a = b$ allora $d(a,b) = 0$. Per questo motivo due sequenze ordinate di gradi, identiche, avranno distanza pari a 0.\\
+
+A questo punto è necessario costruire un grafo a più strati pesato che codifichi la \textit{structural similarity} tra i nodi. 
+
+Sia $M$ questo grafo dove il layer $k$ viene definito utilizzando i $k$-hop \textit{neighborhoods} dei nodi. Ogni layer $k = 0,...,k^*$ è formato da un grafo non orientato completo e pesato con $V$ insieme dei nodi e $\displaystyle{\left(\frac{n}{2}\right)}$ archi. Il peso dell'arco tra due nodi in un layer è dato dalla seguente formula:
 \begin{center}
 $w_k(u,v) = e^{-f_k(u,v)}$, $k = 0,...,k^*$
 \end{center}
@@ -548,36 +560,28 @@ dove $\Gamma_k(u)$ è il numero di archi incidenti in $u$ che hanno peso maggior
 $\Gamma_k(u) = \displaystyle{\sum_{v \in V}} \mathbb{I}(w_k(u,v) > \bar w_k)$
 \end{center}
 misura la \textit{similarity} tra il nodo $u$ e gli altri nodi nel layer $k$.
-Per ogni nodo $u$ \textit{struc2vec} procede con una \textit{random walk} partendo dal layer 0. Queste \textit{random walk} hanno una lunghezza (= numero di passi) fissata e relativamente corta; il processo viene ripetuto un certo numero di volte, dando luogo a \textit{walks} multiple ed indipendenti.\\
+Per ogni nodo $u$ \textit{struc2vec} procede con una \textit{random walk} partendo dal layer 0. Queste \textit{random walk} hanno una lunghezza (= numero di passi) fissata e relativamente corta; il processo viene ripetuto un certo numero di volte, dando luogo a \textit{walks} multiple ed indipendenti.
+
+Si utilizza infine \textit{Skip-Gram}, una tecnica di \textit{unsupervised learning} per NLP, per identificare o derivare le \textit{latent representations} dalle sequenze ottenute.\\
 
 A \textit{struc2vec} è possibile applicare una serie di ottimizzazioni (a partire dall'implementazione di DTW, che raggiunge una complessità di $O(l)$ a fronte dell'$O(l^2)$ iniziale) che permettono di raggiungere una complessità di $O(k^*n^3)$ grazie alla riduzione della lunghezza delle sequenze dei gradi e del numero dei layer.
 \pagebreak
 
 \section{L-GRAAL}
-A differenza dei metodi precedenti, L-GRAAL ottimizza una nuova funziona obiettivo
+L-GRAAL -\textit{Lagrangian graphlet-based network aligner} - è un metodo basato sull'idea di mappare insieme nodi che costituiscono un pattern (presenza di sottografi chiamati \textit{graphlet}\footnote{I \textit{graphlet} sono sottografi di piccole dimensioni, connessi, non-isomorfici, indotti da un grafo più grande (sono indicati come G$_0$,...,G$_{29}$ nella \textit{\textbf{Figura 10.1}}).}) definito da una grande quantità di interazioni condivise. L-GRAAL ottimizza una funzione obiettivo, che fonde le informazioni derivanti dalle sequenze di proteine con le interazioni tra i vari \textit{graphlet}, risolta con la Programmazione Intera. L-GRAAL è in grado di individuare l'\textit{overlap} tra le reti e fornisce risultati migliori di tutti gli altri metodi GO-based a livello di \textit{mapping} delle proteine e delle interazioni tra le stesse.\\
 
-
-
-
-
-
-
-
-
-da spostare nella sezione GNA
-
-Date due PPIN, $N_1 = (V_1, E_1)$ e $N_2 = (V_2, E_2)$ (con $|V_1| \leq |V_2|$, un \textit{allineamento globale}, $f: V_1 \rightarrow V_2$, è un mapping 1-a-1 dei nodi di $V_1$ con quelli di $V_2$. Ad un \textit{allineamento globale} viene associato uno score $S$ così definito:
+Date due PPIN, $N_1 = (V_1, E_1)$ e $N_2 = (V_2, E_2)$ (con $|V_1| \leq |V_2|$, un \textit{allineamento globale}, $f: V_1 \rightarrow V_2$, è un mapping 1-a-1 dei nodi di $V_1$ con quelli di $V_2$. Ad un \textit{allineamento globale} viene associato uno score $S$:
 \begin{center}
 $S(f) = \displaystyle{\sum_{u \in V_1}n(u,f(u))} + \displaystyle{\sum_{(u,v) \in E_1}e(u,f(u),v,f(v))}$
 \end{center}
-dove $n : V_1 \times V_2 \rightarrow \mathbb{R}^+$ corrisponde allo score del mapping tra un nodo di $V_1$ e uno di $V_2$, mentre $e : E_1 \times E_2 \rightarrow \mathbb{R}^+$ corrisponde allo score del mapping tra un arco di $E_1$ e uno di $E_2$. Il \textit{Global Network Alignment problem} cerca di trovare un allineamento globale che massimizzi $S$.
+dove $n : V_1 \times V_2 \rightarrow \mathbb{R}^+$ corrisponde allo score del mapping tra un nodo di $V_1$ e uno di $V_2$, mentre $e : E_1 \times E_2 \rightarrow \mathbb{R}^+$ corrisponde allo score del mapping tra un arco di $E_1$ e uno di $E_2$. Il \textit{Global Network Alignment problem} cerca di trovare un allineamento globale in grado di massimizzare $S$.
 
-\subsection{Similarity scores e funzione obiettivo}
+\subsection{\textit{Similarity scores} e funzione obiettivo}
 In L-GRAAL si misura la relazione tra due proteine mappate $u$ e $f(u)$ utilizzando il loro allineamento di sequenza BLAST\footnote{BLAST è un algoritmo usato per comparare le informazioni contenute nelle strutture biologiche primarie.}:
 \begin{center}
 $n(u,f(u)) = \displaystyle{\frac{seqsim(u,f(u))}{max_{i,j}seqsim(i,j)}}$
 \end{center}
-dove $seqsim$ può essere un qualsiasi tipo di \textit{sequence-based similarity score}. Viene successivamente misurata la \textit{topological similarity} fra due proteine $u$ e $f(u)$ utilizzando il loro da 2- a 4-\textit{node graphlet degree similarity t}:
+dove $seqsim$ può essere un qualsiasi tipo di \textit{sequence-based similarity score}. Viene successivamente misurata la \textit{topological similarity} fra due proteine $u$ e $f(u)$ utilizzando il loro da 2- a 4-\textit{node graphlet degree similarity}\footnote{I \textit{graphlet} generalizzano il concetto di "grado di un nodo": il \textit{graphlet degree} di un nodo $v$, indicato con $d^i_v$ è il numero di volte che il nodo $v$ tocca un \textit{graphlet} all'orbita $i$. Vengono utilizzati per misurare la distanza tra due reti e le \textit{topological similarities} tra i nodi nelle reti.} $t$:
 \begin{center}
 $t(u,f(u)) = \frac{1}{15}\displaystyle{\sum \limits_{i=0}^{14}\frac{min(d_u^i,d_{f(u)}^i)}{max(d_u^i,d_{f(u)}^i}}$
 \end{center}
@@ -589,9 +593,9 @@ $e(u,f(u),v,f(v)) = \displaystyle{\frac{1}{2}(t(u,f(u))+t(v,f(v)))}$
 Lo score $e(u,f(u),v,f(v)) \in [0,1]$ e rewards mapping edges that are involved in similar local wiring patterns.
 
 \begin{center}
-\includegraphics[scale=0.36]{graal1}
+\includegraphics[scale=0.33]{graal1}
 
-\begin{small}\textit{\textbf{Figura 8.1}: 2- to 5- graphlets e la loro automorphism orbits}.\end{small}
+\begin{small}\textit{\textbf{Figura 10.1}: 2- to 5- graphlets e le loro automorphism orbits}.\end{small}
 \end{center}
 
 La funzione obiettivo di L-GRAAL, $S$, favorisce la relazione tra le proteine che vengono mappate o tra la \textit{topological similarity} tra le interazioni mappate, in accordo ad un parametro di \textit{balancing} $\alpha \in [0,1]$:
@@ -599,13 +603,13 @@ La funzione obiettivo di L-GRAAL, $S$, favorisce la relazione tra le proteine ch
 $S(f) = \alpha \times \displaystyle{\sum_{u}n(u,f(u)) + (1- \alpha) \times \sum_{u,v}e(u,f(u),v,f(v))}$
 \end{center}
 
-\subsection{Two-step alignment search strategy}
-A causa della grande dimensione delle PPIN, risolvere il problema dell'allineamento delle reti cercando di considerare tutti i possibili mapping tra i nodi è, dal punto di vista computazionale, impossibile. Per questo motivo ottimizza, considerando solamente un subset di nodi, il mapping $u \longleftrightarrow v$ di modo che $\alpha n(u,v) + (1-\alpha)t(u,v) \geq 0.5$. L'algoritmo applica successivamente un algoritmo \textit{greedy} bla bla
+\subsection{Strategia di ricerca \textit{two-step alignment}}
+A causa della grande dimensione delle PPIN, risolvere il problema dell'allineamento delle reti cercando di considerare tutti i possibili mapping tra i nodi è, dal punto di vista computazionale, impossibile. L-GRAAL utilizza \textit{sequence} e \textit{graphlet degree similarities} per selezionare un sottoinsieme di nodi mappati $u \longleftrightarrow v$ di modo che $\alpha n(u,v) + (1-\alpha)t(u,v) \geq 0.5$. L'algoritmo applica successivamente un algoritmo \textit{greedy} per estendere la ricerca degli allineamenti. Il \textit{network alignment problem} può essere espresso tramite la seguente formula:
 
 \begin{center}
-IP $= max_{x,y} \displaystyle{(\alpha \sum n(i,k) \times x_{ik} + (1- \alpha) \sum e(i,j,k,l) \times y_{ijkl}})$
+IP $= max_{x,y} \displaystyle{\Big( \alpha \sum n(i,k) \times x_{ik} + (1- \alpha) \sum e(i,j,k,l) \times y_{ijkl}} \Big)$
 \end{center}
-con i seguenti vincoli:
+soggetta ai vincoli:
 \begin{center}
 $\displaystyle{\sum_{k \in V_2}x_{ik} \leq 1}$, $\forall i \in V_1$,
 
@@ -613,9 +617,12 @@ $\displaystyle{\sum_{i \in V_1}x_{ik} \leq 1}$, $\forall k \in V_2$,
 
 $x_{ij} - y_{ijkl} \geq 0$, $\forall (i,j) \in E_1, \forall (k,l) \in E_2$,
 
-$x_{ik} - y_{ijkl} \geq 0$, $\forall (i,j) \in E_1, \forall (k,l) \in E_2$,
+$x_{ik} - y_{ijkl} \geq 0$, $\forall (i,j) \in E_1, \forall (k,l) \in E_2$
 \end{center}
 
+dove, al \textit{node mapping} selezionato, $i \longleftrightarrow k$ con $i \in V_1$, $k \in V_2$, viene associata una variabile binaria $x_{ik} = 1$ se il \textit{node mapping} appartiene all'allineamento, 0 altrimenti. In modo del tutto simile, associamo ad ogni \textit{edge mapping} selezionato $(i,j) \longleftrightarrow (k,l)$, $(i,j) \in E_1$, $(k,l) \in E_2$, una variabile binaria $y_{ijkl} = 1$ se l'\textit{edge mapping} appartiene all'allineamento, 0 altrimenti. I primi due vincoli obbligano un nodo in $V_1$ ad essere mappato al massimo in un nodo di $V_2$ e viceversa, mentre gli ultimi due vincoli obbligano l'\textit{edge mapping} $(i,j) \longleftrightarrow (k,l)$ ad avere gli \textit{end-nodes} mappati: $i \longleftrightarrow k$ e $j \longleftrightarrow l$.
+
+Si risolve l'equazione
 \begin{center}
 $LR(\lambda) = max_{x,y} \displaystyle{\sum n^{\lambda}(i,k) \times x_{ik} + \sum e^{\lambda}(i,j,k,l) \times y_{ijkl}}$
 \end{center}
@@ -626,29 +633,51 @@ $LR(\lambda) = max_{x,y} \displaystyle{\sum n^{\lambda}(i,k) \times x_{ik} + \su
 \begin{small}\textit{\textbf{Figura 8.1}: Confronto L-GRAAL vs altri metodi}.\end{small}
 \end{center}
 
-Complessità $O(|V|^3 + |V|^2d^3)$, dove $|V|$ è il numero di nodi nelle reti e $d$ è il valore del grado (di un nodo) massimo. Risolvere $LR(\lambda)$ genera una soluzione rilassata del problema, che corrisponde ad un \textit{upper bound} alla Programmazione Intera. Per risolvere tale problema è necessario ricondursi alla formulazione duale del problema di minimizzazione di $LR(\lambda)$ su $\lambda)$. Si procede con gradient descent... Sfortunatamente, anche questo problema è $\mathcal{NP}$-completo e, in pratica, si risolve generando una sequenza finita di interazioni. L'algoritmo restituisce il risultato dopo un determinato limite temporale o dopo un numero di iterazioni fissato.
+con la Programmazione Intera in $O(|V|^3 + |V|^2 \times d^3)$, dove $|V|$ è il numero di nodi nelle reti e $d$ è il valore del grado (di un nodo) massimo. Risolvere $LR(\lambda)$ genera una soluzione rilassata del problema, che corrisponde ad un \textit{upper bound} alla Programmazione Intera. 
+
+Per risolvere tale problema nella sua interezza è necessario ricondursi alla formulazione duale per minimizzazare $LR(\lambda)$ su $\lambda)$ con la tecnica del \textit{gradient descent}. Sfortunatamente, anche questo problema è $\mathcal{NP}$-completo e, in pratica, si risolve generando una sequenza finita di interazioni. L'algoritmo restituisce il risultato dopo un determinato limite temporale o dopo un numero di iterazioni fissato.
 
 \pagebreak
 \section{Conclusioni}
-Negli ultimi anni, il corpus di dati PPI è cresciuto esponenzialmente e il rapido ritmo di accumulo dati continua. L'obiettivo di questo progetto è stato di far capire la struttura delle reti considerate (con dei rimandi alla teoria dei grafi) e le implicazioni  e le somiglianze dal punto di vista biologico. scrivere altro
+Negli ultimi anni, il corpus di dati PPI è cresciuto esponenzialmente e il rapido ritmo di accumulo dati continua imperterrito tutt'oggi. L'obiettivo di questo progetto è stato di far capire la struttura delle reti di interazione proteina-proteina e le implicazioni dal punto di vista biologico.
+
+Scoprire e capire i pattern all'interno delle PPIN è un problema centrale in Biologia. Gli allineamenti tra queste reti permettono di scoprire informazioni su complessi proteici che fino a pochi anni fa non erano note. Abbiamo proposto una descrizione, seppur breve, di quattro dei metodi più all'avanguardia, MTGO, IsoRank, \textit{struc2vec} e L-GRAAL, tutti con un'elevata complessità dal punto di vista computazionale a causa dell'$\mathcal{NP}$-completezza del problema.
+
+Molte sfide sono ancora aperte e molte frontiere devono ancora essere esplorate; con questo progetto abbiamo dato solamente una vaga idea della vastità dell'argomento, di cui si è appena iniziato a parlare. 
+
+Speriamo che ciò che abbiamo fatto sia stato di vostro gradimento.
+
+Grazie.
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\begin{flushright}
+\textit{Luca Masiero}\\
+\textit{Stefano Ivancich}
+\end{flushright}
 
 \pagebreak 
-\section{Bibliografia} 
+\section{Bibliografia \& Sitografia} 
 \begin{enumerate}
-\item Vella, D., Marini, S., Vitali, F., Di Silvestre, D., Mauri, G., and Bellazzi, R. (2018). MTGO: PPI network analysis via topological and functional module identification. Sci. Rep. 8:5499. doi: 10.1038/s41598-018-23672-0
+\item https://www.ebi.ac.uk/training/online/course/network-analysis-protein-interaction-data-introduction
 
-\item Jeong, H., et al., Lethality and centrality in protein networks. Nature, 2001. 411(6833): p. 41-2.
+\item https://www.ebi.ac.uk/training/online/course/goa-and-quickgo-quick-tour/what-go
 
-\item Rual, J.F., et al., Towards a proteome-scale map of the human protein-protein interaction network. Nature, 2005. 437(7062): p. 1173-8.
+\item Vella, D., Marini, S., Vitali, F. et al. MTGO: PPI Network Analysis Via Topological and Functional Module Identification. Sci Rep 8, 5499 (2018). https://doi.org/10.1038/s41598-018-23672-0
 
-\item Deane, C.M., et al., Protein interactions: two methods for assessment of the reliability of high throughput observations. Mol Cell Proteomics, 2002. 1(5): p. 349-56.
+\item Mitra, K., Carvunis, A., Ramesh, S. et al. Integrative approaches for finding modular structure in biological networks. Nat Rev Genet 14, 719–732 (2013). https://doi.org/10.1038/nrg3552
 
-\item Singh R., Xu J., Berger B.. 2007 Pairwise global alignment of protein interaction networks by matching neighborhood topology. Research in computational molecular biology, pp. 16–31. Berlin, Germany: Springer.
+\item No\"el Malod-Dognin, Nata\v{s}a Pr\v{z}uli. L-GRAAL: Lagrangian graphlet-based network aligner. Department of Computing, Imperial College London, London, UK (2015)
 
-\item Oleksii Kuchaiev, Tijana Milenković, Vesna Memišević, Wayne Hayes and Nataša Pržulj. Topological network alignment uncovers biological function and phylogeny, 24 marzo 2010, Department of Computer Science, University of California, Irvine.
+\item Ribeiro, Saverese, Figueiredo. \textit{struc2vec}: Learning Node Representations from Structural Identity. Federal University of Rio de Janeiro, Systems Eng. and Comp. Science Dep. (2017)
 
-%\item Hu, L. & Chan, K. C. A density-based clustering approach for identifying overlapping protein complexes with functional preferences. BMC bioinformatics 16, 174 (2015).
+\item Singh, Xu, Berger. Global alignment of multiple protein interaction networks with application to functional orthology detection. Computer Science and Artificial Intelligence Laboratory and Department of Mathematics, Massachussets Institure of Technology, Cambridge, MA 02139; and Toyota Technological Institute at Chicago, Chicago, IL 60637 (2008)
 
-%\item Zhang, X.-F., Dai, D.-Q., Ou-Yang, L. & Yan, H. Detecting overlapping protein complexes based on a generative model with functional and topological properties. BMC Bioinformatics 15, 186 (2014).
 \end{enumerate}
 \end{document}
