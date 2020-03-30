@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.6)  30 MAR 2020 13:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.6)  30 MAR 2020 18:09
 entering extended mode
 **./AlgoBio.tex
 (AlgoBio.tex
@@ -404,6 +404,11 @@ Overfull \hbox (0.24498pt too wide) in paragraph at lines 37--37
  | 
  []
 
+
+Overfull \hbox (0.24498pt too wide) in paragraph at lines 41--41
+ []| 
+ []
+
 [1
 
 {C:/Users/lagge/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./uni.png>]
@@ -547,20 +552,21 @@ File: prest1.jpg Graphic file (type jpg)
 <use prest1.jpg>
 Package pdftex.def Info: prest1.jpg  used on input line 335.
 (pdftex.def)             Requested size: 386.07532pt x 442.34738pt.
-<delta.jpg, id=82, 769.37437pt x 664.73344pt>
+[13 <./prest1.jpg>]
+<delta.jpg, id=86, 769.37437pt x 664.73344pt>
 File: delta.jpg Graphic file (type jpg)
 <use delta.jpg>
-Package pdftex.def Info: delta.jpg  used on input line 343.
+Package pdftex.def Info: delta.jpg  used on input line 344.
 (pdftex.def)             Requested size: 269.28506pt x 232.66019pt.
-[13 <./prest1.jpg>]
-Overfull \hbox (0.29076pt too wide) in paragraph at lines 348--349
+
+Overfull \hbox (0.29076pt too wide) in paragraph at lines 349--350
 \OT1/cmr/m/n/10.95 grup-pi di no-di che con-di-vi-do-no sia le pro-prieta to-p
 o-lo-gi-che $(\OML/cmm/m/it/10.95 V; E\OT1/cmr/m/n/10.95 )$, sia quel-le fun-zi
 o-na-li $(\OML/cmm/m/it/10.95 T\OT1/cmr/m/n/10.95 )$. L'out-put
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 372--373
+Underfull \hbox (badness 10000) in paragraph at lines 373--374
 
  []
 
@@ -568,21 +574,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 372--373
 <algMTGO.jpg, id=90, 1165.35374pt x 607.51968pt>
 File: algMTGO.jpg Graphic file (type jpg)
 <use algMTGO.jpg>
-Package pdftex.def Info: algMTGO.jpg  used on input line 378.
+Package pdftex.def Info: algMTGO.jpg  used on input line 379.
 (pdftex.def)             Requested size: 431.17413pt x 224.77876pt.
 <deltax.jpg, id=91, 951.555pt x 392.21532pt>
 File: deltax.jpg Graphic file (type jpg)
 <use deltax.jpg>
-Package pdftex.def Info: deltax.jpg  used on input line 386.
+Package pdftex.def Info: deltax.jpg  used on input line 387.
 (pdftex.def)             Requested size: 361.59465pt x 149.04337pt.
  [15 <./algMTGO.jpg> <./deltax.jpg>]
 <deltaa.jpg, id=95, 695.59875pt x 234.1247pt>
 File: deltaa.jpg Graphic file (type jpg)
 <use deltaa.jpg>
-Package pdftex.def Info: deltaa.jpg  used on input line 394.
+Package pdftex.def Info: deltaa.jpg  used on input line 395.
 (pdftex.def)             Requested size: 431.26677pt x 145.1558pt.
 
-Overfull \hbox (14.48006pt too wide) in paragraph at lines 399--400
+Overfull \hbox (14.48006pt too wide) in paragraph at lines 400--401
 \OT1/cmr/m/n/10.95 ($\OML/cmm/m/it/10.95 Q$\OT1/cmr/m/n/10.95 ) e \OT1/cmr/m/it
 /10.95 Qua-li-ty GO \OT1/cmr/m/n/10.95 ($\OML/cmm/m/it/10.95 QGO$\OT1/cmr/m/n/1
 0.95 ): $\OML/cmm/m/it/10.95 Q$ \OT1/cmr/m/n/10.95 va-lu-ta la qua-lita glo-ba
@@ -591,7 +597,7 @@ m/it/10.95 QGO$ \OT1/cmr/m/n/10.95 va-lu-ta la cor-ri-spon-den-za
  []
 
 [16 <./deltaa.jpg>]
-Overfull \hbox (2.7726pt too wide) in paragraph at lines 419--420
+Overfull \hbox (2.7726pt too wide) in paragraph at lines 420--421
 \OT1/cmr/m/it/10.95 Sac-cha-ro-my-ces ce-re-vi-siae \OT1/cmr/m/n/10.95 (lie-vi-
 to di bir-ra -fungo-), \OT1/cmr/m/it/10.95 Dro-so-phi-la me-la-no-ga-ster \OT1/
 cmr/m/n/10.95 (mo-sce-ri-no del-la frut-ta),
@@ -601,97 +607,193 @@ cmr/m/n/10.95 (mo-sce-ri-no del-la frut-ta),
 <isorank.jpg, id=105, 1284.8pt x 548.0475pt>
 File: isorank.jpg Graphic file (type jpg)
 <use isorank.jpg>
-Package pdftex.def Info: isorank.jpg  used on input line 448.
+Package pdftex.def Info: isorank.jpg  used on input line 449.
 (pdftex.def)             Requested size: 385.44298pt x 164.41551pt.
  [18 <./isorank.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 468--469
+Underfull \hbox (badness 10000) in paragraph at lines 469--470
 
  []
 
 <struc1.jpg, id=110, 1107.38719pt x 293.59688pt>
 File: struc1.jpg Graphic file (type jpg)
 <use struc1.jpg>
-Package pdftex.def Info: struc1.jpg  used on input line 479.
+Package pdftex.def Info: struc1.jpg  used on input line 480.
 (pdftex.def)             Requested size: 398.65909pt x 105.69478pt.
 [19 <./struc1.jpg>]
-Overfull \hbox (0.38496pt too wide) in paragraph at lines 508--509
+Overfull \hbox (0.38496pt too wide) in paragraph at lines 509--510
 []\OT1/cmr/m/n/10.95 Tenendo pre-sen-te que-ste due pro-prieta, \OT1/cmr/m/it/
 10.95 struct2vec \OT1/cmr/m/n/10.95 puo es-se-re sud-di-vi-so in quat-tro step
  prin-ci-pa-li: 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 520--521
+Underfull \hbox (badness 10000) in paragraph at lines 521--522
 
  []
 
-[20]
-Underfull \hbox (badness 10000) in paragraph at lines 550--552
+<struc2.jpg, id=114, 1193.96063pt x 322.95656pt>
+File: struc2.jpg Graphic file (type jpg)
+<use struc2.jpg>
+Package pdftex.def Info: struc2.jpg  used on input line 524.
+(pdftex.def)             Requested size: 477.57579pt x 129.18033pt.
+
+Overfull \hbox (7.82077pt too wide) in paragraph at lines 524--525
+ [] 
+ []
+
+[20 <./struc2.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 543--544
 
  []
 
-[21]
-Overfull \hbox (0.90181pt too wide) in paragraph at lines 576--577
+
+Underfull \hbox (badness 10000) in paragraph at lines 565--566
+
+ []
+
+[21] [22]
+Underfull \hbox (badness 10000) in paragraph at lines 571--572
+
+ []
+
+
+Overfull \hbox (0.90181pt too wide) in paragraph at lines 580--581
 \OT1/cmr/m/n/10.95 In L-GRAAL si mi-su-ra la re-la-zio-ne tra due pro-tei-ne ma
 p-pa-te $\OML/cmm/m/it/10.95 u$ \OT1/cmr/m/n/10.95 e $\OML/cmm/m/it/10.95 f\OT1
 /cmr/m/n/10.95 (\OML/cmm/m/it/10.95 u\OT1/cmr/m/n/10.95 )$ uti-liz-zan-do il lo
 -ro al-li-nea-men-to
  []
 
-<graal1.jpg, id=121, 1239.12938pt x 683.55376pt>
+<graal1.jpg, id=125, 1239.12938pt x 683.55376pt>
 File: graal1.jpg Graphic file (type jpg)
 <use graal1.jpg>
-Package pdftex.def Info: graal1.jpg  used on input line 592.
-(pdftex.def)             Requested size: 446.08624pt x 246.07916pt.
-[22]
-<graal2.jpg, id=125, 1442.38875pt x 340.27126pt>
+Package pdftex.def Info: graal1.jpg  used on input line 596.
+(pdftex.def)             Requested size: 408.91396pt x 225.57344pt.
+[23]
+Overfull \hbox (4.90607pt too wide) in paragraph at lines 607--608
+\OT1/cmr/m/n/10.95 im-pos-si-bi-le. L-GRAAL uti-liz-za \OT1/cmr/m/it/10.95 se-q
+uen-ce \OT1/cmr/m/n/10.95 e \OT1/cmr/m/it/10.95 gra-phlet de-gree si-mi-la-ri-t
+ies \OT1/cmr/m/n/10.95 per se-le-zio-na-re un sot-toin-sie-me
+ []
+
+
+Overfull \hbox (0.79994pt too wide) in paragraph at lines 607--608
+\OT1/cmr/m/n/10.95 suc-ces-si-va-men-te un al-go-rit-mo \OT1/cmr/m/it/10.95 gre
+e-dy \OT1/cmr/m/n/10.95 per esten-de-re la ri-cer-ca de-gli al-li-nea-men-ti. I
+l \OT1/cmr/m/it/10.95 net-work ali-gn-ment
+ []
+
+[24 <./graal1.jpg>]
+<graal2.jpg, id=133, 1442.38875pt x 340.27126pt>
 File: graal2.jpg Graphic file (type jpg)
 <use graal2.jpg>
-Package pdftex.def Info: graal2.jpg  used on input line 624.
+Package pdftex.def Info: graal2.jpg  used on input line 631.
 (pdftex.def)             Requested size: 475.98976pt x 112.28986pt.
 
-Overfull \hbox (6.23474pt too wide) in paragraph at lines 624--625
+Overfull \hbox (6.23474pt too wide) in paragraph at lines 631--632
  [] 
  []
 
-[23 <./graal1.jpg>] [24 <./graal2.jpg>] [25] [26] (AlgoBio.aux) ) 
+[25 <./graal2.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 650--660
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 650--660
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 650--660
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 650--660
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 650--660
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 650--660
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 650--660
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 650--660
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 650--660
+
+ []
+
+[26]
+Overfull \hbox (43.1923pt too wide) in paragraph at lines 668--669
+[]\OT1/cmr/m/n/10.95 https://www.ebi.ac.uk/training/online/course/network-analy
+sis-protein-interaction-data-introduction 
+ []
+
+
+Overfull \hbox (41.43822pt too wide) in paragraph at lines 672--673
+\OT1/cmr/m/n/10.95 Func-tio-nal Mo-du-le Iden-ti-fi-ca-tion. Sci Rep 8, 5499 (2
+018). https://doi.org/10.1038/s41598-018-23672-0 
+ []
+
+
+Overfull \hbox (36.3739pt too wide) in paragraph at lines 674--675
+\OT1/cmr/m/n/10.95 struc-tu-re in bio-lo-gi-cal net-works. Nat Rev Ge-net 14, 7
+19{732 (2013). https://doi.org/10.1038/nrg3552 
+ []
+
+[27] (AlgoBio.aux) ) 
 Here is how much of TeX's memory you used:
- 4718 strings out of 492970
- 64645 string characters out of 3126594
+ 4722 strings out of 492970
+ 64706 string characters out of 3126594
  153452 words of memory out of 3000000
- 8470 multiletter control sequences out of 15000+200000
+ 8473 multiletter control sequences out of 15000+200000
  18162 words of font info for 66 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,11n,43p,1919b,331s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/lagg
-e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
-C:/Users/lagge/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmbx12.pfb><C:/Users/lagge/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmbx9.pfb><C:/Users/lagge/AppData/Local/Programs/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/lagge/AppData/Local/Programs/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/lagge/AppData/Loc
-al/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/lagg
-e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C
-:/Users/lagge/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
-cmmi8.pfb><C:/Users/lagge/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmmi9.pfb><C:/Users/lagge/AppData/Local/Programs/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmr10.pfb><C:/Users/lagge/AppData/Local/Programs/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/lagge/AppData/Local/Pro
-grams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/lagge/AppDat
-a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/l
-agge/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb>
-<C:/Users/lagge/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmsl10.pfb><C:/Users/lagge/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmsy10.pfb><C:/Users/lagge/AppData/Local/Programs/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/lagge/AppData/Local/Programs/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/lagge/AppData/Loca
-l/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/lagge
-/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:
-/Users/lagge/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symb
-ols/msbm10.pfb>
-Output written on AlgoBio.pdf (28 pages, 2721916 bytes).
+<C:/Users/lagge/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmbx10.pfb><C:/Users/lagge/AppData/Local/Programs/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/lagge/AppData/Local/Pro
+grams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/lagge/AppDa
+ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Us
+ers/lagge/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex
+10.pfb><C:/Users/lagge/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmmi10.pfb><C:/Users/lagge/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmmi6.pfb><C:/Users/lagge/AppData/Local/Programs/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/lagge/AppData/Local/Progr
+ams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/lagge/AppData
+/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/l
+agge/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb
+><C:/Users/lagge/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmr6.pfb><C:/Users/lagge/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmr8.pfb><C:/Users/lagge/AppData/Local/Programs/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmr9.pfb><C:/Users/lagge/AppData/Local/Programs/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Users/lagge/AppData/Local/Pr
+ograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/lagge/App
+Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Use
+rs/lagge/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti1
+0.pfb><C:/Users/lagge/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmti12.pfb><C:/Users/lagge/AppData/Local/Programs/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmti9.pfb><C:/Users/lagge/AppData/Local/Programs/MiKTeX 2.
+9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on AlgoBio.pdf (29 pages, 2778688 bytes).
 PDF statistics:
- 204 PDF objects out of 1000 (max. 8388607)
+ 208 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 96 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 101 words of extra memory for PDF output out of 10000 (max. 10000000)
 
