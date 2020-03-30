@@ -75,7 +75,7 @@ L'obiettivo del \textit{\textbf{Network Alignment}} (traducibile con \textit{all
 
 Nel contesto biologico, confrontare le reti di diversi organismi (rappresentate tramite \textit{grafi}) è, attualmente, uno dei problemi più importanti ed interessanti della Biologia. Gli allineamenti di reti biologiche possono infatti risultare molto utili perché, avendo molte informazioni su alcuni nodi di una determinata rete $G_1$ e quasi nulla su nodi topologicamente simili in un'altra $G_2$, la conoscenza specialistica di uno di quei nodi può dirci qualcosa di nuovo sul corrispettivo. Gli allineamenti delle reti possono anche essere utilizzati per misurare la somiglianza globale tra reti complete di specie diverse. 
 
-Le \textit{\textbf{Protein-Protein Interaction Networks}} (\textbf{PPIN}, \textit{reti di interazione proteina-proteina}) sono strumenti validi per comprendere le funzioni delle cellule, le malattie umane e il design e riposizionamento dei farmaci\footnote{Il \textit{drug-repositioning} è l’insieme delle analisi volte a stabilire se un farmaco già noto possa essere utilizzato per il trattamento di sintomatologie diverse da quelle descritte in etichetta.}; nonché per ottenere una descrizione completa degli \textit{interattomi}\footnote{Si veda la \textit{\textbf{Sottosezione 2.1.}}} affinché sia possibile capire, tramite la loro analisi comparativa, più profondamente i processi biologici.
+Le \textit{\textbf{Protein-Protein Interaction Networks}} (\textbf{PPIN}, \textit{reti di interazione proteina-proteina}) sono strumenti validi per comprendere le funzioni delle cellule, le malattie umane e il design e riposizionamento dei farmaci\footnote{Il \textit{drug-repositioning} è l’insieme delle analisi volte a stabilire se un farmaco già noto possa essere utilizzato per il trattamento di sintomatologie diverse da quelle descritte in etichetta.}, nonché per ottenere una descrizione completa degli \textit{interattomi}\footnote{Si veda la \textit{\textbf{Sottosezione 2.1.}}} affinché sia possibile capire, tramite la loro analisi comparativa, più profondamente i processi biologici.
 
 \begin{center}
 \includegraphics[scale=0.46]{woo}
@@ -96,22 +96,22 @@ Interpretare una PPI è un compito particolarmente impegnativo a causa della com
 
 
 
-Negli ultimi anni, la crescente quantità e qualità dei dati -omici\footnote{Quando si parla di “scienze omiche” si intendono delle discipline che hanno per oggetto lo studio dell’insieme di geni (genomica), dei trascritti (trascrittomica), delle proteine (proteomica) e dei metaboliti (metabolomica) che vengono espressi da una cellula, diversamente da quanto fanno le scienze biologiche tradizionali che invece si occupano di studiare i processi biologici singolarmente. Si tratta, dunque, di guardare cellule e tessuti da una prospettiva diversa, prospettiva che probabilmente meglio si addice a descrivere dei sistemi come quelli biologici caratterizzati da un elevato grado di complessità.} ha portato all'assemblaggio di reti biologiche, il cui obiettivo finale è quello di svelare i processi cellulari sottostanti. In questo scenario, le PPI sono tra le reti più importanti ed ampiamente studiate. Nelle reti PPI, un sistema biologico è descritto in termini di \textit{\textbf{proteine}}\footnote{Le proteine sono macromolecole biologiche costituite da catene di amminoacidi legati uno all'altro da un legame peptidico (ovvero un legame tra il gruppo amminico di un amminoacido e il gruppo carbossilico dell'altro amminoacido, creato attraverso una reazione di condensazione con perdita di una molecola d'acqua). Le proteine svolgono una vasta gamma di funzioni all'interno degli organismi viventi, tra cui la catalisi delle reazioni metaboliche, funzione di sintesi (come la replicazione del DNA), la risposta agli stimoli e il trasporto di molecole da un luogo ad un altro. Le proteine differiscono l'una dall'altra soprattutto nella loro sequenza di amminoacidi, la quale è dettata dalla sequenza nucleotidica conservata nei geni e che di solito si traduce in un ripiegamento proteico e in una struttura tridimensionale specifica che determina la sua attività.}, 
+Negli ultimi anni, la crescente quantità e qualità dei dati -omici\footnote{Quando si parla di “scienze omiche” si intendono quelle discipline che hanno per oggetto di studio l’insieme di geni (genomica), dei trascritti (trascrittomica), delle proteine (proteomica) e dei metaboliti (metabolomica) che vengono espressi da una cellula, diversamente da quanto fanno le scienze biologiche tradizionali che invece si occupano di studiare i processi biologici singolarmente. Si tratta, dunque, di guardare cellule e tessuti da una prospettiva diversa, prospettiva che probabilmente meglio si addice a descrivere dei sistemi come quelli biologici caratterizzati da un elevato grado di complessità.} ha portato all'assemblaggio di reti biologiche, il cui obiettivo finale è quello di svelare i processi cellulari sottostanti. In questo scenario, le PPI sono tra le reti più importanti ed ampiamente studiate. Nelle reti PPI, un sistema biologico è descritto in termini di \textit{\textbf{proteine}}\footnote{Le proteine sono macromolecole biologiche costituite da catene di amminoacidi legati uno all'altro da un legame peptidico (ovvero un legame tra il gruppo amminico di un amminoacido e il gruppo carbossilico dell'altro amminoacido, creato attraverso una reazione di condensazione con perdita di una molecola d'acqua). Le proteine svolgono una vasta gamma di funzioni all'interno degli organismi viventi, tra cui la catalisi delle reazioni metaboliche, funzione di sintesi (come la replicazione del DNA), la risposta agli stimoli e il trasporto di molecole da un luogo ad un altro. Le proteine differiscono l'una dall'altra soprattutto nella loro sequenza di amminoacidi, la quale è dettata dalla sequenza nucleotidica conservata nei geni e che di solito si traduce in un ripiegamento proteico e in una struttura tridimensionale specifica che determina la sua attività.}, 
 che costituiscono i \textit{nodi} del grafo, e le loro relazioni (interazioni fisico/funzionali), rappresentate dagli \textit{archi} del grafo.\\
 
 Date le grandi dimensioni (tipicamente vengono coinvolte migliaia di elementi), le reti PPI sono analizzate tramite l'identificazione di \textit{sottoreti}, o \textit{moduli}, che mostrano specifiche caratteristiche topologiche e/o funzionali.
 
-L'espressione \textbf{modulo topologico} si riferisce ad un gruppo di nodi che hanno molte più connessioni con i nodi del gruppo piuttosto che con quelli esterni. 
+L'espressione \textbf{modulo topologico} si riferisce ad un \textit{gruppo di nodi che hanno molte più connessioni con i nodi del gruppo piuttosto che con quelli esterni}. 
 
-L'espressione \textbf{modulo funzionale} si riferisce ad un gruppo di nodi che condividono una funzione biologica comune. 
+L'espressione \textbf{modulo funzionale} si riferisce ad un \textit{gruppo di nodi che condividono una funzione biologica}. 
 
-Si noti che un gruppo di nodi che rappresenta un modulo può avere sia proprietà topologiche che funzionali. Idealmente, i moduli topologici e funzionali coinciderebbero; in pratica, essi costituiscono due entità diverse, anche se tipicamente si sovrappongono in larga misura. Di conseguenza, sia la topologia della rete che le informazioni funzionali contribuiscono alla comprensione complessiva dei meccanismi biologici della rete PPI.\\
+Si noti che un gruppo di nodi che rappresenta un modulo può avere sia proprietà topologiche che funzionali. Idealmente, i moduli topologici e funzionali coinciderebbero; in pratica, essi costituiscono due entità diverse, anche se tipicamente si sovrappongono in larga misura. Di conseguenza, sia la topologia della rete che le informazioni funzionali contribuiscono alla comprensione complessiva dei meccanismi biologici delle reti PPI.\\
 
-Nella prossime sezioni presenteremo gli argomenti necessari per comprendere il funzionamento dei metodi attualmente più efficienti di analisi delle PPIN.
+Nella prossime sezioni presenteremo gli argomenti necessari per comprendere il funzionamento dei metodi attualmente più efficienti per l'analisi delle PPIN.
 
 \newpage
 \section{\textit{Protein-Protein Interaction Networks}}
-Le \textit{\textbf{interazioni proteina-proteina}} (PPI) sono essenziali per quasi tutti i processi che avvengono all'interno di una cellula; comprendere a pieno queste interazioni è a sua volta fondamentale per studiare la fisiologia cellulare in condizioni normali o di malattia e nello sviluppo di farmaci, poiché i farmaci possono influenzare le PPI stesse. Le PPIN sono rappresentazioni matematiche dei contatti fisici tra le proteine all'interno cellula. Questi contatti:
+Le \textit{\textbf{interazioni proteina-proteina}} (PPI) sono essenziali per quasi tutti i processi che avvengono all'interno di una cellula; comprendere a pieno queste interazioni è a sua volta fondamentale per studiare la fisiologia cellulare in condizioni normali o di malattia, o per sviluppare nuovi farmaci (dato che possono influenzare le PPI stesse). Le PPIN sono rappresentazioni matematiche dei contatti fisici tra le proteine all'interno cellula. Questi contatti:
 \begin{itemize}
 \setlength{\itemsep}{1pt}
   \setlength{\parskip}{0pt}
@@ -129,27 +129,27 @@ Le informazioni riguardanti le PPI possono rappresentare sia le interazioni tran
 \item Le interazioni \textit{transitorie} sono brevi interazioni che modificano o trasportano una proteina, portando ad ulteriori cambiamenti; costituiscono la parte più dinamica dell'\textbf{interattoma}, di cui parleremo fra un attimo.
 \end{itemize}
 
-La conoscenza delle PPI può essere utilizzata per assegnare ruoli putativi alle proteine non caratterizzate o caratterizzare le relazioni tra le proteine che formano complessi multimolecolari.
+La conoscenza delle PPI può essere utilizzata per assegnare ruoli putativi\footnote{Presunto, apparente.} alle proteine non caratterizzate o caratterizzare le relazioni tra le proteine che formano complessi multimolecolari.
 
 \subsection{L'interattoma}
 L'\textbf{\textit{interattoma}}, rappresentato tramite grafo, è \textit{l'insieme complessivo delle interazioni molecolari in una particolare cellula} e costituisce la totalità delle PPI che si verificano all'interno della stessa, ma anche in un organismo o in un contesto biologico specifico. Lo sviluppo di tecniche di screening PPI su larga scala ha portato ad un'esplosione nella quantità di dati disponibili e la costruzione di interattomi sempre più complessi e completi (si veda la \textit{\textbf{Figura 2.1}}).
 
 \begin{center}
-\includegraphics[scale=0.67]{interact}
+\includegraphics[scale=0.6]{interact}
 
 \begin{small}\textit{\textbf{Figura 2.1}: Interattoma del lievito (sinistra) ed interattoma umano (destra)}.\end{small}
 \end{center}
 
-A questo punto, tuttavia, è necessario sottolineare i limiti dei dati PPI disponibili. La nostra attuale conoscenza dell'interattoma è purtroppo incompleta e rumorosa (\textit{noisy}). I metodi di rilevamento delle PPI hanno dei limiti per quanto riguarda il numero di interazioni veramente fisiologiche che possono essere rilevate e tutti i metodi per ora realizzati ed implementati trovano sia falsi positivi che negativi.
+A questo punto, tuttavia, è necessario sottolineare i limiti dei dati PPI disponibili. La nostra attuale conoscenza dell'interattoma è purtroppo incompleta e rumorosa (\textit{noisy}). I metodi di rilevamento delle PPI hanno dei limiti per quanto riguarda il numero di interazioni veramente fisiologiche che possono essere rilevate e tutti i metodi per ora realizzati ed implementati individuano sia falsi positivi che negativi.
 
-\section{Proprietà delle PPIN}
-In questa sezione diamo uno sguardo ad alcune delle proprietà più importanti delle PPIN.
+\section{PPIN: proprietà fondamentali}
+In questa sezione diamo uno sguardo generale ad alcune delle proprietà più importanti delle PPIN.
 
 \subsection{\textit{Effetto del piccolo mondo}}
-Le \textit{reti di interazione proteina-proteina} sono soggette all'\textit{effetto del piccolo mondo}\footnote{L'effetto del mondo piccolo è una teoria che sostiene che tutte le reti complesse presenti in natura sono tali che due nodi qualsiasi possono essere collegati da un percorso costituito da un numero relativamente piccolo di collegamenti.}; ciò significa che intercorre una grande connettività tra le proteine (\textit{\textbf{Figura 3.1}}). In altre parole, si può dire che il \textit{diametro} della rete (il numero massimo di passi che separano due nodi qualsiasi) è piccolo, non importa quanto grande sia la rete. Questo, di solito, significa che i due nodi sono separati da meno di sei passi, in genere, che riflettono l'ormai ampiamente diffusa teoria dei \textit{sei gradi di separazione} usata nelle scienze sociali.
+Le \textit{reti di interazione proteina-proteina} sono soggette all'\textit{effetto del piccolo mondo}\footnote{L'\textit{effetto del mondo piccolo} è una teoria che sostiene che tutte le reti complesse presenti in natura sono tali che due nodi qualsiasi possono essere collegati da un percorso costituito da un numero relativamente piccolo di collegamenti.}, ciò significa che intercorre una grande connettività tra le proteine (\textit{\textbf{Figura 3.1}}). In altre parole, si può dire che il \textit{diametro} della rete (= numero massimo di "passi" che separano due nodi qualsiasi) è piccolo, non importa quanto grande sia la rete\footnote{Questo, di solito, significa che due nodi sono separati da meno di sei passi (che riflettono l'ormai ampiamente diffusa teoria dei \textit{sei gradi di separazione} usata nelle scienze sociali).}.
 
 \begin{center}
-\includegraphics[scale=0.5]{grafo}
+\includegraphics[scale=0.4]{grafo}
 
 \begin{small}\textit{\textbf{Figura 3.1}: Effetto del piccolo mondo}.\end{small}
 \end{center}
@@ -159,17 +159,17 @@ Questo livello di connettività ha importanti conseguenze biologiche, poiché co
 A questo punto sorge spontanea una domanda: \textit{se la rete è così strettamente connessa, perché le perturbazioni in un singolo gene o in una singola proteina non hanno conseguenze drammatiche per la rete?} I sistemi biologici sono estremamente robusti e possono far fronte a una quantità relativamente elevata di perturbazioni in singoli/e geni/proteine. Per spiegare come ciò possa accadere, dobbiamo considerare un'altra proprietà fondamentale delle PPIN, che vedremo nella prossima sottosezione.
 
 \subsection{\textit{Scale-free networks}}
-Le \textit{reti di interazione proteina-proteina} sono \textit{\textbf{scale-free networks}}. La maggior parte dei nodi (che corrispondono alle proteine) nelle \textit{scale-free networks} hanno solo poche connessioni con altri nodi, mentre altri (denominati \textit{hub}) sono collegati a molti altri nodi della rete stessa (\textit{\textbf{Figura 3.2}}).
+Le PPIN sono \textit{\textbf{scale-free networks}}. La maggior parte dei nodi (che corrispondono alle proteine) nelle \textit{scale-free networks} hanno solo poche connessioni con altri nodi, mentre altri (denominati \textit{hub}) sono collegati a molti altri nodi della rete stessa (\textit{\textbf{Figura 3.2}}).
 
 \begin{center}
-\includegraphics[scale=0.5]{graffo}
+\includegraphics[scale=0.53]{graffo}
 
-\begin{small}\textit{\textbf{Figura 3.2}: Il numero di connessioni di ogni nodo è chiamato \textbf{grado}. Se rappresentiamo la distribuzione del grado di una \textit{scale-free network} in scala logaritmica, possiamo vedere come si adatta ad una linea, avendo un piccolo numero di nodi con un alto grado (gli hub) e un grande numero di nodi con un basso grado.}.\end{small}
+\begin{small}\textit{\textbf{Figura 3.2}: Il numero di connessioni di ogni nodo è chiamato \textbf{grado}. Se rappresentiamo la distribuzione del grado di una \textit{scale-free network} in scala logaritmica, possiamo notare come si adatti ad una linea, avendo un piccolo numero di nodi con un alto grado (gli hub) e un grande numero di nodi con un basso grado}.\end{small}
 \end{center}
 
-Le \textit{scale-free networks} possono essere costruite seguendo il modello di collegamento preferenziale, noto anche come il principio "\textit{rich get richer}". Questo principio afferma semplicemente che le \textit{scale-free networks} possono essere costruite aggiungendo archi che sono preferibilmente collegati a quei nodi con un grado più elevato.
+Le \textit{scale-free networks} possono essere costruite seguendo il modello di collegamento preferenziale, noto anche come il principio "\textit{rich get richer}", che afferma che tali reti possono essere create aggiungendo archi che sono preferibilmente collegati a nodi con un grado più elevato.
 
-La natura \textit{scale-free} delle \textit{reti di interazione proteina-proteina} conferisce loro una serie di importanti caratteristiche:
+La natura \textit{scale-free} delle reti di interazione proteina-proteina conferisce loro una serie di importanti caratteristiche:
 \begin{enumerate}
 \setlength{\itemsep}{1pt}
   \setlength{\parskip}{0pt}
@@ -196,51 +196,51 @@ La natura \textit{scale-free} delle \textit{reti di interazione proteina-protein
 \end{enumerate}
 
 \subsection{Transitività}
-Un'altra caratteristica cruciale delle PPIN è la loro modularità. La \textit{\textbf{transitività}} o \textit{coefficiente di clustering} di una rete misura la tendenza dei nodi a raggrupparsi. Un'alta transitività significa che la rete contiene "comunità" o gruppi di nodi che sono densamente connessi (seguendo un'analogia delle scienze sociali, "gli amici dei miei amici sono miei amici"). Nelle reti biologiche, trovare queste comunità è molto importante perché possono aiutare ad individuare  \textbf{complessi proteici} (a titolo di esempio si veda la \textit{\textbf{Figura 3.3}}).
+Un'altra caratteristica cruciale delle PPIN è la loro modularità\footnote{Caratteristica di un sistema che si compone di unità distinte (\textit{moduli}), ognuna delle quali assolve un compito specifico ed è capace di interagire con le altre.}. La \textit{\textbf{transitività}} o \textit{coefficiente di clustering} di una rete misura la tendenza dei nodi a raggrupparsi. Un'alta transitività significa che la rete contiene "comunità" o gruppi di nodi che sono densamente connessi (seguendo un'analogia delle scienze sociali, "gli amici dei miei amici sono miei amici"). Nelle reti biologiche, trovare queste comunità è molto importante perché possono aiutare ad individuare  \textbf{complessi proteici} (a titolo di esempio, si veda la \textit{\textbf{Figura 3.3}}).
 
 \begin{center}
-\includegraphics[scale=0.7]{grafffo}
+\includegraphics[scale=0.65]{grafffo}
 
 \begin{small}\textit{\textbf{Figura 3.3}: Cluster topologici che riflettono la funzione biologica. I cluster sono evidenziati all'interno di quadrati a linee tratteggiate}.\end{small}
 \end{center}
 
-I \textit{complessi proteici} possono essere considerati un tipo di \textit{\textbf{modulo}}\footnote{Un \textit{modulo} un componente di un più vasto sistema, che opera in quel sistema indipendentemente dalle operazioni di altri componenti} (un'unità funzionale ed intercambiabile) in cui le proteine interagiscono in modo stabile, mantenendo una configurazione più o meno costante sia nel tempo che nello spazio.
+I \textit{complessi proteici} possono essere considerati un tipo di \textit{\textbf{modulo}} (un'unità funzionale ed intercambiabile) in cui le proteine interagiscono in modo stabile, mantenendo una configurazione più o meno costante sia nel tempo che nello spazio.
 
 Lo studio dei moduli è utile anche per definire le \textit{interazioni intermodulari} tra le proteine.
 
-\section{Sorgenti di dati, valutazione dell'affidabilità e misurazione della confidenza}
+\section{PPIN: sorgenti di dati, affidabilità e confidenza}
 Il primo passo per eseguire l'analisi delle PPIN è, naturalmente, la costruzione di una rete. Ci sono diverse fonti di dati PPI che possono essere utilizzate ed è importante essere consapevoli dei loro vantaggi e svantaggi.
 
-Essenzialmente, è possibile ottenere i dati PPI da:
+Essenzialmente, è possibile ottenere dati PPI da:
 \begin{enumerate}
 \setlength{\itemsep}{1pt}
   \setlength{\parskip}{0pt}
   \setlength{\parsep}{0pt}
-\item \textbf{Il proprio lavoro sperimentale}, dove si può scegliere come i dati sono rappresentati e memorizzati.
-\item \textbf{Un database primario di PPI}. Questi database estraggono le PPI dalle prove sperimentali riportate in letteratura utilizzando un processo di cura manuale. Sono i principali fornitori di dati PPI.
-\item \textbf{Un database di metadati o un database predittivo}. Queste risorse riuniscono le informazioni fornite da diversi database primari e forniscono all'utente una rappresentazione unificata dei dati. 
+\item \textbf{Il proprio lavoro sperimentale}, dove si può scegliere come i dati verranno rappresentati e memorizzati.
+\item \textbf{Un database primario di PPI}. Questi database estraggono le PPI dalle prove sperimentali riportate in letteratura utilizzando un processo di cura manuale. Costituiscono i principali fornitori di dati PPI.
+\item \textbf{Un database di metadati\footnote{Informazione che descrive un insieme di dati.} o un database predittivo}. Queste risorse riuniscono le informazioni fornite da diversi database primari e forniscono all'utente una rappresentazione unificata dei dati. 
 I database predittivi vanno oltre e utilizzano i set di dati prodotti in modo sperimentale per prevedere, dal punto di vista puramente computazionale, le interazioni in aree inesplorate dell'interattoma. Questi dataset, tuttavia, sono in genere più "rumorosi" di quelli provenienti da altre fonti.
 \end{enumerate}
 
-Spesso sarà necessario integrare dati PPI provenienti da più fonti, poiché nessun database ha una rappresentazione completa di tutte le informazioni necessarie. Ciò crea alcune sfide interessanti, poiché diversi database utilizzano  identificatori diversi e contengono diversi tipi di dati.\\
+Spesso sarà necessario integrare dati PPI provenienti da più fonti, poiché nessun database ha una rappresentazione completa di tutte le informazioni necessarie. Da questo fatto derivano alcune sfide interessanti, poiché diversi database utilizzano  identificatori diversi e contengono diversi tipi di dati.\\
 
-A questo punto sorge, naturalmente, una preoccupazione che ha a che fare con l'analisi della rete: \textit{ci si può "fidare" del fatto che la rete di interazione rappresenti una "reale" interazione biologica?} Dato il rumore (\textit{noise}) insito nelle informazioni dell'interattoma, è importante essere rigorosi e attenti quando si valutano i dati delle \textit{interazioni proteina-proteina} che si utilizzano (potremmo trovarci di fronte a rindondanze ed incoerenze). È molto importante tener conto del fatto che la copertura dell'interattoma è incompleta e frammentaria, per questo motivo esistono molti metodi diversi per accertare l'affidabilità dei dati che si stanno considerando. Alcune strategie si avvalgono dei seguenti metodi:
+A questo punto sorge una preoccupazione che ha a che fare con l'analisi della rete: \textit{ci si può "fidare" del fatto che la rete di interazione rappresenti una "reale" interazione biologica?} Dato il rumore (\textit{noise}) insito nelle informazioni dell'interattoma, è importante essere rigorosi e attenti quando si valutano i dati delle \textit{interazioni proteina-proteina} che si utilizzano (potremmo infatti trovarci di fronte a rindondanze ed incoerenze). È molto importante tener conto del fatto che l'interattoma potrebbe essere incompleto o frammentario, per questo motivo esistono modi diversi per accertare l'affidabilità dei dati che si stanno considerando. Alcune strategie si avvalgono dei seguenti metodi:
 \begin{enumerate}
+\setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
 \item \textbf{Informazioni biologiche contestuali} riguardanti le proteine e/o le molecole che sono coinvolte nell'interazione.
-\item \textbf{Contare quante volte una data interazione è stata riportata in letteratura}. Questo è un approccio molto popolare e semplice; esistono varianti più elaborate di questa strategia, come il metodo MIscore\footnote{Per una descrizione completa e rigorosa di questo metodo rimandiamo alla lettura del seguente paper (non inserito nella \textbf{Bibliografia} alla fine di questo documento): Villaveces, J.M., et al., Merging and scoring molecular interactions utilising existing community standards: tools, use-cases and a case study. Database (Oxford), 2015. 2015. }.
-\item \textbf{Metodi aggregati} che utilizzano una serie di strategie diverse e le integrano in un unico punteggio, come INTscore\footnote{A titolo informativo, il paper (non inserito nella \textbf{Bibliografia} alla fine di questo documento) riguardante l'INTscore è il seguente: Kamburov, A., Stelzl, U., and Herwig, R. IntScore: a web tool for confidence scoring of biological interactions. Nucleic Acids Res, 2012. 40(Web Server issue): p. W140-6.}.
+\item \textbf{Contare quante volte una data interazione è stata riportata in letteratura}. Questo è un approccio molto popolare e semplice; esistono varianti più elaborate di questa strategia, come il metodo MIscore\footnote{Per una descrizione completa e rigorosa di questo metodo rimandiamo alla lettura del seguente paper (non inserito nella \textbf{Bibliografia}): Villaveces, J.M., et al., Merging and scoring molecular interactions utilising existing community standards: tools, use-cases and a case study. Database (Oxford), 2015. 2015. }.
+\item \textbf{Metodi aggregati} che utilizzano una serie di strategie diverse e le integrano in un unico punteggio, come INTscore\footnote{A titolo informativo, il paper (non inserito nella \textbf{Bibliografia}) riguardante INTscore è il seguente: Kamburov, A., Stelzl, U., and Herwig, R. IntScore: a web tool for confidence scoring of biological interactions. Nucleic Acids Res, 2012. 40(Web Server issue): p. W140-6.}.
 \end{enumerate}
 
-\pagebreak
-\section{Analisi topologica delle PPIN}
-L'analisi delle caratteristiche topologiche di una rete è un modo utile per identificare i partecipanti e le sottostrutture rilevanti che possono avere un significato biologico. Ci sono molte strategie diverse che possono essere usate per fare questo (si veda la \textit{\textbf{Figura 5.1}}). 
-
-In questa sezione ci concentriamo sull'analisi della centralità (\textit{centrality analysis}) e sul clustering topologico (\textit{topological clustering}).
+\section{PPIN: analisi topologica}
+L'analisi delle caratteristiche topologiche di una rete è un modo utile per identificare i partecipanti e le sottostrutture rilevanti che possono avere un significato dal punto di vista biologico. Ci sono molte strategie diverse che possono essere usate per fare ciò (si veda la \textit{\textbf{Figura 5.1}}); in questa sezione ci concentreremo sull'analisi della centralità (\textit{centrality analysis}) e sul clustering topologico (\textit{topological clustering}).
 
 \begin{center}
-\includegraphics[scale=0.43]{ppin}
+\includegraphics[scale=0.35]{ppin}
 
-\begin{small}\textit{\textbf{Figura 5.1}: Strategie comuni di analisi strutturale per i PPIN}.\end{small}
+\begin{small}\textit{\textbf{Figura 5.1}: Strategie comuni di analisi strutturale per le PPIN}.\end{small}
 \end{center}
 
 \subsection{\textit{Centrality Analysis}}
@@ -250,7 +250,7 @@ L'analisi della centralità nelle PPIN di solito mira a rispondere alla seguente
 \begin{center}
 \includegraphics[scale=0.4]{ca}
 
-\begin{small}\textit{\textbf{Figura 5.2}: Centralità del nodo rappresentato in una rete. I nodi più grandi e più rossi hanno valori di centralità più alti in questa rappresentazione. }.\end{small}
+\begin{small}\textit{\textbf{Figura 5.2}: Centralità del nodo rappresentato in una rete. I nodi più grandi (evidenziati in rosso) hanno valori di centralità più alti}.\end{small}
 \end{center}
 
 La definizione di \textit{centralità} varia a seconda del contesto o dello scopo dell'analisi che si sta eseguendo e può essere misurata utilizzando diverse metriche e criteri, per esempio:
@@ -260,62 +260,64 @@ La definizione di \textit{centralità} varia a seconda del contesto o dello scop
   \setlength{\parskip}{0pt}
   \setlength{\parsep}{0pt}
 \item Il \textbf{grado dei nodi}.
-\item Le \textbf{misure di centralità globale}. Due delle misure di centralità globale più utilizzate sono le centralità di \textit{prossimità} (\textit{closeness centrality}) e di \textit{interrelazione} (\textit{betweenness centrality}).
+\item Le \textbf{misure di centralità globale}. Due delle misure di centralità globale più utilizzate sono le centralità di \textit{prossimità} (\textit{closeness centrality}) e di \textit{interrelazione} (\textit{betweenness centrality}).\\
 
-La \textit{closeness centrality} è una misura che stima la velocità del flusso di informazioni attraverso un dato nodo verso altri nodi. Essa misura quanto sono brevi i percorsi da un nodo verso tutti gli altri nodi.
+La \textit{closeness centrality} è una misura che stima la velocità del flusso di informazioni attraverso un dato nodo verso altri nodi. Essa misura quanto brevi sono i percorsi da un nodo verso tutti gli altri nodi.
 
-La \textit{betweenness centrality} misura la frequenza con cui un nodo viene a trovarsi su tutti i percorsi più brevi fra due nodi\footnote{Questi nodi possono rappresentare proteine importanti nei percorsi di segnalazione e possono formare obiettivi per la scoperta di farmaci. Combinando questi dati con l'analisi delle interferenze possiamo simulare attacchi mirati alle PPIN e prevedere quali proteine sono candidati migliori per la ricerca di farmaci.}.
+La \textit{betweenness centrality} misura la frequenza con cui un nodo viene a trovarsi su tutti i percorsi più brevi fra due nodi\footnote{Questi nodi possono rappresentare proteine importanti nei percorsi di segnalazione e possono rappresentare obiettivi per la scoperta di farmaci. Combinando questi dati con l'analisi delle interferenze possiamo simulare attacchi mirati alle PPIN e prevedere quali proteine sono candidate migliori per la ricerca di farmaci.}.
 \end{enumerate}
 
 \subsection{\textit{Clustering Analysis}}
-La ricerca di "comunità" all'interno di una rete è una buona strategia utile a ridurre la complessità della rete stessa e ad estrarre moduli funzionali (ad esempio, complessi proteici). I \textit{\textbf{cluster}} sono un gruppo di nodi che sono più connessi al loro interno che con il resto della rete. Quando si parla di PPIN, le comunità rientrano in due categorie: moduli funzionali e complessi proteici (si veda la \textit{\textbf{Sottosezione 3.3}} per la corretta definizione dei termini).
+La ricerca di "comunità" all'interno di una rete è una buona strategia utile a ridurre la complessità della rete stessa e ad estrarre moduli funzionali (ad esempio, complessi proteici). I \textit{\textbf{cluster}} sono un gruppo di nodi che sono più connessi al loro interno che con il resto della rete. 
+
+Quando si parla di PPIN, le comunità rientrano in due categorie: moduli funzionali e complessi proteici (si veda la \textit{\textbf{Sottosezione 3.3}} per la corretta definizione dei termini).
 
 \subsubsection{Metodi di \textit{Clustering Analysis}}
 Ora presentiamo brevemente due metodi che utilizzano esclusivamente la topologia della rete per individuare componenti strettamente connesse tra loro. Bisogna sottolineare che non si fanno ipotesi sulla struttura interna dei \textit{cluster}, concentreremo pertanto la nostra attenzione soltanto sulle regioni ad alta densità.
 
 \begin{center}
-\includegraphics[scale=0.6]{ng}
+\includegraphics[scale=0.55]{ng}
 
 \begin{small}\textit{\textbf{Figura 5.3}: Metodi di Clustering Analysis}.\end{small}
 \end{center}
 
-È importante notare che trovare la migliore struttura di comunità è algoritmicamente complesso ed è possibile solo per reti molto piccole. Per questo motivo sono stati sviluppati molti metodi di approssimazione.
+È importante notare che trovare la migliore struttura di "comunità" è algoritmicamente complesso ed è possibile solo per reti molto piccole. Per questo motivo sono stati sviluppati diversi metodi di approssimazione; ne presentiamo solamente due:
 \begin{enumerate}
-\item \textbf{Algoritmo \textit{Newman-Girvan fast-greedy}}: Questo metodo "naïve" identifica i \textit{cluster} utilizzando la \textit{edge betweenness centrality measure}. Gli archi che collegano i diversi \textit{cluster} hanno \textit{centrality values} più elevate. Per definire i \textit{cluster} il metodo utilizza \textit{edge betweenness centrality scores} per classificare gli archi della rete, quindi rimuove gli archi più centrali e ricalcola i \textit{betweenness scores} fino a quando non rimangono più archi. Gli archi interessati dalla rimozione sono considerati parte dello stesso \textit{cluster}.
+\item \textbf{Algoritmo \textit{Newman-Girvan fast-greedy}}: Questo metodo \textit{naïve} individua i \textit{cluster} grazie alla \textit{edge betweenness centrality measure}. Gli archi che collegano i diversi \textit{cluster} hanno \textit{centrality values} più elevate. Per definire i \textit{cluster} il metodo utilizza \textit{edge betweenness centrality scores} per classificare gli archi della rete, quindi rimuove gli archi più centrali e ricalcola i \textit{betweenness scores} fino a quando non rimangono più archi. Gli archi interessati dalla rimozione sono considerati parte dello stesso \textit{cluster}.
 \item \textit{\textbf{Algoritmo MCODE}}: Questo metodo è stato appositamente sviluppato per trovare complessi proteici nelle PPIN. Più rigoroso dell'algoritmo Newman-Girvan, mira a trovare solo quelle sottoreti che sono altamente interconnesse (rappresentanti complessi proteici relativamente stabili, che funzionano come una singola entità nel tempo e nello spazio).
-L'algoritmo utilizza un processo a tre fasi: (1) con il \textit{weighting} un punteggio più alto viene dato a quei nodi i cui vicini sono più interconnessi; (2) partendo dal nodo (denominato \textit{seed}) con il peso più elevato, vengono aggiunti al complesso i nodi che hanno un peso superiore ad una determinata soglia; (3) infine vengono applicati dei filtri per migliorare la qualità del \textit{cluster}.
+L'algoritmo utilizza un processo a tre fasi: (1) con il \textit{weighting} un punteggio più alto viene assegnato a quei nodi i cui vicini sono più interconnessi; (2) partendo dal nodo (denominato \textit{seed}) con il peso più elevato, vengono aggiunti al complesso i nodi che hanno un peso superiore ad una determinata soglia; (3) vengono applicati dei filtri per migliorare la qualità del \textit{cluster}.
 \end{enumerate}
 
-\section{PPIN: \textit{Annotation enrichment analysis}}
-Ci sono molti approcci diversi che possono essere utilizzati per comprendere il contesto biologico delle PPIN. L'\textit{Annotation enrichment analysis} è uno dei metodi più popolari. Anche se non è propriamente uno strumento di analisi delle reti, è spesso utilizzato in combinazione con l'analisi topologica delle reti.
+\section{PPIN: \textit{annotation enrichment analysis}}
+Ci sono molti approcci diversi che possono essere utilizzati per comprendere il contesto biologico delle PPIN. L'\textit{annotation enrichment analysis} è uno dei metodi più popolari. Anche se non è propriamente uno strumento di analisi delle reti, è spesso utilizzato in combinazione con l'analisi topologica delle stesse.
 
-Si utilizzano le annotazioni geniche/proteine fornite, per esempio, dall'Ontologia Genica (GO) per rispondere, tramite un test statistico, alla seguente domanda:
+Si utilizzano le annotazioni geniche/proteine fornite, per esempio, dall'Ontologia Genica (GO) per rispondere, attraverso un test statistico, alla seguente domanda:
 \begin{center}
 "Quando si campionano $X$ proteine (\textit{test set}) da $N$ proteine (\textit{reference set}; grafo o \textit{annotation}), qual è la probabilità che $x$, o più, di queste proteine appartengano ad una categoria funzionale $C$ condivisa da $n$ delle $N$ proteine nel \textit{reference set}?"
 \end{center}
 Il risultato di questo test ci fornisce una lista di termini che descrivono la rete (o una parte di essa) nel suo insieme, per identificare le "comunità" interconnesse trovate attraverso il \textit{topological clustering}.
 
-I principali limiti dell'\textit{Annotation enrichment analysis} derivano dalle \textit{annotation} stesse. Alcune aree della biologia sono annotate più approfonditamente e meglio descritte di altre, con termini più dettagliati e più precisi (nel nostro caso, solo le proteine più "popolari" sono meglio annotate). Questo introduce una certa "distorsione" nell'analisi statistica.
+I principali limiti dell'\textit{annotation enrichment analysis} derivano dalle \textit{annotation} stesse. Alcune aree della Biologia sono annotate più approfonditamente e meglio descritte di altre, con termini più dettagliati e più precisi (nel nostro caso, solo le proteine più "popolari" sono meglio annotate). Questo introduce una certa "distorsione" nell'analisi statistica.
 
-È anche importante notare che i termini nell'Ontologia Genica (GO) possono essere assegnati sia da un curatore umano che esegue un'attenta annotazione manuale, sia da approcci computazionali che utilizzano le basi dell'annotazione manuale per dedurre quali termini descriverebbero in modo corretto i prodotti genici non scoperti. Ne consegue che un'altra limitazione è costituita dalla complessità e dal dettaglio dell'annotazione associati a grandi insiemi di geni/proteine. 
+È anche importante notare che i termini dell'Ontologia Genica (GO) possono essere assegnati sia da un curatore umano che esegue un'attenta annotazione manuale, sia da approcci computazionali che utilizzano le basi dell'annotazione manuale per dedurre quali termini descriverebbero in modo corretto i prodotti genici non scoperti. Ne consegue che un'altra limitazione è costituita dalla complessità e dal dettaglio dell'annotazione associati a grandi insiemi di geni o proteine. 
 \pagebreak
 
-\section{Introduzione ai metodi}
-Date due reti, "allinearle" significa trovare un mapping nodo-a-nodo (= \textit{alignement}) tra le reti che ottimizzano due obiettivi: (1) massimizzare il numero di proteine mappate (nodi) che sono correlate da un punto di vista funzionale e (2) massimizzare il numero di interazioni comuni (archi) tra le stesse.
-Il problema del \textit{Network alignment} è un problema intrattabile dovuto all'$\mathcal{NP}$-completezza sottostante al \textit{sub-graph isomorphism problem}, individuato da Spephen Cook nel 1971.
+
+Date due reti, \textbf{allinearle} significa trovare un mapping nodo-a-nodo (= \textit{alignement}) tra le reti in grado di ottimizzare due obiettivi: (1) massimizzare il numero di proteine mappate (corrispondenti ai nodi nel grafo) che sono correlate da un punto di vista funzionale e (2) massimizzare il numero di interazioni comuni (archi) tra le reti.
+
+Il problema del \textit{Network alignment} è un problema intrattabile dovuto all'$\mathcal{NP}$-completezza sottostante al \textit{sub-graph isomorphism problem}\footnote{Problema computazionale nel quale, dati due grafi $G$ e $H$ in input, si vuole determinare se $G$ contiene un sottografo isomorfico ad $H$, deve cioè esistere una corrispondenza biunivoca tra gli elementi dei grafi.}, individuato da Spephen Cook nel 1971.
 
 \section{MTGO}
 Il metodo MTGO - \textit{Module detection via Topological information and GO knowledge} - costituisce un nuovo approccio di identificazione dei moduli funzionali nelle PPIN. Questo metodo combina le informazioni provenienti dalla topologia delle reti con la conoscenza biologica relativa alle proteine.
  
-Per identificare i moduli più interessanti, MTGO utilizza partizioni ripetute della rete sfruttando la \textit{modularità} del grafo (= funzione che misura la qualità topologica di una determinata partizione in un grafo). La partizione viene successivamente appresa attraverso un processo di ottimizzazione che tiene conto della struttura della rete e della sua natura biologica. A differenza dei precedenti approcci basati su GO, MTGO fornisce un unico termine GO che descrive al meglio la natura biologica di ogni modulo identificato.
+Per identificare i moduli più interessanti, MTGO utilizza partizioni ripetute della rete sfruttando la \textit{modularità} del grafo, corrispondente ad una funzione che misura la qualità topologica di una determinata partizione in un grafo. La partizione viene successivamente appresa attraverso un processo di ottimizzazione che tiene conto della struttura della rete e della sua natura biologica. A differenza dei precedenti approcci basati su GO, MTGO fornisce un unico termine GO che descrive al meglio la natura biologica di ogni modulo identificato.
 
-Evidenziando i principali processi coinvolti nel sistema biologico, rappresentato dai modelli di PPIN, e grazie al suo modo unico di sfruttare l'Ontologia Genica, MTGO si differenzia in maniera significativa dagli algoritmi allo stato dell'arte (ClusterOne, MCODE, COACH, CFinder, Markov Cluster -MCL-, DCAFP e GMFTP). 
-%Le prestazioni di tali metodi sono state valutate sia da una prospettiva a livello di rete, sia con un'analisi relativa al rilevamento di moduli sparsi e/o di piccola dimensione.
+Evidenziando i principali processi coinvolti nel sistema biologico, rappresentato dai modelli di PPIN, e grazie al suo modo unico di sfruttare l'Ontologia Genica, MTGO si differenzia in maniera significativa dagli algoritmi allo stato dell'arte (ClusterOne, MCODE -\textit{\textbf{Sottosezione 5.2.1}}-, COACH, CFinder, Markov Cluster MCL, DCAFP e GMFTP). 
 
-Per valutare le performance di MTGO sono state selezionate, per i test, quattro PPIN reali: Krogan, Gavin, Collins e DIP Hsapi PPIN.
+Per valutare le performance di MTGO sono state selezionate, per i test, quattro PPIN reali: Krogan, Gavin, Collins e DIP Hsapi PPIN.\\
 
 \begin{center}
-\includegraphics[scale=0.53]{tab1}
+\includegraphics[scale=0.5]{tab1}
 
 \begin{small}\textit{\textbf{Figura 7.1}: In questa tabella vengono indicate le caratteristiche principali di ogni rete, incluso il numero di nodi coperti dai termini GO, usati come input per MTGO}.\end{small}
 \end{center}
@@ -325,17 +327,22 @@ MTGO ha mostrato i risultati migliori otto volte su nove ed è in grado di indiv
 
 MTGO è in grado di individuare moduli funzionali all'interno delle PPIN, prevede l'\textit{overlapping} e la copertura totale della rete\footnote{Si definisce \textit{copertura di nodi} (\textit{vertex cover}) di un grafo un insieme $C$ di nodi con la proprietà che ogni arco nel grafo abbia almeno uno dei suoi estremi in $C$.}, due \textit{features} importantissime per gli algoritmi di identificazione di moduli.
 
-MTGO prevede una mappa sia dei moduli topologici che funzionali. I moduli topologici assicurano la copertura totale della rete, mentre quelli funzionali condividono i nodi, permettendo l'\textit{overlapping}; il metodo dipende fortemente dalla qualità dei termini GO (le sue performance infatti diminuiscono significativamente a seconda della perturbazione, del 25\%, 50\% e 75\%, dei termini GO forniti) ed è stato progettato per essere testato sia su reti pesate che non. 
+MTGO prevede una mappa sia dei moduli topologici che funzionali. I moduli topologici assicurano la copertura totale della rete, mentre quelli funzionali condividono i nodi, permettendo l'\textit{overlapping}; il metodo dipende fortemente dalla qualità dei termini GO, le sue performance infatti diminuiscono significativamente a seconda della perturbazione (del 25\%, 50\% e 75\%) dei termini GO forniti ed è stato progettato per essere testato sia su reti pesate che non. 
 
 MTGO possiede l'abilità di individuare un insieme di termini GO fornendo un'interpretazione biologica significativa della PPIN, proprietà assente negli altri algoritmi allo stato dell'arte.\\
 
-\subsection{Descrizione di MTGO}
-Una PPIN può essere rappresentata tramite un grafo $G = (V,E)$ dove $V$ ed $E$ corrispondono ai nodi e agli archi della rete, rispettivamente. $V$ è l'insieme delle proteine ed è definito come $V =\left \{v_1, v_2, v_3, ..., v_N\right \}$ dove $N$ è il numero di proteine/nodi totale. $E$ rappresenta l'insieme delle relazioni tra i nodi della rete: $E = \left \{e_i,j\right \}$, $(i,j) \in$ [1,$N$]. Inoltre, $G$ detiene le proprietà topologiche PPI. Per integrare le informazioni relative alle funzioni biologiche all'interno della rete, ai nodi vengono associati i termini GO. MTGO calcola l'insieme $T = (L, \Delta)$, dove il $p$-esimo elemento è $t_p = (l_p, \delta_p)$, $l_p$ rappresenta l'\textit{ontology term}, mentre $\delta_p$ è l'$l_p$-insieme associato alla rete di proteine (si veda la \textit{\textbf{Figura 7.2}} per un esempio).
+\begin{center}
+\includegraphics[scale=0.65]{prest1}
+
+\begin{small}\textit{\textbf{Figura 7.2}: Confronto di MTGO con gli altri metodi}.\end{small}
+\end{center}
+
+Una PPIN può essere rappresentata tramite un grafo $G = (V,E)$ dove $V$ ed $E$ corrispondono ai nodi e agli archi della rete, rispettivamente. $V$ è l'insieme delle proteine ed è definito come $V =\left \{v_1, v_2, v_3, ..., v_N\right \}$ dove $N$ è il numero di proteine/nodi totale. $E$ rappresenta l'insieme delle relazioni tra i nodi della rete: $E = \left \{e_{i,j}\right \}$, $(i,j) \in$ [1,$N$]. Inoltre, $G$ detiene le proprietà topologiche PPI. Per integrare le informazioni relative alle funzioni biologiche all'interno della rete, ai nodi vengono associati i termini GO. MTGO calcola l'insieme $T = (L, \Delta)$, dove il $p$-esimo elemento è $t_p = (l_p, \delta_p)$, $l_p$ rappresenta l'\textit{ontology term}, mentre $\delta_p$ è l'$l_p$-insieme associato alla rete di proteine (si veda la \textit{\textbf{Figura 7.3}} per un esempio).
 
 \begin{center}
-\includegraphics[scale=0.4]{delta}
+\includegraphics[scale=0.35]{delta}
 
-\begin{small}\textit{\textbf{Figura 7.2}: Esempio dei $\delta$ elementi rappresentati in una rete, potrebbero condividere più nodi o essere inclusi in una categoria più vasta}.\end{small}
+\begin{small}\textit{\textbf{Figura 7.3}: Esempio dei $\delta$ elementi rappresentati in una rete, potrebbero condividere più nodi o essere inclusi in una categoria più vasta}.\end{small}
 \end{center}
 
 $I = (G,T)$ è l'input del sistema. L'obiettivo di MTGO è quello di processare $G$ per trovare gruppi di nodi che condividono sia le proprietà topologiche $(V,E)$, sia quelle funzionali $(T)$. L'output di questo metodo è $R^F = (C^F, \Phi^F)$ dove $C^F$ è l'insieme dei moduli topologici, mentre $\Phi^F$ è l'insieme dei moduli funzionali. Da notare che $|C^F| = |\Phi^F|$, la relazione è 1:1. 
@@ -348,7 +355,7 @@ L'insieme di moduli topologici $C$ costituisce una partizione della rete, $C = \
 $c_1 \cap c_2 ... \cap c_h ... \cap c_H \equiv \emptyset$
 \end{center}
 \begin{center}
- $c_1 \cup c_2 ... \cup c_h ... \cup c_H \equiv V$
+ $c_1 \cup c_2 ... \cup c_h ... \cup c_H \equiv V$.
 \end{center}
 
 Bisogna notare che ogni nodo di una partizione di $C$ viene unicamente assegnata ad un singolo modulo topologico. D'altra parte, l'insieme $\Phi = \left \{\phi_1, ..., \phi_h, ..., \phi_H\right \}$ descrive i moduli funzionali coinvolti nella rete. $\Phi$ viene definito in questo modo:
@@ -362,37 +369,34 @@ $\phi_1 \cap \phi_2 ... \cap \phi_h ... \cap \phi_H \equiv \emptyset$
 
 e $\Phi \subset T$, cioè $\Phi$ è il sottoinsieme di $T$ selezionato da MTGO per descrivere le funzioni biologiche collegate alla partizione $C$ della PPIN.
 
-La copertura completa (\textit{full coverage}) e la sovrapposizione (\textit{overlapping}) sono considerate le caratteristiche ideali degli algoritmi di identificazione di moduli. MTGO garantisce entrambe queste proprietà con il suo doppio output complementare $C$ e $\Phi$. In particolare, i moduli topologici $C$ rappresentano una partizione di rete, garantendo così una copertura completa per definizione. I moduli funzionali $\Phi$ si sovrappongono invece, consentendo l'assegnazione di un nodo a due o più moduli. Questa caratteristica è particolarmente importante in quanto riflette il comportamento dei sistemi biologici, dove una proteina può essere coinvolta in molteplici funzioni.
+La copertura completa (\textit{full coverage}) e la sovrapposizione (\textit{overlapping}) sono considerate le caratteristiche ideali degli algoritmi di identificazione di moduli. MTGO garantisce entrambe queste proprietà con il suo doppio output complementare $C$ e $\Phi$. In particolare, i moduli topologici $C$ rappresentano una partizione di rete, garantendo una copertura completa per definizione. I moduli funzionali $\Phi$ si sovrappongono, consentendo l'assegnazione di un nodo a due o più moduli. Questa caratteristica è particolarmente importante in quanto riflette il comportamento dei sistemi biologici, dove una proteina può essere coinvolta in molteplici funzioni.\\
 
 Vediamo ora di capire, per lo meno a livello intuitivo, i passi eseguiti da MTGO.
 Dato l'input $I = (G,T)$, MTGO realizza tre fasi principali: (1) inizializzazione, (2) iterazione e (3) controllo della convergenza.
 
 \begin{center}
-\includegraphics[scale=0.4]{algMTGO}
+\includegraphics[scale=0.37]{algMTGO}
 
-\begin{small}\textit{\textbf{Figura 7.3}: Rappresentazione dei passi seguiti dall'algoritmo MTGO}.\end{small}
+\begin{small}\textit{\textbf{Figura 7.4}: Rappresentazione dei passi seguiti dall'algoritmo MTGO}.\end{small}
 \end{center}
 
-\subsubsection{Inizializzazione}
-Nella fase di inizializzazione, $V$ viene utilizzato per generare una partizione casuale $C^0$ (\textit{\textbf{Figura 7.4 A}}) nella quale il numero di moduli topologici è $\propto \sqrt{N}$. $T$ viene creato partendo da una \textit{GO term list} fornita dall'utente (in conformità all'insieme $V$). Vengono successivamente definiti, sempre dall'utente, due parametri ($minSize$ e $maxSize$) che definiscono la minima e la massima taglia dei moduli in $T$, cioè il numero di nodi in un $\delta_p$.
+Nella fase di \textbf{inizializzazione}, $V$ viene utilizzato per generare una partizione casuale $C^0$ nella quale il numero di moduli topologici è $\propto \sqrt{N}$. $T$ viene creato partendo da una \textit{GO term list} fornita dall'utente (in conformità all'insieme $V$). Vengono successivamente definiti, sempre dall'utente, due parametri ($minSize$ e $maxSize$) che definiscono la minima e la massima taglia dei moduli in $T$, cioè il numero di nodi in un $\delta_p$.
 
 \begin{center}
-\includegraphics[scale=0.6]{MTGO2}
+\includegraphics[scale=0.38]{deltax}
 
-\begin{small}\textit{\textbf{Figura 7.4}: Le fasi di MTGO}.\end{small}
+\begin{small}\textit{\textbf{Figura 7.5}: Le fasi di MTGO}.\end{small}
 \end{center}
 
-\subsubsection{Iterazione}
-Ad ogni iterazione viene calcolata una coppia $(C, \Phi)$, in particolare $C$ ri-assegnando i nodi alla partizione precedente e $\Phi$ selezionando elementi da $T$ che descrivono al meglio $C$. Ogni partizione di $C$ è costituita da $c_h$ moduli topologici con $h$ rappresentante l'indice di una singolo modulo topologico ($1\leq h \leq H$, il numero totale dei moduli funzionali $H$ varia ad ogni iterazione). Idealmente, MTGO tende ad assegnare i nodi in modo che i moduli topologici coincidano con quelli funzionali\footnote{Per una trattazione dettagliata di questa fase rimandiamo alla lettura delle due sottofasi descritte nel dettaglio al seguente sito: https://www.nature.com/articles/s41598-018-23672-0Tab1}.
+Ad ogni \textbf{iterazione} viene calcolata una coppia $(C, \Phi)$, in particolare $C$ ri-assegnando i nodi alla partizione precedente e $\Phi$ selezionando elementi da $T$ che descrivono al meglio $C$. Ogni partizione di $C$ è costituita da $c_h$ moduli topologici con $h$ rappresentante l'indice di una singolo modulo topologico ($1\leq h \leq H$, il numero totale dei moduli funzionali $H$ varia ad ogni iterazione). Idealmente, MTGO tende ad assegnare i nodi in modo che i moduli topologici coincidano con quelli funzionali\footnote{Per una trattazione dettagliata di questa fase rimandiamo alla lettura delle due sottofasi descritte nel dettaglio nel paper di riferimento (si veda la \textbf{Bibliografia}.}).
 
 \begin{center}
-\includegraphics[scale=0.64]{deltaa}
+\includegraphics[scale=0.62]{deltaa}
 
-\begin{small}\textit{\textbf{Figura 7.5}: Riassegnamento di un nodo}.\end{small}
+\begin{small}\textit{\textbf{Figura 7.6}: Riassegnamento di un nodo}.\end{small}
 \end{center}
 
-\subsubsection{Convergenza}
-Per valutare se la convergenza è stata raggiunta o meno si utilizzano due funzioni: \textit{modularità} ($Q$) e \textit{Quality GO} ($QGO$). $Q$ valuta la qualità globale della partizione $C$, mentre $QGO$ valuta la corrispondenza tra $C$ e $\Phi$. Idealmente, $C$ e $\Phi$ dovrebbero essere soggette ad \textit{overlapping}.
+Per valutare se la \textbf{convergenza} è stata raggiunta o meno si utilizzano due funzioni: \textit{modularità} ($Q$) e \textit{Quality GO} ($QGO$): $Q$ valuta la qualità globale della partizione $C$, $QGO$ valuta la corrispondenza e il conseguente \textit{overlapping} tra $C$ e $\Phi$. Idealmente, $C$ e $\Phi$ dovrebbero essere soggette ad \textit{overlapping}.
 
 La formula di $Q$ è:
 
@@ -404,45 +408,47 @@ Questa formula serve a valutare le partizioni dei grafi. L'indice $k$ indica la 
 
 Il valore di $Q$ varia da -1 a 1, i valori positivi (negativi) indicano un maggior (minor) numero di collegamenti all'interno dei moduli topologici rispetto ad una randomizzazione. 
 
-\begin{center}
-$QGO(C^k) = \frac{\displaystyle{\sum_{1<h<H_k}|\delta^k_{B,h} \cap c^k_h|}}{N_{GO}}$
-\end{center}
-
-Senza scendere troppo nei dettagli, a livello intuitivo, è sufficiente dire che la formula $QGO$ serve a valutare il grado di \textit{overlapping} tra $C^k$ e $\Phi^k$.
+%\begin{center}
+%$QGO(C^k) = \frac{\displaystyle{\sum_{1<h<H_k}|\delta^k_{B,h} \cap c^k_h|}}{N_{GO}}$
+%\end{center}
+%
+%Senza scendere troppo nei dettagli, a livello intuitivo, è sufficiente dire che la formula $QGO$ serve a valutare il grado di \textit{overlapping} tra $C^k$ e $\Phi^k$.
 
 \pagebreak
 \section{IsoRank}
-IsoRank è un metodo per l'allineamento globale di più PPIN. L'intuizione da tener presente è che una proteina in una rete PPI costituisce una buona corrispondenza (\textit{match}) per una proteina in un'altra rete se le loro rispettive sequenze e i loro intorni topologici sono una buona corrispondenza. Utilizzando IsoRank, calcoliamo un allineamento globale delle reti PPI \textit{Saccharomyces cerevisiae}, \textit{Drosophila melanogaster}, \textit{Caenorhabditis elegans}, \textit{Mus musculus} e \textit{Homo sapiens} (i sottografi individuati con questi allineamenti sono più grandi e più vari di quelli prodotti dai metodi precedenti). Metodi precedenti hanno dimostrato la loro efficacia nell'identificare pattern localizzati confrontando tra di loro due reti. Questo metodo rappresenta un grande passo avanti per l'allineamento di più reti PPI ed è applicabile in molti settori scientifici.
+IsoRank è un metodo per l'allineamento globale di più PPIN. L'intuizione da tener presente è che una proteina in una rete PPI produce una buona corrispondenza (\textit{match}) con una proteina in un'altra rete se le loro rispettive sequenze e i loro intorni topologici costituiscono una buona corrispondenza. IsoRank è stato utilizzato per calcolare un allineamento globale delle reti PPI \textit{Saccharomyces cerevisiae} (lievito di birra -fungo-), \textit{Drosophila melanogaster} (moscerino della frutta), \textit{Caenorhabditis elegans} (verme), \textit{Mus musculus} (topo comune) e \textit{Homo sapiens}.
+
+I sottografi individuati con questi allineamenti sono più grandi e più vari di quelli prodotti da metodi precedenti che hanno dimostrato la loro efficacia nell'identificare pattern localizzati confrontando tra di loro solamente due reti. Questo metodo rappresenta un grande passo avanti per l'allineamento di più reti PPI ed è applicabile in molti settori scientifici.
 
 IsoRank rappresenta un approccio di analisi comparativa delle reti PPI al fine di trovare una soluzione al problema di allineamento ottimo \textit{globale} tra due o più PPIN, mirando a trovare la corrispondenza tra i nodi e gli archi delle reti in input che massimizzi il \textit{match} totale tra le reti.
 
-\subsection{Global vs. Local Network Alignment}
-In generale, l'obiettivo in un problema di allineamento di rete è quello di trovare un sottografo comune (cioè un insieme di archi conservati) tra le reti in input. Corrispondentemente a questi archi conservati, esiste una mappatura tra i nodi delle reti. Per esempio, quando la proteina $a_1$ dalla rete $G_1$ viene mappata sulle proteine $a_2$ in $G_2$ e $a_3$ in $G_3$, allora $a_1$, $a_2$ e $a_3$ si riferiscono allo stesso nodo nell'insieme degli archi conservati. Ciò che rende difficile il problema è il compromesso (\textit{trade-off}) da ottenere: massimizzare la sovrapposizione (\textit{overlap}) tra le reti (cioè il numero di archi conservati), garantendo al tempo stesso che le proteine mappate siano il più possibile correlate.
+\subsection{\textit{Global} vs. \textit{Local Network Alignment}}
+In generale, l'obiettivo in un problema di allineamento di rete è quello di trovare un sottografo comune (cioè un insieme di archi "conservati") tra le reti in input. Corrispondentemente a questi archi conservati, esiste una mappatura (\textit{mapping}) tra i nodi delle reti. Per esempio, quando la proteina $a_1$ dalla rete $G_1$ viene mappata sulle proteine $a_2$ in $G_2$ e $a_3$ in $G_3$, allora $a_1$, $a_2$ e $a_3$ si riferiscono allo stesso nodo nell'insieme degli archi conservati. Ciò che rende difficile il problema è il compromesso (\textit{trade-off}) da ottenere: massimizzare la sovrapposizione (\textit{overlap}) tra le reti (cioè il numero di archi conservati), garantendo al tempo stesso che le proteine mappate siano il più possibile correlate.
 
-L'obiettivo nel GNA è quello di trovare il miglior allineamento complessivo tra le reti in ingresso. Un algoritmo LNA è essenzialmente destinato a trovare motivi/pattern simili tra due reti (o sottoreti); nel GNA, tuttavia, l'obiettivo è quello di trovare un'unica mappatura coerente che copra tutti i nodi tra tutti i grafi in input. Inoltre, deve esserci \textit{transitività}: se $a_1$ in $G_1$ viene mappata su $a_2$ in $G_2$ e $a_2$ viene mappata su $a_3$ e $a_4$ in $G_3$, allora anche $a_1$ dovrebbe essere mappato su $a_3$ e $a_4$. Il GNA può essere usato per confrontare gli interattomi e per comprendere le variazioni tra specie.
+Mentre un algoritmo \textit{Local Network Alignment} è essenzialmente destinato a trovare pattern simili tra due reti (o sottoreti), l'obiettivo nel \textit{Global Network Alignment} è quello di trovare il miglior allineamento complessivo tra le reti in ingresso.
+Inoltre, deve valere una proprietà di \textit{transitività}: se $a_1$ in $G_1$ viene mappata su $a_2$ in $G_2$ e $a_2$ viene mappata su $a_3$ e $a_4$ in $G_3$, allora anche $a_1$ dovrebbe essere mappata su $a_3$ e $a_4$. Il GNA può essere usato per confrontare gli interattomi e per comprendere le variazioni tra specie.
 
 \subsection{\textit{Score} e \textit{mapping}}
-Consideriamo un semplice caso di GNA a coppie. L'input consiste in due PPIN $G_1$ e $G_2$. Ogni arco $e$ può aver associato un peso $w(e)$ ($0\leq w(e) \leq1$). Inoltre, l'input consiste anche di una \textit{similarity measure} tra i nodi delle due reti.
+Consideriamo un semplice caso di GNA a coppie. L'input consiste in due PPIN $G_1$ e $G_2$ (ogni arco $e$ può aver associato un peso $w(e)$, con $0\leq w(e) \leq1$) e di una \textit{similarity measure} tra i nodi delle due reti (per esempio BLAST \textit{similarity measure}).
 
-L'output desiderato è un mapping tra i nodi delle due reti che massimizza la combinazione convessa delle seguenti funzioni obiettivo: (1) la dimensione del grafo in comune in seguito al mapping e (2) la somiglianza tra le sequenze dei nodi.
+L'output desiderato è un mapping tra i nodi delle due reti che massimizza la combinazione convessa delle seguenti funzioni obiettivo: (1) la dimensione del grafo in comune in seguito al mapping e (2) la somiglianza tra le sequenze dei nodi mappati gli uni negli altri.
 
-L'algoritmo prevede due fasi. Nella prima fase associa un \textit{functional similarity score} ad ogni possibile match tra i nodi delle due reti. Sia $R_{ij}$ lo score per la coppia di proteine ($i,j$) dove $i$ proviene dalla rete $G_1$, mentre $j$ da $G_2$. La seconda fase costruisce la mappatura per il GNA estraendo un insieme di score elevati (in accordo con il vettore \textit{\textbf{R}}).
-Per calcolare il \textit{functional similarity score} $R_{ij}$ consideriamo la coppia ($i,j$) un buon match se le sequenze di $i$ e di $j$ si allineano e i loro rispettivi "vicini" costituiscono a loro volta un buon match(scrivi bene). Bisogna quindi creare un insieme di vincoli e calcolare i \textit{neighborhood scores} in modo ricorsivo. Si consideri la seguente equazione:
+L'algoritmo prevede \textbf{due fasi}. Nella prima fase associa un \textit{functional similarity score} ad ogni possibile match tra i nodi delle due reti. Sia $R_{ij}$ lo \textit{score} per la coppia di proteine ($i,j$) dove $i$ proviene dalla rete $G_1$, mentre $j$ da $G_2$. La seconda fase costruisce la mappatura per il GNA estraendo un insieme di \textit{score} elevati (in accordo con \textit{\textbf{R}}, il vettore di tutti $R_{ij}$).
+Per calcolare il \textit{functional similarity score} $R_{ij}$ consideriamo la coppia ($i,j$) un "buon match" se le sequenze di $i$ e di $j$ sono allineate e i loro "vicini" costituiscono a loro volta un buon match gli uni con gli altri. Bisogna quindi generare un insieme di vincoli e calcolare i \textit{neighborhood scores} in modo ricorsivo. Si consideri la seguente equazione:
 
 \begin{center}
 \textit{\textbf{R}} = $\sum R_{ij}$ = $\displaystyle{\sum_{u \in N(i)}} \displaystyle{\sum_{v \in N(j)}\frac{1}{|N(i)||N(j)|} R_{ij}}$ con $i \in V_1$, $j \in V_2$
 \end{center}
 
-$N(a)$ rappresenta tutti i \textit{neighbors} del nodo $a$; $|N(a)|$ la cardinalità di questo insieme; $V_1$ e $V_2$ sono gli insiemi dei nodi nelle reti $G_1$ e $G_2$ rispettivamente. Lo score $R_{ij}$ dipende dagli score dei vicini di $i$ e $j$, che a loro volta dipendono dai vicini dei vicini etc. I nodi che hanno una buona corrispondenza hanno valori score $R_{ij}$ più alti.
+dove $N(a)$ rappresenta tutti i \textit{neighbors} del nodo $a$; $|N(a)|$ la cardinalità di questo insieme; $V_1$ e $V_2$ sono gli insiemi dei nodi nelle reti $G_1$ e $G_2$ rispettivamente. Lo \textit{score} $R_{ij}$ dipende dagli \textit{score} dei vicini di $i$ e $j$, che a loro volta dipendono dai vicini dei vicini etc... 
+
+I nodi che hanno una buona corrispondenza hanno valori score $R_{ij}$ più alti.
 
 \begin{center}
-\includegraphics[scale=0.36]{isorank}
+\includegraphics[scale=0.3]{isorank}
 
 \begin{small}\textit{\textbf{Figura 8.1}: desc mancante vedi paper}.\end{small}
 \end{center}
-
-Multiple GNA
-Quando l'input consiste di più di due reti, si ripete il processo appena descritto per tutte le possibili coppie di reti fornite in input e successivamente si calcolano i \textit{functional similarity scores} \textit{\textbf{R}} per ogni coppia di reti in input.
 
 A questo punto dell'algoritmo abbiamo uno score $R_{ij}$ per ogni coppia di nodi che non sono nella stessa rete; in genere, per il 99\% delle coppie-nodo, questo valore è zero. Dopo aver identificato gli score più alti bisogna assicurarsi che il mapping mantenga la propietà di transitività (descritta in precedenza). Il mapping si può ottenere in due modi: 
 \begin{enumerate}
@@ -450,30 +456,23 @@ A questo punto dell'algoritmo abbiamo uno score $R_{ij}$ per ogni coppia di nodi
   \setlength{\parskip}{0pt}
   \setlength{\parsep}{0pt}
 \item \textbf{One-to-one Mapping}: ogni nodo viene mappato in al massimo un altro nodo (per specie);
-\item \textbf{Many-to-many}: un nodo può essere mappato in più di un nodo in un'altra specie.
+\item \textbf{Many-to-many}: un nodo può essere mappato in più di un nodo in un'altra specie.\footnote{\textbf{Multiple GNA}: Quando l'input consiste di più di due reti, si ripete il processo appena descritto per tutte le possibili coppie di reti fornite in input e successivamente si calcolano i \textit{functional similarity scores} \textit{\textbf{R}} per ogni coppia di reti in input.}
 \end{enumerate}
 
-global alignment of yeast, fly, worm, human, and mouse networks
+Concludiamo proponendo l'analisi del sottografo comune ottenuto dall'allineamento delle cinque specie elencate in precedenza.
 
-Il sottografo comune corrispondente all'allineamento globale possiede 1663 archi in comune ad almeno due PPIN e 157 archi in comune al almeno 3 PPIN. La dimensione dei sottografi comuni è relativamente piccola (solo $\approx$ 5\% della PPIN umana). Un motivo per il piccolo overlap tra le reti PPI potrebbe essere che (aaah riscrivi) i dati relativi sono incompleti o rumorosi. All'aumentare della quantità e della qualità dei dati, l'overlap dovrebbe aumentare sensibilmente. Delle 86932 proteine provenienti dalle 5 specie, 59539 (68,5\%) hanno ottenuto almeno un match in un'altra proteina di una rete diversa.
-
-
-BLABLA
-IsoRank mira a massimizzare la corrispondenza complessiva tra le due reti. Si basa sulla teoria dei grafici spettrali per calcolare i punteggi di allineamento di coppie di nodi di reti diverse; lo fa utilizzando l'euristico che due nodi sono una buona corrispondenza se anche i loro rispettivi vicini corrispondono bene. Così, il punteggio di una coppia di proteine dipende dal punteggio dei loro vicini, che, a loro volta, dipendono dai vicini dei loro vicini, e così via.
-Una volta che questi punteggi 'topologici' sono calcolati per tutte le coppie di nodi, i punteggi BLAST basati sulla sequenza sono inclusi nei punteggi di allineamento a coppie. IsoRank costruisce quindi l'allineamento dei nodi con la strategia avida e ripetitiva di identificare tra tutte le coppie di proteine la coppia con il punteggio più alto, producendo quella coppia e rimuovendo tutti i punteggi che coinvolgono uno qualsiasi dei due nodi identificati.
-
+Il sottografo corrispondente all'allineamento globale possiede 1663 archi in comune ad almeno due PPIN e 157 archi in comune al almeno 3 PPIN. La dimensione del sottografo comune è relativamente piccola (\textit{overlap} solamente con $\approx$ 5\% della PPIN umana) a causa delle probabili incompletezza e rumorosità dei dati. All'aumentare della quantità e della qualità dei dati, l'\textit{overlap} dovrebbe aumentare sensibilmente. Delle 86932 proteine provenienti dalle 5 specie, 59539 (68,5\%) hanno ottenuto almeno un match con un'altra proteina di una rete diversa.
 
 \pagebreak
-\section{Struc2vec}
+\section{\textit{struc2vec}}
 La \textit{structural identity} (traducibile con \textit{identità strutturale}) corrisponde ad un concetto di simmetria nel quale i nodi di una rete vengono identificati in base alla struttura della rete stessa e tramite relazioni con altri nodi. \\
 
-\textit{struc2vec} è un framework flessibile per l'apprendimento di \textit{latent representations} (= tutte le informazioni importanti necessarie per rappresentare i dati originali) per l'identità strutturale dei nodi.
-\textit{struc2vec} utilizza una gerarchia per misurare la \textit{similarity} dei nodi su scale diverse e costruisce un grafo multi-livello (\textit{multilayer graph}) per codificare le somiglianze strutturali e generare il contesto strutturale (= ambiente che fornisce supporto per definire le connessioni/relazioni) per i nodi.
+\textit{struc2vec} è un framework flessibile per l'apprendimento di \textit{latent representations} (= tutte le informazioni importanti necessarie per rappresentare i dati originali) per l'identità strutturale dei nodi\footnote{Nodi che hanno \textit{neighborhoods} con insiemi simili di nodi dovrebbero avere \textit{latent representations} simili. Ma il \textit{neighborhood} è un concetto locale definito da una nozione di "prossimità" nella rete. Per questo motivo, due nodi "vicini" che sono strutturalmente simili ma molto distanti nella rete avranno \textit{latent representations} diverse. Si veda la \textit{\textbf{Figura 9.1}}.}.
+\textit{struc2vec} utilizza una gerarchia per misurare la \textit{similarity} dei nodi su scale diverse e costruisce un grafo multi-livello (\textit{multilayer graph}) per codificare le somiglianze strutturali.
 
-\textit{struc2vec} presenta prestazioni molto elevate nell'acquisizione di nozioni di identità strutturale in quanto supera i limiti degli approcci precedenti. Gli esperimenti numerici indicano che \textit{struc2vec} migliora le prestazioni su attività di classificazione che dipendono principalmente dall'identità strutturale.
-\textit{struc2vec} eccelle anche quando la rete originale è soggetta a forti rumori casuali (e.g. rimozione casuale di archi dal grafo).
+\textit{struc2vec} presenta prestazioni molto elevate nell'acquisizione di nozioni di identità strutturale in quanto supera i limiti raggiunti dagli approcci precedenti. Gli esperimenti numerici indicano che \textit{struc2vec} migliora le prestazioni su attività di classificazione che dipendono principalmente dall'identità strutturale; \textit{struc2vec} eccelle anche quando la rete originale è soggetta a forti rumori casuali (e.g. rimozione casuale di archi dal grafo).
 
-In quasi tutte le reti, i nodi tendono ad avere una o più funzioni che determinano il loro ruolo nel sistema; per esempio, le proteine in una rete di interazione proteina-proteina (PPIN) esercitano funzioni specifiche. 
+In quasi tutte le reti, i nodi tendono ad avere una o più funzioni che determinano il loro ruolo nel sistema; come abbiamo imparato, le proteine in una rete di interazione proteina-proteina (PPIN) esercitano funzioni specifiche. 
 Intuitivamente, dunque, diversi nodi in tali reti possono eseguire funzioni simili e spesso possono essere partizionati in classi equivalenti rispetto alla loro funzione nella rete.
 
 \begin{center}
@@ -482,17 +481,18 @@ Intuitivamente, dunque, diversi nodi in tali reti possono eseguire funzioni simi
 \begin{small}\textit{\textbf{Figura 8.1}: Esempio di due nodi (u e v) strutturalmente simili (gradi 5 e 4, connessi a 3 e 2 triangoli, collegati al resto della rete da due nodi), ma molto distanti nella rete}.\end{small}
 \end{center}
 
-\subsection{Idee di base blabla scrivere qualcosa per introdurre}
+\subsection{Idee di base e struttura di \textit{struc2vec}}
+Elenchiamo qui di seguito le idee fondamentali che stanno alla base di questo metodo:
 \begin{enumerate}
 \setlength{\itemsep}{1pt}
   \setlength{\parskip}{0pt}
   \setlength{\parsep}{0pt}
-  \item Valuta la \textit{structural similarity} tra i nodi indipendentemente da eventuali attributi associati a nodi o archi, o addirittura dalla loro posizione all'interno della rete. Quindi, due nodi che hanno una struttura locale simile saranno considerati "strutturalmente simili", indipendentemente dalla posizione di rete e le etichette dei nodi nei loro quartieri.
+  \item Valuta la \textit{structural similarity} tra i nodi indipendentemente da eventuali attributi associati a nodi o archi, o addirittura dalla loro posizione all'interno della rete. Due nodi che hanno una struttura locale simile saranno considerati "strutturalmente simili", indipendentemente dalla posizione di rete e dai \textit{labels} associati ai vari \textit{neighborhoods}.
   
 Questo approccio inoltre non richiede un grafo connesso, identifica nodi strutturalmente simili anche in componenti connesse diverse.
   \item Stabilisce una gerarchia per valutare la \textit{structural similarity}.
 Ai livelli inferiori della gerarchia la \textit{structural similarity} tra i nodi dipende solamente dai loro gradi, per poi, man mano che si procede verso la cima, dipendere dall'intera rete (dal punto di vista del nodo).
-  \item Genera \textit{contexts} casuali per i nodi, che corrispondono a sequenze di nodi strutturalmente simili  (in seguito ad una \textit{random walk} pesata che attraversa un grafo multilayer (e non la rete originale). Pertanto, due nodi che appaiono frequentemente con contesti simili avranno molto probabilmente una struttura simile.
+  \item Genera sequenze di nodi strutturalmente simili  (in seguito ad una \textit{random walk} pesata che attraversa un grafo multilayer (e non la rete originale). Pertanto, due nodi che appaiono frequentemente con sequenze simili avranno molto probabilmente una struttura simile.
 \end{enumerate}
 
 Consideriamo ora il problema delle \textit{learning representations} che catturano l'identità strutturale dei nodi nella rete. Un approccio corretto dovrebbe presentare queste due proprietà:
@@ -505,29 +505,30 @@ Consideriamo ora il problema delle \textit{learning representations} che cattura
 L'identità strutturale dei nodi deve essere indipendente dalla sua "posizione" nella rete.
 \end{itemize}
 
-\textit{struct2vec} è quindi un framework generale per l'apprendimento di rappresentazioni latenti per i nodi, composto dai seguenti quattro step principali:
+Tenendo presente queste due proprietà, \textit{struct2vec} può essere suddiviso in quattro step principali:
 \begin{enumerate}
 \setlength{\itemsep}{1pt}
   \setlength{\parskip}{0pt}
   \setlength{\parsep}{0pt}
-  \item Il metodo determina la somiglianza strutturale tra ogni coppia di vertici nel grafo per dimensioni di \textit{neighborhood} diverse; questo fatto porta alla generazione di una gerarchia che fornisce maggiori informazioni per valutare la somiglianza strutturale a ogni livello della gerarchia.
-  \item Costruisce un grafo multi-livello pesato in cui tutti i nodi della rete sono presenti in ogni layer e ogni layer corrisponde a un livello della gerarchia nella misurazione della \textit{structural similarity}.
-  \item Il metodo utilizzare il grafo multi-livello per generare il contesto per ogni nodo.
-In particolare, un cammino casuale sul grafo multilivello viene utilizzato per generare sequenze di nodi. È probabile che queste sequenze includano nodi che sono più strutturalmente simili.
-  \item Applica una tecnica per imparare la rappresentazione latente da un contesto dato dalla sequenza di nodi, ad esempio Skip-Gram.
+  \item Per prima cosa determina la somiglianza strutturale tra ogni coppia di vertici nel grafo per dimensioni di \textit{neighborhood} diverse; questo fatto porta alla generazione di una gerarchia che fornisce maggiori informazioni per valutare la somiglianza strutturale ad ogni livello della stessa.
+  \item Costruisce un grafo multi-livello pesato in cui tutti i nodi della rete compaiono in ogni layer e ogni layer corrisponde ad un livello della gerarchia nella misurazione della \textit{structural similarity}.
+  \item Utilizza il grafo multi-livello per generare (tramite \textit{random walks} sequenze di nodi. È probabile che queste sequenze includano nodi che sono più strutturalmente simili di altri.
+  \item Data la sequenza di nodi, apprende la \textit{latent representation}.
 \end{enumerate}
 
 \subsection{Misurare la somiglianza strutturale}
-Il primo passo compiuto dall'algoritmo consiste nel determinare l'identità strutturale tra due nodi senza utilizzare attribuiti di sia nodi che archi. Intuitivamente, due nodi che hanno lo stesso grado sono strutturalmente simili, ma se i loro vicini hanno anch'essi lo stesso grado, allora sono ancora di più strutturalmente simili.
+Il primo passo compiuto dall'algoritmo consiste nel determinare l'identità strutturale tra due nodi senza utilizzare attribuiti di nodi o di archi. Intuitivamente, due nodi che hanno lo stesso grado sono strutturalmente simili, ma se i loro vicini hanno anch'essi lo stesso grado, allora sono ancora di più strutturalmente simili.\\
 
-Sia $G = (V,E)$ un grafo non orientato e non pesato dove $V$ è l'insieme dei vertici ed $E$ quello degli archi, dove $n = |V|$ indica in numero dei nodi e $k^*$ il diametro (= la più grande distanza tra coppie di nodi del grafo). Sia $R_k(u)$ l'insieme dei nodi a distanza esattamente $k \geq 0$ da $u$ in $G$. $R_1(u)$ denota l'insieme dei vicini di $u$ e in generale $R_k(u)$ denota l'anello di nodi distanti $k$. Sia $s(S)$ le sequenze di gradi ordinate di un insieme $S \subset V$ di nodi. Comparando le sequenze di gradi ordinate degli anelli a distanza $k$ fra $u$ e $v$ possiamo indicare con $f_k(u,v)$ la \textit{structural distance} tra $u$ e $v$ considerando i loro $k$-hop neighborhoods (tutti i nodi a distanza minore o uguale a $k$ e tutti gli archi tra di loro). In particolare, definiamo:
+Sia $G = (V,E)$ un grafo non orientato e non pesato dove $V$ è l'insieme dei vertici ed $E$ quello degli archi, dove $n = |V|$ indica in numero dei nodi e $k^*$ il diametro (= la più grande distanza tra coppie di nodi del grafo). Sia $R_k(u)$ l'insieme dei nodi a distanza esattamente $k \geq 0$ da $u$ in $G$. $R_1(u)$ denota l'insieme dei vicini di $u$ e in generale $R_k(u)$ denota l'anello di nodi distanti $k$. Sia $s(S)$ la sequenza ordinata di gradi di un \textit{set} $S \subset V$ di nodi. Comparando le sequenze di gradi ordinate degli anelli a distanza $k$ fra $u$ e $v$ possiamo indicare con $f_k(u,v)$ la \textit{structural distance} tra $u$ e $v$ considerando i loro $k$-hop \textit{neighborhoods} (tutti i nodi a distanza minore o uguale a $k$ e tutti gli archi tra di loro). In particolare, definiamo:
 \begin{center}
 $f_k(u,v) = f_{k-1}(u,v) + g(s(R_k(u)),s(R_k(v)))$, 
 \end{center}
 \begin{center}
 $k \geq 0$ e $|R_k(u)|, |R_k(v)| > 0$
 \end{center}
-dove $g(D_1,D_2) \geq 0$ misura la distanza tra le sequenze ordinate $D_1$ e $D_2$. Per confrontare i gradi di due sequenze si utilizza Dynamic Time Warping. DTW trova l'allineamento ottimo tra due sequenze $A$ e $B$. Data la funzione distanza $d(a,b)$ per gli elementi della sequenza, DTW confronta ogni elemento $a \in A$ e $b \in B$, di modo che la somma delle distanze tra elementi corrispondenti (\textit{matched}) sia minima. Dal momento che gli elementi delle sequenze $A$ e $B$ sono i gradi dei nodi, viene adottata la seguente formula:
+dove $g(D_1,D_2) \geq 0$ misura la distanza tra le sequenze ordinate $D_1$ e $D_2$. 
+
+Per confrontare i gradi di due sequenze si utilizza Dynamic Time Warping. DTW trova l'allineamento ottimo fra due sequenze $A$ e $B$. Data una funzione distanza $d(a,b)$ per gli elementi della sequenza, DTW confronta ogni elemento $a \in A$ e $b \in B$, di modo che la somma delle distanze tra elementi corrispondenti (\textit{matched}) sia minima. Dal momento che gli elementi delle sequenze $A$ e $B$ sono i gradi dei nodi, viene adottata la seguente formula:
 \begin{center}
 $d(a,b) = \displaystyle{\frac{max(a,b)}{min(a,b)}}-1$
 \end{center}
