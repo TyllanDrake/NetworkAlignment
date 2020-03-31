@@ -441,17 +441,17 @@ Per calcolare il \textit{functional similarity score} $R_{ij}$ consideriamo la c
 \textit{\textbf{R}} = $\sum R_{ij}$ = $\displaystyle{\sum_{u \in N(i)}} \displaystyle{\sum_{v \in N(j)}\frac{1}{|N(i)||N(j)|} R_{ij}}$ con $i \in V_1$, $j \in V_2$
 \end{center}
 
-dove $N(a)$ rappresenta tutti i \textit{neighbors} del nodo $a$; $|N(a)|$ la cardinalità di questo insieme; $V_1$ e $V_2$ sono gli insiemi dei nodi nelle reti $G_1$ e $G_2$ rispettivamente. Lo \textit{score} $R_{ij}$ dipende dagli \textit{score} dei vicini di $i$ e $j$, che a loro volta dipendono dai vicini dei vicini etc... 
+dove $N(a)$ rappresenta tutti i \textit{neighbors} del nodo $a$; $|N(a)|$ la cardinalità di questo insieme; $V_1$ e $V_2$ sono gli insiemi dei nodi nelle reti $G_1$ e $G_2$ rispettivamente. Lo \textit{score} $R_{ij}$ dipende dagli \textit{score} dei vicini di $i$ e $j$, che a loro volta dipendono dai vicini dei vicini etc.
 
 I nodi che hanno una buona corrispondenza hanno valori score $R_{ij}$ più alti.
 
 \begin{center}
 \includegraphics[scale=0.3]{isorank}
 
-\begin{small}\textit{\textbf{Figura 8.1}: desc mancante vedi paper}.\end{small}
+\begin{small}\textit{\textbf{Figura 8.1}: Intuizione alla base dell'algoritmo: consideriamo una coppia di grafi isomorfi di piccole dimensioni; per ogni possibile accoppiamento $(i,j)$ tra i nodi dei due grafi calcoliamo i valori $R_{ij}$. Questi valori sono vincolati (\textit{constrained}) a dipendere dai valori dei "vicini" (si veda l'equazione)}.\end{small}
 \end{center}
 
-A questo punto dell'algoritmo abbiamo uno score $R_{ij}$ per ogni coppia di nodi che non sono nella stessa rete; in genere, per il 99\% delle coppie-nodo, questo valore è zero. Dopo aver identificato gli score più alti bisogna assicurarsi che il mapping mantenga la propietà di transitività (descritta in precedenza). Il mapping si può ottenere in due modi: 
+A questo punto dell'algoritmo abbiamo uno score $R_{ij}$ per ogni coppia di nodi che non sono nella stessa rete; in genere, per il 99\% delle coppie-nodo, questo valore è zero. Dopo aver identificato gli score più alti bisogna assicurarsi che il \textit{mapping} mantenga la proprietà di transitività (descritta in precedenza). Il \textit{mapping} si può ottenere in due modi: 
 \begin{enumerate}
 \setlength{\itemsep}{1pt}
   \setlength{\parskip}{0pt}
@@ -468,8 +468,7 @@ Il sottografo corrispondente all'allineamento globale possiede 1663 archi in com
 \section{\textit{struc2vec}}
 La \textit{structural identity} (traducibile con \textit{identità strutturale}) corrisponde ad un concetto di simmetria nel quale i nodi di una rete vengono identificati in base alla struttura della rete stessa e tramite relazioni con altri nodi. \\
 
-\textit{struc2vec} è un framework flessibile per l'apprendimento di \textit{latent representations} (= tutte le informazioni importanti necessarie per rappresentare i dati originali) per l'identità strutturale dei nodi\footnote{Nodi che hanno \textit{neighborhoods} con insiemi simili di nodi dovrebbero avere \textit{latent representations} simili. Ma il \textit{neighborhood} è un concetto locale definito da una nozione di "prossimità" nella rete. Per questo motivo, due nodi "vicini" che sono strutturalmente simili ma molto distanti nella rete avranno \textit{latent representations} diverse. Si veda la \textit{\textbf{Figura 9.1}}.}.
-\textit{struc2vec} utilizza una gerarchia per misurare la \textit{similarity} dei nodi su scale diverse e costruisce un grafo multi-livello (\textit{multilayer graph}) per codificare le somiglianze strutturali.
+\textit{struc2vec} è un framework flessibile per l'apprendimento di \textit{latent representations} (= tutte le informazioni importanti necessarie per rappresentare i dati originali) per l'identità strutturale dei nodi\footnote{Nodi che hanno \textit{neighborhoods} con insiemi simili di nodi dovrebbero avere \textit{latent representations} simili. Ma il \textit{neighborhood} è un concetto locale definito da una nozione di "prossimità" nella rete. Per questo motivo, due nodi "vicini" che sono strutturalmente simili ma molto distanti nella rete avranno \textit{latent representations} diverse. Si veda la \textit{\textbf{Figura 9.1}}.}. \textit{struc2vec} utilizza una gerarchia, definita dalla sequenza ordinata dei gradi dei nodi, per misurare la \textit{similarity} dei nodi stessi, e costruisce un grafo multi-livello (\textit{multilayer graph}) per codificare le somiglianze strutturali.
 
 \textit{struc2vec} presenta prestazioni molto elevate nell'acquisizione di nozioni di identità strutturale in quanto supera i limiti raggiunti dagli approcci precedenti. Gli esperimenti numerici indicano che \textit{struc2vec} migliora le prestazioni su attività di classificazione che dipendono principalmente dall'identità strutturale; \textit{struc2vec} eccelle anche quando la rete originale è soggetta a forti rumori casuali (e.g. rimozione casuale di archi dal grafo).
 
@@ -479,7 +478,7 @@ Intuitivamente, dunque, diversi nodi in tali reti possono eseguire funzioni simi
 \begin{center}
 \includegraphics[scale=0.36]{struc1}
 
-\begin{small}\textit{\textbf{Figura 8.1}: Esempio di due nodi (u e v) strutturalmente simili (gradi 5 e 4, connessi a 3 e 2 triangoli, collegati al resto della rete da due nodi), ma molto distanti nella rete}.\end{small}
+\begin{small}\textit{\textbf{Figura 9.1}: Esempio di due nodi (u e v) strutturalmente simili (gradi 5 e 4, connessi a 3 e 2 triangoli, collegati al resto della rete da due nodi), ma molto distanti nella rete}.\end{small}
 \end{center}
 
 \subsection{\textit{struc2vec}: idee di base}
@@ -523,7 +522,7 @@ Il primo passo compiuto dall'algoritmo consiste nel determinare l'identità stru
 \begin{center}
 \includegraphics[scale=0.4]{struc2}
 
-\begin{small}\textit{\textbf{Figura 8.1}: Confronto di struc2vec con due algoritmi allo stato dell'arte; il metodo eccelle nell'individuazione di structural identity fra nodi}.\end{small}
+\begin{small}\textit{\textbf{Figura 9.2}: Confronto di struc2vec con due algoritmi allo stato dell'arte; il metodo eccelle nell'individuazione di structural identity fra nodi}.\end{small}
 \end{center}
 
 Sia $G = (V,E)$ un grafo non orientato e non pesato dove $V$ è l'insieme dei vertici ed $E$ quello degli archi, dove $n = |V|$ indica in numero dei nodi e $k^*$ il diametro (= la più grande distanza tra coppie di nodi del grafo). Sia $R_k(u)$ l'insieme dei nodi a distanza esattamente $k \geq 0$ da $u$ in $G$. $R_1(u)$ denota l'insieme dei vicini di $u$ e in generale $R_k(u)$ denota l'anello di nodi distanti $k$. Sia $s(S)$ la sequenza ordinata di gradi di un \textit{set} $S \subset V$ di nodi. Comparando le sequenze di gradi ordinate degli anelli a distanza $k$ fra $u$ e $v$ possiamo indicare con $f_k(u,v)$ la \textit{structural distance} tra $u$ e $v$ considerando i loro $k$-hop \textit{neighborhoods} (tutti i nodi a distanza minore o uguale a $k$ e tutti gli archi tra di loro). In particolare, definiamo:
@@ -630,7 +629,7 @@ $LR(\lambda) = max_{x,y} \displaystyle{\sum n^{\lambda}(i,k) \times x_{ik} + \su
 \begin{center}
 \includegraphics[scale=0.33]{graal2}
 
-\begin{small}\textit{\textbf{Figura 8.1}: Confronto L-GRAAL vs altri metodi}.\end{small}
+\begin{small}\textit{\textbf{Figura 10.2}: Confronto L-GRAAL vs altri metodi}.\end{small}
 \end{center}
 
 con la Programmazione Intera in $O(|V|^3 + |V|^2 \times d^3)$, dove $|V|$ è il numero di nodi nelle reti e $d$ è il valore del grado (di un nodo) massimo. Risolvere $LR(\lambda)$ genera una soluzione rilassata del problema, che corrisponde ad un \textit{upper bound} alla Programmazione Intera. 
