@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.6)  31 MAR 2020 15:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.6)  2 APR 2020 15:09
 entering extended mode
 **./AlgoBio.tex
 (AlgoBio.tex
@@ -412,7 +412,7 @@ Overfull \hbox (0.24498pt too wide) in paragraph at lines 41--41
 [1
 
 {C:/Users/lagge/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./uni.png>]
- [1] (AlgoBio.toc
+ (AlgoBio.toc
 LaTeX Font Info:    Try loading font information for U+msa on input line 5.
 
 ("C:\Users\lagge\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
@@ -426,7 +426,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout3 = `AlgoBio.toc'.
 
  [1]
-<woo.png, id=20, 853.1875pt x 540.0175pt>
+<woo.png, id=17, 853.1875pt x 540.0175pt>
 File: woo.png Graphic file (type png)
 <use woo.png>
 Package pdftex.def Info: woo.png  used on input line 81.
@@ -463,132 +463,130 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 119.
-<interact.jpg, id=35, 604.2575pt x 280.04625pt>
+<interact.jpg, id=32, 604.2575pt x 280.04625pt>
 File: interact.jpg Graphic file (type jpg)
 <use interact.jpg>
 Package pdftex.def Info: interact.jpg  used on input line 138.
 (pdftex.def)             Requested size: 362.5573pt x 168.02904pt.
  [4 <./interact.jpg>]
-<grafo.png, id=40, 401.5pt x 374.39874pt>
+<grafo.png, id=37, 401.5pt x 374.39874pt>
 File: grafo.png Graphic file (type png)
 <use grafo.png>
 Package pdftex.def Info: grafo.png  used on input line 152.
 (pdftex.def)             Requested size: 160.59715pt x 149.75684pt.
-<graffo.png, id=41, 702.625pt x 408.52625pt>
+<graffo.png, id=38, 702.625pt x 408.52625pt>
 File: graffo.png Graphic file (type png)
 <use graffo.png>
 Package pdftex.def Info: graffo.png  used on input line 165.
 (pdftex.def)             Requested size: 372.38947pt x 216.51788pt.
  [5 <./grafo.png>] [6 <./graffo.png>]
-<grafffo.png, id=51, 401.5pt x 321.2pt>
+<grafffo.png, id=48, 401.5pt x 321.2pt>
 File: grafffo.png Graphic file (type png)
 <use grafffo.png>
 Package pdftex.def Info: grafffo.png  used on input line 202.
 (pdftex.def)             Requested size: 260.9719pt x 208.77753pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 225--226
+ [7 <./grafffo.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 226--227
 
  []
 
-[7 <./grafffo.png>]
-<ppin.png, id=56, 702.625pt x 509.905pt>
+[8]
+<ppin.png, id=57, 702.625pt x 509.905pt>
 File: ppin.png Graphic file (type png)
 <use ppin.png>
-Package pdftex.def Info: ppin.png  used on input line 241.
+Package pdftex.def Info: ppin.png  used on input line 242.
 (pdftex.def)             Requested size: 245.92242pt x 178.46942pt.
- [8 <./ppin.png>]
-<ca.png, id=62, 501.875pt x 501.875pt>
+<ca.png, id=58, 501.875pt x 501.875pt>
 File: ca.png Graphic file (type png)
 <use ca.png>
-Package pdftex.def Info: ca.png  used on input line 251.
+Package pdftex.def Info: ca.png  used on input line 252.
 (pdftex.def)             Requested size: 200.74643pt x 200.74643pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 263--264
+ [9 <./ppin.png> <./ca.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 264--265
 
  []
 
-[9 <./ca.png>]
-<ng.png, id=67, 602.25pt x 410.53375pt>
+<ng.png, id=64, 602.25pt x 410.53375pt>
 File: ng.png Graphic file (type png)
 <use ng.png>
-Package pdftex.def Info: ng.png  used on input line 279.
+Package pdftex.def Info: ng.png  used on input line 280.
 (pdftex.def)             Requested size: 331.23851pt x 225.79425pt.
 
-Overfull \hbox (5.59308pt too wide) in paragraph at lines 284--285
+Overfull \hbox (5.59308pt too wide) in paragraph at lines 285--286
 [][]\OT1/cmr/m/n/10.95 E im-por-tan-te no-ta-re che tro-va-re la mi-glio-re str
 ut-tu-ra di "co-mu-nita" e al-go-rit-mi-ca-men-te com-ples-so
  []
 
 
-Overfull \hbox (1.09848pt too wide) in paragraph at lines 286--287
+Overfull \hbox (1.09848pt too wide) in paragraph at lines 287--288
 \OT1/cmr/m/it/10.95 cen-tra-li-ty va-lues \OT1/cmr/m/n/10.95 piu ele-va-te. Pe
 r de-fi-ni-re i \OT1/cmr/m/it/10.95 clu-ster \OT1/cmr/m/n/10.95 il me-to-do uti
 -liz-za \OT1/cmr/m/it/10.95 ed-ge bet-ween-ness cen-tra-li-ty
  []
 
-
-Overfull \hbox (1.22668pt too wide) in paragraph at lines 287--289
+[10 <./ng.png>]
+Overfull \hbox (1.22668pt too wide) in paragraph at lines 288--290
 []\OT1/cmr/bx/it/10.95 Algoritmo MCO-DE\OT1/cmr/m/n/10.95 : Que-sto me-to-do e
  sta-to ap-po-si-ta-men-te svi-lup-pa-to per tro-va-re com-ples-si
  []
 
-[10 <./ng.png>] [11]
-Underfull \hbox (badness 10000) in paragraph at lines 317--318
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 318--319
 
  []
 
-<tab1.jpg, id=76, 829.59938pt x 161.85469pt>
+<tab1.jpg, id=72, 829.59938pt x 161.85469pt>
 File: tab1.jpg Graphic file (type jpg)
 <use tab1.jpg>
-Package pdftex.def Info: tab1.jpg  used on input line 320.
+Package pdftex.def Info: tab1.jpg  used on input line 321.
 (pdftex.def)             Requested size: 414.79868pt x 80.92714pt.
 [12 <./tab1.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 332--333
+Underfull \hbox (badness 10000) in paragraph at lines 333--334
 
  []
 
-<prest1.jpg, id=81, 593.96906pt x 680.5425pt>
+<prest1.jpg, id=78, 593.96906pt x 680.5425pt>
 File: prest1.jpg Graphic file (type jpg)
 <use prest1.jpg>
-Package pdftex.def Info: prest1.jpg  used on input line 335.
+Package pdftex.def Info: prest1.jpg  used on input line 336.
 (pdftex.def)             Requested size: 386.07532pt x 442.34738pt.
 [13 <./prest1.jpg>]
-<delta.jpg, id=86, 769.37437pt x 664.73344pt>
+<delta.jpg, id=83, 769.37437pt x 664.73344pt>
 File: delta.jpg Graphic file (type jpg)
 <use delta.jpg>
-Package pdftex.def Info: delta.jpg  used on input line 344.
+Package pdftex.def Info: delta.jpg  used on input line 345.
 (pdftex.def)             Requested size: 269.28506pt x 232.66019pt.
 
-Overfull \hbox (0.29076pt too wide) in paragraph at lines 349--350
+Overfull \hbox (0.29076pt too wide) in paragraph at lines 350--351
 \OT1/cmr/m/n/10.95 grup-pi di no-di che con-di-vi-do-no sia le pro-prieta to-p
 o-lo-gi-che $(\OML/cmm/m/it/10.95 V; E\OT1/cmr/m/n/10.95 )$, sia quel-le fun-zi
 o-na-li $(\OML/cmm/m/it/10.95 T\OT1/cmr/m/n/10.95 )$. L'out-put
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 373--374
+Underfull \hbox (badness 10000) in paragraph at lines 374--375
 
  []
 
 [14 <./delta.jpg>]
-<algMTGO.jpg, id=90, 1165.35374pt x 607.51968pt>
+<algMTGO.jpg, id=87, 1165.35374pt x 607.51968pt>
 File: algMTGO.jpg Graphic file (type jpg)
 <use algMTGO.jpg>
-Package pdftex.def Info: algMTGO.jpg  used on input line 379.
+Package pdftex.def Info: algMTGO.jpg  used on input line 380.
 (pdftex.def)             Requested size: 431.17413pt x 224.77876pt.
-<deltax.jpg, id=91, 951.555pt x 392.21532pt>
+<deltax.jpg, id=88, 951.555pt x 392.21532pt>
 File: deltax.jpg Graphic file (type jpg)
 <use deltax.jpg>
-Package pdftex.def Info: deltax.jpg  used on input line 387.
+Package pdftex.def Info: deltax.jpg  used on input line 388.
 (pdftex.def)             Requested size: 361.59465pt x 149.04337pt.
  [15 <./algMTGO.jpg> <./deltax.jpg>]
-<deltaa.jpg, id=95, 695.59875pt x 234.1247pt>
+<deltaa.jpg, id=92, 695.59875pt x 234.1247pt>
 File: deltaa.jpg Graphic file (type jpg)
 <use deltaa.jpg>
-Package pdftex.def Info: deltaa.jpg  used on input line 395.
+Package pdftex.def Info: deltaa.jpg  used on input line 396.
 (pdftex.def)             Requested size: 431.26677pt x 145.1558pt.
 
-Overfull \hbox (14.48006pt too wide) in paragraph at lines 400--401
+Overfull \hbox (14.48006pt too wide) in paragraph at lines 401--402
 \OT1/cmr/m/n/10.95 ($\OML/cmm/m/it/10.95 Q$\OT1/cmr/m/n/10.95 ) e \OT1/cmr/m/it
 /10.95 Qua-li-ty GO \OT1/cmr/m/n/10.95 ($\OML/cmm/m/it/10.95 QGO$\OT1/cmr/m/n/1
 0.95 ): $\OML/cmm/m/it/10.95 Q$ \OT1/cmr/m/n/10.95 va-lu-ta la qua-lita glo-ba
@@ -597,162 +595,162 @@ m/it/10.95 QGO$ \OT1/cmr/m/n/10.95 va-lu-ta la cor-ri-spon-den-za
  []
 
 [16 <./deltaa.jpg>]
-Overfull \hbox (2.7726pt too wide) in paragraph at lines 420--421
+Overfull \hbox (2.7726pt too wide) in paragraph at lines 421--422
 \OT1/cmr/m/it/10.95 Sac-cha-ro-my-ces ce-re-vi-siae \OT1/cmr/m/n/10.95 (lie-vi-
 to di bir-ra -fungo-), \OT1/cmr/m/it/10.95 Dro-so-phi-la me-la-no-ga-ster \OT1/
 cmr/m/n/10.95 (mo-sce-ri-no del-la frut-ta),
  []
 
 [17]
-<isorank.jpg, id=105, 1284.8pt x 548.0475pt>
+<isorank.jpg, id=101, 1284.8pt x 548.0475pt>
 File: isorank.jpg Graphic file (type jpg)
 <use isorank.jpg>
-Package pdftex.def Info: isorank.jpg  used on input line 449.
+Package pdftex.def Info: isorank.jpg  used on input line 450.
 (pdftex.def)             Requested size: 385.44298pt x 164.41551pt.
  [18 <./isorank.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 469--470
+Underfull \hbox (badness 10000) in paragraph at lines 470--471
 
  []
 
-<struc1.jpg, id=111, 1107.38719pt x 293.59688pt>
+<struc1.jpg, id=108, 1107.38719pt x 293.59688pt>
 File: struc1.jpg Graphic file (type jpg)
 <use struc1.jpg>
-Package pdftex.def Info: struc1.jpg  used on input line 479.
+Package pdftex.def Info: struc1.jpg  used on input line 480.
 (pdftex.def)             Requested size: 398.65909pt x 105.69478pt.
 [19 <./struc1.jpg>]
-Overfull \hbox (0.38496pt too wide) in paragraph at lines 508--509
+Overfull \hbox (0.38496pt too wide) in paragraph at lines 509--510
 []\OT1/cmr/m/n/10.95 Tenendo pre-sen-te que-ste due pro-prieta, \OT1/cmr/m/it/
 10.95 struct2vec \OT1/cmr/m/n/10.95 puo es-se-re sud-di-vi-so in quat-tro step
  prin-ci-pa-li: 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 520--521
+Underfull \hbox (badness 10000) in paragraph at lines 521--522
 
  []
 
-<struc2.jpg, id=115, 1193.96063pt x 322.95656pt>
+<struc2.jpg, id=112, 1193.96063pt x 322.95656pt>
 File: struc2.jpg Graphic file (type jpg)
 <use struc2.jpg>
-Package pdftex.def Info: struc2.jpg  used on input line 523.
+Package pdftex.def Info: struc2.jpg  used on input line 524.
 (pdftex.def)             Requested size: 477.57579pt x 129.18033pt.
 
-Overfull \hbox (7.82077pt too wide) in paragraph at lines 523--524
+Overfull \hbox (7.82077pt too wide) in paragraph at lines 524--525
  [] 
  []
 
 [20 <./struc2.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 542--543
+Underfull \hbox (badness 10000) in paragraph at lines 543--544
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 564--565
+Underfull \hbox (badness 10000) in paragraph at lines 565--566
 
  []
 
 [21] [22]
-Underfull \hbox (badness 10000) in paragraph at lines 570--571
+Underfull \hbox (badness 10000) in paragraph at lines 571--572
 
  []
 
 
-Overfull \hbox (0.90181pt too wide) in paragraph at lines 579--580
+Overfull \hbox (0.90181pt too wide) in paragraph at lines 580--581
 \OT1/cmr/m/n/10.95 In L-GRAAL si mi-su-ra la re-la-zio-ne tra due pro-tei-ne ma
 p-pa-te $\OML/cmm/m/it/10.95 u$ \OT1/cmr/m/n/10.95 e $\OML/cmm/m/it/10.95 f\OT1
 /cmr/m/n/10.95 (\OML/cmm/m/it/10.95 u\OT1/cmr/m/n/10.95 )$ uti-liz-zan-do il lo
 -ro al-li-nea-men-to
  []
 
-<graal1.jpg, id=126, 1239.12938pt x 683.55376pt>
+<graal1.jpg, id=123, 1239.12938pt x 683.55376pt>
 File: graal1.jpg Graphic file (type jpg)
 <use graal1.jpg>
-Package pdftex.def Info: graal1.jpg  used on input line 595.
+Package pdftex.def Info: graal1.jpg  used on input line 596.
 (pdftex.def)             Requested size: 408.91396pt x 225.57344pt.
 [23]
-Overfull \hbox (4.90607pt too wide) in paragraph at lines 606--607
+Overfull \hbox (4.90607pt too wide) in paragraph at lines 607--608
 \OT1/cmr/m/n/10.95 im-pos-si-bi-le. L-GRAAL uti-liz-za \OT1/cmr/m/it/10.95 se-q
 uen-ce \OT1/cmr/m/n/10.95 e \OT1/cmr/m/it/10.95 gra-phlet de-gree si-mi-la-ri-t
 ies \OT1/cmr/m/n/10.95 per se-le-zio-na-re un sot-toin-sie-me
  []
 
 
-Overfull \hbox (0.79994pt too wide) in paragraph at lines 606--607
+Overfull \hbox (0.79994pt too wide) in paragraph at lines 607--608
 \OT1/cmr/m/n/10.95 suc-ces-si-va-men-te un al-go-rit-mo \OT1/cmr/m/it/10.95 gre
 e-dy \OT1/cmr/m/n/10.95 per esten-de-re la ri-cer-ca de-gli al-li-nea-men-ti. I
 l \OT1/cmr/m/it/10.95 net-work ali-gn-ment
  []
 
 [24 <./graal1.jpg>]
-<graal2.jpg, id=134, 1442.38875pt x 340.27126pt>
+<graal2.jpg, id=131, 1442.38875pt x 340.27126pt>
 File: graal2.jpg Graphic file (type jpg)
 <use graal2.jpg>
-Package pdftex.def Info: graal2.jpg  used on input line 630.
+Package pdftex.def Info: graal2.jpg  used on input line 631.
 (pdftex.def)             Requested size: 475.98976pt x 112.28986pt.
 
-Overfull \hbox (6.23474pt too wide) in paragraph at lines 630--631
+Overfull \hbox (6.23474pt too wide) in paragraph at lines 631--632
  [] 
  []
 
 [25 <./graal2.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 649--659
+Underfull \hbox (badness 10000) in paragraph at lines 650--660
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 649--659
+Underfull \hbox (badness 10000) in paragraph at lines 650--660
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 649--659
+Underfull \hbox (badness 10000) in paragraph at lines 650--660
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 649--659
+Underfull \hbox (badness 10000) in paragraph at lines 650--660
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 649--659
+Underfull \hbox (badness 10000) in paragraph at lines 650--660
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 649--659
+Underfull \hbox (badness 10000) in paragraph at lines 650--660
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 649--659
+Underfull \hbox (badness 10000) in paragraph at lines 650--660
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 649--659
+Underfull \hbox (badness 10000) in paragraph at lines 650--660
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 649--659
+Underfull \hbox (badness 10000) in paragraph at lines 650--660
 
  []
 
 [26]
-Overfull \hbox (43.1923pt too wide) in paragraph at lines 667--668
+Overfull \hbox (43.1923pt too wide) in paragraph at lines 668--669
 []\OT1/cmr/m/n/10.95 https://www.ebi.ac.uk/training/online/course/network-analy
 sis-protein-interaction-data-introduction 
  []
 
 
-Overfull \hbox (41.43822pt too wide) in paragraph at lines 671--672
+Overfull \hbox (41.43822pt too wide) in paragraph at lines 672--673
 \OT1/cmr/m/n/10.95 Func-tio-nal Mo-du-le Iden-ti-fi-ca-tion. Sci Rep 8, 5499 (2
 018). https://doi.org/10.1038/s41598-018-23672-0 
  []
 
 
-Overfull \hbox (36.3739pt too wide) in paragraph at lines 673--674
+Overfull \hbox (36.3739pt too wide) in paragraph at lines 674--675
 \OT1/cmr/m/n/10.95 struc-tu-re in bio-lo-gi-cal net-works. Nat Rev Ge-net 14, 7
 19{732 (2013). https://doi.org/10.1038/nrg3552 
  []
@@ -792,9 +790,9 @@ nts/cm/cmti10.pfb><C:/Users/lagge/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
 /public/amsfonts/cm/cmti12.pfb><C:/Users/lagge/AppData/Local/Programs/MiKTeX 2.
 9/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/lagge/AppData/Local/Progra
 ms/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on AlgoBio.pdf (29 pages, 2786932 bytes).
+Output written on AlgoBio.pdf (28 pages, 2786158 bytes).
 PDF statistics:
- 212 PDF objects out of 1000 (max. 8388607)
+ 209 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  101 words of extra memory for PDF output out of 10000 (max. 10000000)
 
