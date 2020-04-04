@@ -1,4 +1,4 @@
-# NetworkAlignement
+# NetworkAlignment
 
 
 # Work in progress...
