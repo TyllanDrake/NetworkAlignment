@@ -21,8 +21,8 @@
 \contentsline {section}{\numberline {9}\textit {struc2vec}}{19}
 \contentsline {subsection}{\numberline {9.1}\textit {struc2vec}: idee di base}{19}
 \contentsline {subsection}{\numberline {9.2}\textit {struc2vec}: descrizione delle iterazioni}{20}
-\contentsline {section}{\numberline {10}L-GRAAL}{23}
-\contentsline {subsection}{\numberline {10.1}\textit {Similarity scores} e funzione obiettivo}{23}
-\contentsline {subsection}{\numberline {10.2}Strategia di ricerca \textit {two-step alignment}}{24}
-\contentsline {section}{\numberline {11}Conclusioni}{26}
-\contentsline {section}{\numberline {12}Bibliografia \& Sitografia}{27}
+\contentsline {section}{\numberline {10}L-GRAAL}{24}
+\contentsline {subsection}{\numberline {10.1}\textit {Similarity scores} e funzione obiettivo}{24}
+\contentsline {subsection}{\numberline {10.2}Strategia di ricerca \textit {two-step alignment}}{25}
+\contentsline {section}{\numberline {11}Conclusioni}{27}
+\contentsline {section}{\numberline {12}Bibliografia \& Sitografia}{28}
