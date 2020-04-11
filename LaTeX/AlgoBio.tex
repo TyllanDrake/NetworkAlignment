@@ -471,7 +471,7 @@ La \textit{structural identity} (traducibile con \textit{identità strutturale})
 
 \textit{struc2vec} è un framework flessibile per l'apprendimento di \textit{latent representations} (= tutte le informazioni importanti necessarie per rappresentare i dati originali) per l'identità strutturale dei nodi\footnote{Nodi che hanno \textit{neighborhoods} con insiemi simili di nodi dovrebbero avere \textit{latent representations} simili. Ma il \textit{neighborhood} è un concetto locale definito da una nozione di "prossimità" nella rete. Per questo motivo, due nodi "vicini" che sono strutturalmente simili ma molto distanti nella rete avranno \textit{latent representations} diverse. Si veda la \textit{\textbf{Figura 9.1}}.}. \textit{struc2vec} utilizza una gerarchia, definita dalla sequenza ordinata dei gradi dei nodi, per misurare la \textit{similarity} dei nodi stessi e costruisce un grafo multi-livello (\textit{multilayer graph}) per codificare le somiglianze strutturali.
 
-\textit{struc2vec} presenta prestazioni molto elevate nell'acquisizione di nozioni di identità strutturale in quanto supera i limiti raggiunti dagli approcci precedenti. Gli esperimenti numerici indicano che \textit{struc2vec} migliora le prestazioni su attività di classificazione che dipendono principalmente dall'identità strutturale; \textit{struc2vec} eccelle anche quando la rete originale è soggetta a forti rumori casuali (e.g. rimozione casuale di archi dal grafo).
+Sviluppato nel 2017, \textit{struc2vec} presenta prestazioni molto elevate nell'acquisizione di nozioni di identità strutturale in quanto supera i limiti raggiunti dagli approcci precedenti. Gli esperimenti numerici indicano che \textit{struc2vec} migliora le prestazioni su attività di classificazione che dipendono principalmente dall'identità strutturale; \textit{struc2vec} eccelle anche quando la rete originale è soggetta a forti rumori casuali (e.g. rimozione casuale di archi dal grafo).
 
 In quasi tutte le reti, i nodi tendono ad avere una o più funzioni che determinano il loro ruolo nel sistema; come abbiamo imparato, le proteine in una rete di interazione proteina-proteina (PPIN) esercitano funzioni specifiche. 
 Intuitivamente, dunque, diversi nodi in tali reti possono eseguire funzioni simili e spesso possono essere partizionati in classi equivalenti rispetto alla loro funzione nella rete.
@@ -520,12 +520,6 @@ Tenendo presente queste due proprietà, \textit{struct2vec} può essere suddivis
 \subsection{\textit{struc2vec}: descrizione delle iterazioni}
 Il primo passo compiuto dall'algoritmo consiste nel determinare l'identità strutturale tra due nodi senza utilizzare attribuiti di nodi o di archi. Intuitivamente, due nodi che hanno lo stesso grado sono strutturalmente simili, ma se i loro vicini hanno anch'essi lo stesso grado, allora sono ancora di più strutturalmente simili.\\
 
-\begin{center}
-\includegraphics[scale=0.4]{struc2}
-
-\begin{small}\textit{\textbf{Figura 9.2}: Confronto di struc2vec con due algoritmi allo stato dell'arte; il metodo eccelle nell'individuazione di structural identity fra nodi}.\end{small}
-\end{center}
-
 Sia $G = (V,E)$ un grafo non orientato e non pesato dove $V$ è l'insieme dei vertici ed $E$ quello degli archi, dove $n = |V|$ indica in numero dei nodi e $k^*$ il diametro (= la più grande distanza tra coppie di nodi del grafo). Sia $R_k(u)$ l'insieme dei nodi a distanza esattamente $k \geq 0$ da $u$ in $G$. $R_1(u)$ denota l'insieme dei vicini di $u$ e in generale $R_k(u)$ denota l'anello di nodi distanti $k$. Sia $s(S)$ la sequenza ordinata di gradi di un \textit{set} $S \subset V$ di nodi. Comparando le sequenze di gradi ordinate degli anelli a distanza $k$ fra $u$ e $v$ possiamo indicare con $f_k(u,v)$ la \textit{structural distance} tra $u$ e $v$ considerando i loro $k$-hop \textit{neighborhoods} (tutti i nodi a distanza minore o uguale a $k$ e tutti gli archi tra di loro). In particolare, definiamo:
 \begin{center}
 $f_k(u,v) = f_{k-1}(u,v) + g(s(R_k(u)),s(R_k(v)))$, 
@@ -564,11 +558,45 @@ Per ogni nodo $u$ \textit{struc2vec} procede con una \textit{random walk} parten
 
 Si utilizza infine \textit{Skip-Gram}, una tecnica di \textit{unsupervised learning} per NLP, per identificare o derivare le \textit{latent representations} dalle sequenze ottenute.\\
 
-A \textit{struc2vec} è possibile applicare una serie di ottimizzazioni (a partire dall'implementazione di DTW, che raggiunge una complessità di $O(l)$ a fronte dell'$O(l^2)$ iniziale) che permettono di raggiungere una complessità di $O(k^*n^3)$ grazie alla riduzione della lunghezza delle sequenze dei gradi e del numero dei layer.
-\pagebreak
+A \textit{struc2vec} è possibile applicare una serie di ottimizzazioni (a partire dall'implementazione di DTW, che raggiunge una complessità di $O(l)$ a fronte dell'$O(l^2)$ iniziale) che permettono di raggiungere una complessità di $O(k^*n^3)$ grazie alla riduzione della lunghezza delle sequenze dei gradi e del numero dei layer.\\
 
+\textit{struc2vec} è stato testato in diversi scenari e confrontato con gli algoritmi allo stato dell'arte (\textit{DeepWalk} e \textit{node2vec}) per l'apprendimento di \textit{latent representations}.
+
+Il primo test ha previsto la costruzione di un particolare tipo di grafo, denominato \textit{barbell graph}, costituito da due grafi completi connessi da un \textit{path graph}. Ogni coppia di nodi che è strutturalmente equivalente dovrebbe avere \textit{latent representations} simili (che a loro volta dovrebbero essere in grado di descrivere, nel miglior modo possibile, la gerarchia strutturale).
+
+\begin{center}
+\includegraphics[scale=0.6]{struc6}
+
+\begin{small}\textit{\textbf{Figura 9.2}: Barbell graph}.\end{small}
+\end{center}
+
+Anche in seguito ad un tuning dei parametri, \textit{DeepWalk} fallisce nell'individuare le equivalenze strutturali, mentre \textit{node2vec} non riconosce le identità strutturali; \textit{struc2vec} invece individua le \textit{latent representations} posizionando inoltre i nodi strutturalmente equivalenti gli uni vicino agli altri (si veda la \textit{\textbf{Figura 9.3}}).
+
+\begin{center}
+\includegraphics[scale=0.4]{struc2}
+
+\begin{small}\textit{\textbf{Figura 9.3}: Confronto di struc2vec con due algoritmi allo stato dell'arte; il metodo eccelle nell'individuazione di structural identity fra nodi}.\end{small}
+\end{center}
+
+Un secondo test ha previsto l'utilizzo della \textit{Zachary's Karate Club network}, una rete composta da 34 nodi e 78 archi, nella quale ogni nodo rappresenta un membro del club e gli archi denotato un'interazione (esterna al club) fra due membri (informalmente, una relazione di "amicizia"). La rete è stata duplicata (si veda la \textit{\textbf{Figura 9.4}}) in due grafi $G_1$ e $G_2$ nei quali ogni nodo in $G_1$ possiede un corrispettivo \textit{specchio} in $G_2$. I due grafi sono stati connessi tramite un arco fra i nodi 1 e 37.
+ 
+\begin{center}
+\includegraphics[scale=0.56]{struc4}
+
+\begin{small}\textit{\textbf{Figura 9.4}: Zachary's Karate Club network con nodi specchio}.\end{small}
+\end{center}
+
+Anche in questo esempio \textit{DeepWalk} e \textit{node2vec} falliscono nell'individuare le \textit{latent representations} di nodi strutturalmente equivalenti (inclusi i nodi \textit{specchio}), mentre \textit{struc2vec} fornisce i risultati migliori.
+
+\begin{center}
+\includegraphics[scale=0.35]{a4}
+
+\begin{small}\textit{\textbf{Figura 9.5}: Secondo test: confronto di struc2vec con i due algoritmi allo stato dell'arte}.\end{small}
+\end{center}
+
+\pagebreak
 \section{L-GRAAL}
-L-GRAAL -\textit{Lagrangian graphlet-based network aligner} - è un metodo basato sull'idea di mappare insieme nodi che costituiscono un pattern (presenza di sottografi chiamati \textit{graphlet}\footnote{I \textit{graphlet} sono sottografi di piccole dimensioni, connessi, non-isomorfici, indotti da un grafo più grande (sono indicati come G$_0$,...,G$_{29}$ nella \textit{\textbf{Figura 10.1}}).}) definito da una grande quantità di interazioni condivise. L-GRAAL ottimizza una funzione obiettivo, che fonde le informazioni derivanti dalle sequenze di proteine con le interazioni tra i vari \textit{graphlet}, risolta con la Programmazione Intera. L-GRAAL è in grado di individuare l'\textit{overlap} tra le reti e fornisce risultati migliori di tutti gli altri metodi GO-based a livello di \textit{mapping} delle proteine e delle interazioni tra le stesse.\\
+Sviluppato nel 2015, L-GRAAL -\textit{Lagrangian graphlet-based network aligner} - è un metodo basato sull'idea di mappare insieme nodi che costituiscono un pattern (presenza di sottografi chiamati \textit{graphlet}\footnote{I \textit{graphlet} sono sottografi di piccole dimensioni, connessi, non-isomorfici, indotti da un grafo più grande (sono indicati come G$_0$,...,G$_{29}$ nella \textit{\textbf{Figura 10.1}}).}) definito da una grande quantità di interazioni condivise. L-GRAAL ottimizza una funzione obiettivo, che fonde le informazioni derivanti dalle sequenze di proteine con le interazioni tra i vari \textit{graphlet}, risolta con la Programmazione Intera. L-GRAAL è in grado di individuare l'\textit{overlap} tra le reti e fornisce risultati migliori di tutti gli altri metodi GO-based a livello di \textit{mapping} delle proteine e delle interazioni tra le stesse.\\
 
 Date due PPIN, $N_1 = (V_1, E_1)$ e $N_2 = (V_2, E_2)$ (con $|V_1| \leq |V_2|$, un \textit{allineamento globale}, $f: V_1 \rightarrow V_2$, è un mapping 1-a-1 dei nodi di $V_1$ con quelli di $V_2$. Ad un \textit{allineamento globale} viene associato uno score $S$:
 \begin{center}
@@ -627,27 +655,25 @@ Si risolve l'equazione
 $LR(\lambda) = max_{x,y} \displaystyle{\sum n^{\lambda}(i,k) \times x_{ik} + \sum e^{\lambda}(i,j,k,l) \times y_{ijkl}}$
 \end{center}
 
+con la Programmazione Intera in $O(|V|^3 + |V|^2 \times d^3)$, dove $|V|$ è il numero di nodi nelle reti e $d$ è il valore del grado (di un nodo) massimo. Risolvere $LR(\lambda)$ genera una soluzione rilassata del problema, che corrisponde ad un \textit{upper bound} alla Programmazione Intera. 
+
+Per risolvere tale problema nella sua interezza è necessario ricondursi alla formulazione duale per minimizzazare $LR(\lambda)$ su $\lambda)$ con la tecnica del \textit{gradient descent}. Sfortunatamente, anche questo problema è $\mathcal{NP}$-completo e, in pratica, si risolve generando una sequenza finita di interazioni. L'algoritmo restituisce il risultato dopo un determinato limite temporale o dopo un numero di iterazioni fissato.\\
+
+Tutti i test, eseguiti su di un computer desktop con processore Intel Core i7-2600 a 3.40 GHz e una memoria RAM da 64 GB, hanno mostrato il grande potenziale di L-GRAAL (come mostrato dalla \textit{\textbf{Figura 10.2}}).
+
 \begin{center}
 \includegraphics[scale=0.33]{graal2}
 
 \begin{small}\textit{\textbf{Figura 10.2}: Confronto L-GRAAL vs altri metodi}.\end{small}
 \end{center}
 
-con la Programmazione Intera in $O(|V|^3 + |V|^2 \times d^3)$, dove $|V|$ è il numero di nodi nelle reti e $d$ è il valore del grado (di un nodo) massimo. Risolvere $LR(\lambda)$ genera una soluzione rilassata del problema, che corrisponde ad un \textit{upper bound} alla Programmazione Intera. 
-
-Per risolvere tale problema nella sua interezza è necessario ricondursi alla formulazione duale per minimizzazare $LR(\lambda)$ su $\lambda)$ con la tecnica del \textit{gradient descent}. Sfortunatamente, anche questo problema è $\mathcal{NP}$-completo e, in pratica, si risolve generando una sequenza finita di interazioni. L'algoritmo restituisce il risultato dopo un determinato limite temporale o dopo un numero di iterazioni fissato.
-
 \pagebreak
 \section{Conclusioni}
 Negli ultimi anni, il corpus di dati PPI è cresciuto esponenzialmente e il rapido ritmo di accumulo dati continua imperterrito tutt'oggi. L'obiettivo di questo progetto è stato di far capire la struttura delle reti di interazione proteina-proteina e le implicazioni dal punto di vista biologico.
 
-Scoprire e capire i pattern all'interno delle PPIN è un problema centrale in Biologia. Gli allineamenti tra queste reti permettono di scoprire informazioni su complessi proteici che fino a pochi anni fa non erano note. Abbiamo proposto una descrizione, seppur breve, di quattro dei metodi più all'avanguardia, MTGO, IsoRank, \textit{struc2vec} e L-GRAAL, tutti con un'elevata complessità dal punto di vista computazionale a causa dell'$\mathcal{NP}$-completezza del problema.
+Scoprire e capire i pattern all'interno delle PPIN è un problema centrale in Biologia. Gli allineamenti tra queste reti permettono di scoprire informazioni su complessi proteici che fino a pochi anni fa non erano note. Abbiamo proposto una descrizione, seppur breve, di quattro dei metodi più all'avanguardia, MTGO, IsoRank, \textit{struc2vec} e L-GRAAL, tutti con un'elevata complessità dal punto di vista computazionale a causa dell'$\mathcal{NP}$-completezza del problema.\\
 
-Molte sfide sono ancora aperte e molte frontiere devono ancora essere esplorate; con questo progetto abbiamo dato solamente una vaga idea della vastità dell'argomento, di cui si è appena iniziato a parlare. 
-
-Speriamo che ciò che abbiamo fatto sia stato di vostro gradimento.
-
-Grazie.
+Molte sfide sono ancora aperte e molte frontiere devono ancora essere esplorate; con questo progetto abbiamo solamente dato una vaga idea della vastità dell'argomento, di cui si è appena iniziato a parlare.\\
 \\
 \\
 \\
