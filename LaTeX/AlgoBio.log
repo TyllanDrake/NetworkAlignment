@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.6)  4 APR 2020 15:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.6)  11 APR 2020 17:27
 entering extended mode
 **./AlgoBio.tex
 (AlgoBio.tex
@@ -629,138 +629,180 @@ Underfull \hbox (badness 10000) in paragraph at lines 521--522
 
  []
 
-<struc2.jpg, id=112, 1193.96063pt x 322.95656pt>
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 537--538
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 559--560
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 561--562
+
+ []
+
+[21]
+<struc6.jpg, id=119, 628.59843pt x 268.75406pt>
+File: struc6.jpg Graphic file (type jpg)
+<use struc6.jpg>
+Package pdftex.def Info: struc6.jpg  used on input line 568.
+(pdftex.def)             Requested size: 377.16197pt x 161.25368pt.
+<struc2.jpg, id=120, 1193.96063pt x 322.95656pt>
 File: struc2.jpg Graphic file (type jpg)
 <use struc2.jpg>
-Package pdftex.def Info: struc2.jpg  used on input line 524.
+Package pdftex.def Info: struc2.jpg  used on input line 576.
 (pdftex.def)             Requested size: 477.57579pt x 129.18033pt.
 
-Overfull \hbox (7.82077pt too wide) in paragraph at lines 524--525
+Overfull \hbox (7.82077pt too wide) in paragraph at lines 576--577
  [] 
  []
 
-[20 <./struc2.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 543--544
+<struc4.jpg, id=121, 599.23875pt x 663.98062pt>
+File: struc4.jpg Graphic file (type jpg)
+<use struc4.jpg>
+Package pdftex.def Info: struc4.jpg  used on input line 584.
+(pdftex.def)             Requested size: 335.57141pt x 371.8266pt.
+[22 <./struc6.jpg> <./struc2.jpg>]
+Overfull \hbox (3.05278pt too wide) in paragraph at lines 589--590
+[]\OT1/cmr/m/n/10.95 Anche in que-sto esem-pio \OT1/cmr/m/it/10.95 Dee-p-Walk \
+OT1/cmr/m/n/10.95 e \OT1/cmr/m/it/10.95 no-de2vec \OT1/cmr/m/n/10.95 fal-li-sco
+-no nel-l'in-di-vi-dua-re le \OT1/cmr/m/it/10.95 la-tent re-pre-sen-ta-tions
+ []
+
+<a4.jpg, id=125, 1332.47812pt x 342.5297pt>
+File: a4.jpg Graphic file (type jpg)
+<use a4.jpg>
+Package pdftex.def Info: a4.jpg  used on input line 592.
+(pdftex.def)             Requested size: 466.37433pt x 119.88718pt.
+[23 <./struc4.jpg> <./a4.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 599--600
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 565--566
-
- []
-
-[21] [22]
-Underfull \hbox (badness 10000) in paragraph at lines 571--572
-
- []
-
-
-Overfull \hbox (0.90181pt too wide) in paragraph at lines 580--581
+Overfull \hbox (0.90181pt too wide) in paragraph at lines 608--609
 \OT1/cmr/m/n/10.95 In L-GRAAL si mi-su-ra la re-la-zio-ne tra due pro-tei-ne ma
 p-pa-te $\OML/cmm/m/it/10.95 u$ \OT1/cmr/m/n/10.95 e $\OML/cmm/m/it/10.95 f\OT1
 /cmr/m/n/10.95 (\OML/cmm/m/it/10.95 u\OT1/cmr/m/n/10.95 )$ uti-liz-zan-do il lo
 -ro al-li-nea-men-to
  []
 
-<graal1.jpg, id=123, 1239.12938pt x 683.55376pt>
+<graal1.jpg, id=129, 1239.12938pt x 683.55376pt>
 File: graal1.jpg Graphic file (type jpg)
 <use graal1.jpg>
-Package pdftex.def Info: graal1.jpg  used on input line 596.
+Package pdftex.def Info: graal1.jpg  used on input line 624.
 (pdftex.def)             Requested size: 408.91396pt x 225.57344pt.
-[23]
-Overfull \hbox (4.90607pt too wide) in paragraph at lines 607--608
+[24]
+Overfull \hbox (4.90607pt too wide) in paragraph at lines 635--636
 \OT1/cmr/m/n/10.95 im-pos-si-bi-le. L-GRAAL uti-liz-za \OT1/cmr/m/it/10.95 se-q
 uen-ce \OT1/cmr/m/n/10.95 e \OT1/cmr/m/it/10.95 gra-phlet de-gree si-mi-la-ri-t
 ies \OT1/cmr/m/n/10.95 per se-le-zio-na-re un sot-toin-sie-me
  []
 
 
-Overfull \hbox (0.79994pt too wide) in paragraph at lines 607--608
+Overfull \hbox (0.79994pt too wide) in paragraph at lines 635--636
 \OT1/cmr/m/n/10.95 suc-ces-si-va-men-te un al-go-rit-mo \OT1/cmr/m/it/10.95 gre
 e-dy \OT1/cmr/m/n/10.95 per esten-de-re la ri-cer-ca de-gli al-li-nea-men-ti. I
 l \OT1/cmr/m/it/10.95 net-work ali-gn-ment
  []
 
-[24 <./graal1.jpg>]
-<graal2.jpg, id=131, 1442.38875pt x 340.27126pt>
+[25 <./graal1.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 660--661
+
+ []
+
+<graal2.jpg, id=137, 1442.38875pt x 340.27126pt>
 File: graal2.jpg Graphic file (type jpg)
 <use graal2.jpg>
-Package pdftex.def Info: graal2.jpg  used on input line 631.
+Package pdftex.def Info: graal2.jpg  used on input line 665.
 (pdftex.def)             Requested size: 475.98976pt x 112.28986pt.
 
-Overfull \hbox (6.23474pt too wide) in paragraph at lines 631--632
+Overfull \hbox (6.23474pt too wide) in paragraph at lines 665--666
  [] 
  []
 
-[25 <./graal2.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 650--660
+[26 <./graal2.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 674--675
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 650--660
+Underfull \hbox (badness 10000) in paragraph at lines 676--686
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 650--660
+Underfull \hbox (badness 10000) in paragraph at lines 676--686
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 650--660
+Underfull \hbox (badness 10000) in paragraph at lines 676--686
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 650--660
+Underfull \hbox (badness 10000) in paragraph at lines 676--686
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 650--660
+Underfull \hbox (badness 10000) in paragraph at lines 676--686
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 650--660
+Underfull \hbox (badness 10000) in paragraph at lines 676--686
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 650--660
+Underfull \hbox (badness 10000) in paragraph at lines 676--686
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 650--660
+Underfull \hbox (badness 10000) in paragraph at lines 676--686
 
  []
 
-[26]
-Overfull \hbox (43.1923pt too wide) in paragraph at lines 668--669
+
+Underfull \hbox (badness 10000) in paragraph at lines 676--686
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 676--686
+
+ []
+
+[27]
+Overfull \hbox (43.1923pt too wide) in paragraph at lines 694--695
 []\OT1/cmr/m/n/10.95 https://www.ebi.ac.uk/training/online/course/network-analy
 sis-protein-interaction-data-introduction 
  []
 
 
-Overfull \hbox (41.43822pt too wide) in paragraph at lines 672--673
+Overfull \hbox (41.43822pt too wide) in paragraph at lines 698--699
 \OT1/cmr/m/n/10.95 Func-tio-nal Mo-du-le Iden-ti-fi-ca-tion. Sci Rep 8, 5499 (2
 018). https://doi.org/10.1038/s41598-018-23672-0 
  []
 
 
-Overfull \hbox (36.3739pt too wide) in paragraph at lines 674--675
+Overfull \hbox (36.3739pt too wide) in paragraph at lines 700--701
 \OT1/cmr/m/n/10.95 struc-tu-re in bio-lo-gi-cal net-works. Nat Rev Ge-net 14, 7
 19{732 (2013). https://doi.org/10.1038/nrg3552 
  []
 
-[27] (AlgoBio.aux) ) 
+[28] (AlgoBio.aux) ) 
 Here is how much of TeX's memory you used:
- 4722 strings out of 492970
- 64706 string characters out of 3126594
+ 4737 strings out of 492970
+ 64893 string characters out of 3126594
  153452 words of memory out of 3000000
- 8473 multiletter control sequences out of 15000+200000
+ 8485 multiletter control sequences out of 15000+200000
  18162 words of font info for 66 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,11n,43p,1921b,331s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -790,9 +832,9 @@ nts/cm/cmti10.pfb><C:/Users/lagge/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
 /public/amsfonts/cm/cmti12.pfb><C:/Users/lagge/AppData/Local/Programs/MiKTeX 2.
 9/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/lagge/AppData/Local/Progra
 ms/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on AlgoBio.pdf (28 pages, 2786145 bytes).
+Output written on AlgoBio.pdf (29 pages, 3007011 bytes).
 PDF statistics:
- 209 PDF objects out of 1000 (max. 8388607)
+ 215 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 101 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 116 words of extra memory for PDF output out of 10000 (max. 10000000)
 
