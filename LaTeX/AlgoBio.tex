@@ -408,13 +408,9 @@ $Q(C^k) = \displaystyle{\sum_{1<h<H_k}\frac{e^k_h}{|E|} - \left(\frac{d^k_h}{2 \
 
 Questa formula serve a valutare le partizioni dei grafi. L'indice $k$ indica la $k$-esima iterazione dell'algoritmo. $C^k$ è la $k$-esima partizione, $H^k$ è il numero di moduli topologici, $e^k_h$ è il numero totale di archi nell'$h$-esimo modulo topologico mentre $d^k_h$ è la somma dei gradi dei nodi dell'$h$-esimo modulo topologico. 
 
-Il valore di $Q$ varia da -1 a 1, i valori positivi (negativi) indicano un maggior (minor) numero di collegamenti all'interno dei moduli topologici rispetto ad una randomizzazione. 
+Il valore di $Q$ varia da -1 a 1, i valori positivi (negativi) indicano un maggior (minor) numero di collegamenti all'interno dei moduli topologici rispetto ad una randomizzazione.\\
 
-%\begin{center}
-%$QGO(C^k) = \frac{\displaystyle{\sum_{1<h<H_k}|\delta^k_{B,h} \cap c^k_h|}}{N_{GO}}$
-%\end{center}
-%
-%Senza scendere troppo nei dettagli, a livello intuitivo, è sufficiente dire che la formula $QGO$ serve a valutare il grado di \textit{overlapping} tra $C^k$ e $\Phi^k$.
+MTGO rimane, a quasi 3 anni dallo sviluppo, sconosciuto ai più con solamente 13 citazioni su Google Scholar. Dato comunque l'esiguo numero di citazioni, questo metodo rimane il metro di paragone utilizzato da altri ricercatori nello sviluppo di efficienti algoritmi per l'identificazione di moduli funzionali nelle PPIN.
 
 \pagebreak
 \section{IsoRank}
@@ -463,7 +459,9 @@ A questo punto dell'algoritmo abbiamo uno score $R_{ij}$ per ogni coppia di nodi
 
 Concludiamo proponendo l'analisi del sottografo comune ottenuto dall'allineamento delle cinque specie elencate in precedenza.
 
-Il sottografo corrispondente all'allineamento globale possiede 1663 archi in comune ad almeno due PPIN e 157 archi in comune al almeno 3 PPIN. La dimensione del sottografo comune è relativamente piccola (\textit{overlap} solamente con $\approx$ 5\% della PPIN umana) a causa delle probabili incompletezza e rumorosità dei dati. All'aumentare della quantità e della qualità dei dati, l'\textit{overlap} dovrebbe aumentare sensibilmente. Delle 86932 proteine provenienti dalle 5 specie, 59539 (68,5\%) hanno ottenuto almeno un match con un'altra proteina di una rete diversa.
+Il sottografo corrispondente all'allineamento globale possiede 1663 archi in comune ad almeno due PPIN e 157 archi in comune al almeno 3 PPIN. La dimensione del sottografo comune è relativamente piccola (\textit{overlap} solamente con $\approx$ 5\% della PPIN umana) a causa delle probabili incompletezza e rumorosità dei dati. All'aumentare della quantità e della qualità dei dati, l'\textit{overlap} dovrebbe aumentare sensibilmente. Delle 86932 proteine provenienti dalle 5 specie, 59539 (68,5\%) hanno ottenuto almeno un match con un'altra proteina di una rete diversa.\\
+
+IsoRank è stato citato ben 505 volte (fonte: Google Scholar) dallo sviluppo nel 2008, proposto in moltissime varianti, costituisce un "baluardo" per il GNA.
 
 \pagebreak
 \section{\textit{struc2vec}}
@@ -594,6 +592,8 @@ Anche in questo esempio \textit{DeepWalk} e \textit{node2vec} falliscono nell'in
 \begin{small}\textit{\textbf{Figura 9.5}: Secondo test: confronto di struc2vec con i due algoritmi allo stato dell'arte}.\end{small}
 \end{center}
 
+Per concludere, ci teniamo a sottolineare il fatto che \textit{struc2vec} è stato citato 302 volte (fonte: Google Scholar) e per gli ambiti più differenti. \`E stato confrontato con un metodo sviluppato l'anno successivo, \textit{Deep Recursive Network Embedding} (DRNE), sullo stesso dataset; le prestazioni rimangono tutt'ora molto elevate.
+
 \pagebreak
 \section{L-GRAAL}
 Sviluppato nel 2015, L-GRAAL -\textit{Lagrangian graphlet-based network aligner} - è un metodo basato sull'idea di mappare insieme nodi che costituiscono un pattern (presenza di sottografi chiamati \textit{graphlet}\footnote{I \textit{graphlet} sono sottografi di piccole dimensioni, connessi, non-isomorfici, indotti da un grafo più grande (sono indicati come G$_0$,...,G$_{29}$ nella \textit{\textbf{Figura 10.1}}).}) definito da una grande quantità di interazioni condivise. L-GRAAL ottimizza una funzione obiettivo, che fonde le informazioni derivanti dalle sequenze di proteine con le interazioni tra i vari \textit{graphlet}, risolta con la Programmazione Intera. L-GRAAL è in grado di individuare l'\textit{overlap} tra le reti e fornisce risultati migliori di tutti gli altri metodi GO-based a livello di \textit{mapping} delle proteine e delle interazioni tra le stesse.\\
@@ -667,11 +667,19 @@ Tutti i test, eseguiti su di un computer desktop con processore Intel Core i7-26
 \begin{small}\textit{\textbf{Figura 10.2}: Confronto L-GRAAL vs altri metodi}.\end{small}
 \end{center}
 
+I metodi considerati sono stati inizialmente confrontati in base alla loro capacità di mappare le proteine che sono collegate in modo simile in entrambe le reti PPI. Nel primo grafico viene mostrata la percentuale di interazioni dalla rete più piccola mappate ad interazioni nell'altra rete. Poiché questa percentuale può essere ottenuta mappando regioni sparse della rete più piccola in regioni densamente connesse di quella più grande, misuriamo, contemporaneamente, anche quanto sono topologicamente simili  le regioni mappate usando \textit{symmetric sub-structure score}, che è la percentuale degli archi conservati tra la rete più piccola e la sottorete dalla rete più grande indotta dall'allineamento (si veda il secondo grafico). Infine, utilizziamo la dimensione del componente connesso più grande (\textit{largest connected component}, LCC) per garantire che gli allineamenti corrispondano ad una grande sottostruttura, comune, connessa, invece che a diverse piccole sottostrutture disconnesse.\\
+
+In tutti i test svolti, il metodo L-GRAAL (citato 95 volte su Google Scholar negli ultimi anni 5 anni) ha mostrato una percentuale di successo non indifferente e uguale (a volte addirittura superiore) a tutti gli altri (si pensi ad esempio ad IsoRank, presentato nella \textit{\textbf{Sezione 8}}), in particolare con metodi testati per lo stesso problema e sullo stesso dataset.\\
+
+
+
 \pagebreak
 \section{Conclusioni}
 Negli ultimi anni, il corpus di dati PPI è cresciuto esponenzialmente e il rapido ritmo di accumulo dati continua imperterrito tutt'oggi. L'obiettivo di questo progetto è stato di far capire la struttura delle reti di interazione proteina-proteina e le implicazioni dal punto di vista biologico.
 
-Scoprire e capire i pattern all'interno delle PPIN è un problema centrale in Biologia. Gli allineamenti tra queste reti permettono di scoprire informazioni su complessi proteici che fino a pochi anni fa non erano note. Abbiamo proposto una descrizione, seppur breve, di quattro dei metodi più all'avanguardia, MTGO, IsoRank, \textit{struc2vec} e L-GRAAL, tutti con un'elevata complessità dal punto di vista computazionale a causa dell'$\mathcal{NP}$-completezza del problema.\\
+Scoprire e capire i pattern all'interno delle PPIN è un problema centrale in Biologia. Gli allineamenti tra queste reti permettono di scoprire informazioni su complessi proteici che fino a pochi anni fa non erano note. 
+
+Abbiamo proposto una descrizione, seppur breve, del funzionamento di quattro dei metodi più all'avanguardia proposti negli ultimi anni: MTGO, IsoRank, \textit{struc2vec} e L-GRAAL; metodi con un'elevata complessità dal punto di vista computazionale a causa dell'$\mathcal{NP}$-completezza del problema.\\
 
 Molte sfide sono ancora aperte e molte frontiere devono ancora essere esplorate; con questo progetto abbiamo solamente dato una vaga idea della vastità dell'argomento, di cui si è appena iniziato a parlare.\\
 \\
