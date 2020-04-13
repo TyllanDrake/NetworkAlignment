@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.6)  11 APR 2020 17:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.6)  13 APR 2020 15:21
 entering extended mode
 **./AlgoBio.tex
 (AlgoBio.tex
@@ -594,8 +594,13 @@ Overfull \hbox (14.48006pt too wide) in paragraph at lines 401--402
 m/it/10.95 QGO$ \OT1/cmr/m/n/10.95 va-lu-ta la cor-ri-spon-den-za
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 411--412
+
+ []
+
 [16 <./deltaa.jpg>]
-Overfull \hbox (2.7726pt too wide) in paragraph at lines 421--422
+Overfull \hbox (2.7726pt too wide) in paragraph at lines 417--418
 \OT1/cmr/m/it/10.95 Sac-cha-ro-my-ces ce-re-vi-siae \OT1/cmr/m/n/10.95 (lie-vi-
 to di bir-ra -fungo-), \OT1/cmr/m/it/10.95 Dro-so-phi-la me-la-no-ga-ster \OT1/
 cmr/m/n/10.95 (mo-sce-ri-no del-la frut-ta),
@@ -605,32 +610,42 @@ cmr/m/n/10.95 (mo-sce-ri-no del-la frut-ta),
 <isorank.jpg, id=101, 1284.8pt x 548.0475pt>
 File: isorank.jpg Graphic file (type jpg)
 <use isorank.jpg>
-Package pdftex.def Info: isorank.jpg  used on input line 450.
+Package pdftex.def Info: isorank.jpg  used on input line 446.
 (pdftex.def)             Requested size: 385.44298pt x 164.41551pt.
- [18 <./isorank.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 470--471
+
+Underfull \hbox (badness 10000) in paragraph at lines 462--463
+
+ []
+
+[18 <./isorank.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 468--469
 
  []
 
 <struc1.jpg, id=108, 1107.38719pt x 293.59688pt>
 File: struc1.jpg Graphic file (type jpg)
 <use struc1.jpg>
-Package pdftex.def Info: struc1.jpg  used on input line 480.
+Package pdftex.def Info: struc1.jpg  used on input line 478.
 (pdftex.def)             Requested size: 398.65909pt x 105.69478pt.
 [19 <./struc1.jpg>]
-Overfull \hbox (0.38496pt too wide) in paragraph at lines 509--510
+Overfull \hbox (0.38496pt too wide) in paragraph at lines 507--508
 []\OT1/cmr/m/n/10.95 Tenendo pre-sen-te que-ste due pro-prieta, \OT1/cmr/m/it/
 10.95 struct2vec \OT1/cmr/m/n/10.95 puo es-se-re sud-di-vi-so in quat-tro step
  prin-ci-pa-li: 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 521--522
+Underfull \hbox (badness 10000) in paragraph at lines 519--520
 
  []
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 537--538
+Underfull \hbox (badness 10000) in paragraph at lines 535--536
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 557--558
 
  []
 
@@ -639,34 +654,29 @@ Underfull \hbox (badness 10000) in paragraph at lines 559--560
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 561--562
-
- []
-
 [21]
 <struc6.jpg, id=119, 628.59843pt x 268.75406pt>
 File: struc6.jpg Graphic file (type jpg)
 <use struc6.jpg>
-Package pdftex.def Info: struc6.jpg  used on input line 568.
+Package pdftex.def Info: struc6.jpg  used on input line 566.
 (pdftex.def)             Requested size: 377.16197pt x 161.25368pt.
 <struc2.jpg, id=120, 1193.96063pt x 322.95656pt>
 File: struc2.jpg Graphic file (type jpg)
 <use struc2.jpg>
-Package pdftex.def Info: struc2.jpg  used on input line 576.
+Package pdftex.def Info: struc2.jpg  used on input line 574.
 (pdftex.def)             Requested size: 477.57579pt x 129.18033pt.
 
-Overfull \hbox (7.82077pt too wide) in paragraph at lines 576--577
+Overfull \hbox (7.82077pt too wide) in paragraph at lines 574--575
  [] 
  []
 
 <struc4.jpg, id=121, 599.23875pt x 663.98062pt>
 File: struc4.jpg Graphic file (type jpg)
 <use struc4.jpg>
-Package pdftex.def Info: struc4.jpg  used on input line 584.
+Package pdftex.def Info: struc4.jpg  used on input line 582.
 (pdftex.def)             Requested size: 335.57141pt x 371.8266pt.
 [22 <./struc6.jpg> <./struc2.jpg>]
-Overfull \hbox (3.05278pt too wide) in paragraph at lines 589--590
+Overfull \hbox (3.05278pt too wide) in paragraph at lines 587--588
 []\OT1/cmr/m/n/10.95 Anche in que-sto esem-pio \OT1/cmr/m/it/10.95 Dee-p-Walk \
 OT1/cmr/m/n/10.95 e \OT1/cmr/m/it/10.95 no-de2vec \OT1/cmr/m/n/10.95 fal-li-sco
 -no nel-l'in-di-vi-dua-re le \OT1/cmr/m/it/10.95 la-tent re-pre-sen-ta-tions
@@ -675,7 +685,7 @@ OT1/cmr/m/n/10.95 e \OT1/cmr/m/it/10.95 no-de2vec \OT1/cmr/m/n/10.95 fal-li-sco
 <a4.jpg, id=125, 1332.47812pt x 342.5297pt>
 File: a4.jpg Graphic file (type jpg)
 <use a4.jpg>
-Package pdftex.def Info: a4.jpg  used on input line 592.
+Package pdftex.def Info: a4.jpg  used on input line 590.
 (pdftex.def)             Requested size: 466.37433pt x 119.88718pt.
 [23 <./struc4.jpg> <./a4.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 599--600
@@ -724,75 +734,85 @@ Overfull \hbox (6.23474pt too wide) in paragraph at lines 665--666
  [] 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 670--671
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 672--673
+
+ []
+
 [26 <./graal2.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 674--675
+Underfull \hbox (badness 10000) in paragraph at lines 682--683
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 676--686
+Underfull \hbox (badness 10000) in paragraph at lines 684--694
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 676--686
+Underfull \hbox (badness 10000) in paragraph at lines 684--694
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 676--686
+Underfull \hbox (badness 10000) in paragraph at lines 684--694
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 676--686
+Underfull \hbox (badness 10000) in paragraph at lines 684--694
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 676--686
+Underfull \hbox (badness 10000) in paragraph at lines 684--694
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 676--686
+Underfull \hbox (badness 10000) in paragraph at lines 684--694
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 676--686
+Underfull \hbox (badness 10000) in paragraph at lines 684--694
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 676--686
+Underfull \hbox (badness 10000) in paragraph at lines 684--694
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 676--686
+Underfull \hbox (badness 10000) in paragraph at lines 684--694
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 676--686
+Underfull \hbox (badness 10000) in paragraph at lines 684--694
 
  []
 
 [27]
-Overfull \hbox (43.1923pt too wide) in paragraph at lines 694--695
+Overfull \hbox (43.1923pt too wide) in paragraph at lines 702--703
 []\OT1/cmr/m/n/10.95 https://www.ebi.ac.uk/training/online/course/network-analy
 sis-protein-interaction-data-introduction 
  []
 
 
-Overfull \hbox (41.43822pt too wide) in paragraph at lines 698--699
+Overfull \hbox (41.43822pt too wide) in paragraph at lines 706--707
 \OT1/cmr/m/n/10.95 Func-tio-nal Mo-du-le Iden-ti-fi-ca-tion. Sci Rep 8, 5499 (2
 018). https://doi.org/10.1038/s41598-018-23672-0 
  []
 
 
-Overfull \hbox (36.3739pt too wide) in paragraph at lines 700--701
+Overfull \hbox (36.3739pt too wide) in paragraph at lines 708--709
 \OT1/cmr/m/n/10.95 struc-tu-re in bio-lo-gi-cal net-works. Nat Rev Ge-net 14, 7
 19{732 (2013). https://doi.org/10.1038/nrg3552 
  []
@@ -832,7 +852,7 @@ nts/cm/cmti10.pfb><C:/Users/lagge/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
 /public/amsfonts/cm/cmti12.pfb><C:/Users/lagge/AppData/Local/Programs/MiKTeX 2.
 9/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/lagge/AppData/Local/Progra
 ms/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on AlgoBio.pdf (29 pages, 3007011 bytes).
+Output written on AlgoBio.pdf (29 pages, 3009055 bytes).
 PDF statistics:
  215 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
