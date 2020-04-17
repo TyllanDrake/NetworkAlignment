@@ -21,6 +21,7 @@
 \contentsline {section}{\numberline {9}\textit {struc2vec}}{19}
 \contentsline {subsection}{\numberline {9.1}\textit {struc2vec}: idee di base}{19}
 \contentsline {subsection}{\numberline {9.2}\textit {struc2vec}: descrizione delle iterazioni}{20}
+\contentsline {subsection}{\numberline {9.3}\textit {struc2vec} vs \textit {DeepWalk} e \textit {node2vec}}{21}
 \contentsline {section}{\numberline {10}L-GRAAL}{24}
 \contentsline {subsection}{\numberline {10.1}\textit {Similarity scores} e funzione obiettivo}{24}
 \contentsline {subsection}{\numberline {10.2}Strategia di ricerca \textit {two-step alignment}}{25}
