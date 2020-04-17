@@ -410,7 +410,7 @@ Questa formula serve a valutare le partizioni dei grafi. L'indice $k$ indica la 
 
 Il valore di $Q$ varia da -1 a 1, i valori positivi (negativi) indicano un maggior (minor) numero di collegamenti all'interno dei moduli topologici rispetto ad una randomizzazione.\\
 
-MTGO rimane, a quasi 3 anni dallo sviluppo, sconosciuto ai più con solamente 13 citazioni su Google Scholar. Dato comunque l'esiguo numero di citazioni, questo metodo rimane il metro di paragone utilizzato da altri ricercatori nello sviluppo di efficienti algoritmi per l'identificazione di moduli funzionali nelle PPIN.
+MTGO rimane, a quasi 3 anni dallo sviluppo, sconosciuto ai più con solamente 13 citazioni registrate in \textbf{Google Scholar}. Dato comunque l'esiguo numero di citazioni, questo metodo rimane il metro di paragone utilizzato da altri ricercatori nello sviluppo di efficienti algoritmi per l'identificazione di moduli funzionali nelle PPIN.
 
 \pagebreak
 \section{IsoRank}
@@ -461,7 +461,7 @@ Concludiamo proponendo l'analisi del sottografo comune ottenuto dall'allineament
 
 Il sottografo corrispondente all'allineamento globale possiede 1663 archi in comune ad almeno due PPIN e 157 archi in comune al almeno 3 PPIN. La dimensione del sottografo comune è relativamente piccola (\textit{overlap} solamente con $\approx$ 5\% della PPIN umana) a causa delle probabili incompletezza e rumorosità dei dati. All'aumentare della quantità e della qualità dei dati, l'\textit{overlap} dovrebbe aumentare sensibilmente. Delle 86932 proteine provenienti dalle 5 specie, 59539 (68,5\%) hanno ottenuto almeno un match con un'altra proteina di una rete diversa.\\
 
-IsoRank è stato citato ben 505 volte (fonte: Google Scholar) dallo sviluppo nel 2008, proposto in moltissime varianti, costituisce un "baluardo" per il GNA.
+IsoRank è stato citato ben 505 volte (fonte: \textbf{Google Scholar}) dallo sviluppo nel 2008; proposto in moltissime varianti, costituisce un "baluardo" per il GNA.
 
 \pagebreak
 \section{\textit{struc2vec}}
@@ -538,37 +538,39 @@ A questo punto è necessario costruire un grafo a più strati pesato che codific
 
 Sia $M$ questo grafo dove il layer $k$ viene definito utilizzando i $k$-hop \textit{neighborhoods} dei nodi. Ogni layer $k = 0,...,k^*$ è formato da un grafo non orientato completo e pesato con $V$ insieme dei nodi e $\displaystyle{\left(\frac{n}{2}\right)}$ archi. Il peso dell'arco tra due nodi in un layer è dato dalla seguente formula:
 \begin{center}
-$w_k(u,v) = e^{-f_k(u,v)}$, $k = 0,...,k^*$
+$w_k(u,v) = e^{-f_k(u,v)}$, $k = 0,...,k^*$.
 \end{center}
-I nodi che saranno strutturalmente simili a $u$ avranno pesi maggiori tra i vari layer di $M$. I layer vengono collegati utilizzando archi orientati: ogni vertice è collegato al corrispondente nei layer superiore ed inferiore. Perciò, ogni vertice $u \in V$ nel layer $k$ è collegato al corrispondente vertice $u$ nei layer $k+1$ e $k-1$. Il peso degli archi tra i layer è definito in questo modo:
+I nodi che saranno strutturalmente simili ad $u$ avranno pesi maggiori tra i vari layer di $M$. I layer vengono collegati utilizzando archi orientati: ogni vertice è collegato al corrispondente nei layer superiore ed inferiore. Perciò, ogni vertice $u \in V$ nel layer $k$ è collegato al corrispondente vertice $u$ nei layer $k+1$ e $k-1$. Il peso degli archi tra i layer è definito in questo modo:
 \begin{center}
 $w(u_k,u_{k+1}) = log(\Gamma_k(u) + e)$, $k = 0,...,k^*-1$
 \end{center}
 \begin{center}
 $w(u_k,u_{k-1}) = 1$, $k = 1,...,k^*$
 \end{center}
-dove $\Gamma_k(u)$ è il numero di archi incidenti in $u$ che hanno peso maggiore del peso medio di un arco nel grafo completo al layer $k$. In particolare:
-\begin{center}
-$\Gamma_k(u) = \displaystyle{\sum_{v \in V}} \mathbb{I}(w_k(u,v) > \bar w_k)$
-\end{center}
-misura la \textit{similarity} tra il nodo $u$ e gli altri nodi nel layer $k$.
-Per ogni nodo $u$ \textit{struc2vec} procede con una \textit{random walk} partendo dal layer 0. Queste \textit{random walk} hanno una lunghezza (= numero di passi) fissata e relativamente corta; il processo viene ripetuto un certo numero di volte, dando luogo a \textit{walks} multiple ed indipendenti.
+dove $\Gamma_k(u)$ è il numero di archi incidenti in $u$ che hanno peso maggiore del peso medio di un arco nel grafo completo al layer $k$. 
+%In particolare:
+%\begin{center}
+%$\Gamma_k(u) = \displaystyle{\sum_{v \in V}} \mathbb{I}(w_k(u,v) > \bar w_k)$
+%\end{center}
+%misura la \textit{similarity} tra il nodo $u$ e gli altri nodi nel layer $k$.
+Per ogni nodo $u$ \textit{struc2vec} procede con una \textit{random walk} partendo dal layer 0. Queste \textit{random walks} hanno una lunghezza (= numero di passi) fissata e relativamente corta; il processo viene ripetuto diverse volte, dando luogo a \textit{walks} multiple ed indipendenti.
 
-Si utilizza infine \textit{Skip-Gram}, una tecnica di \textit{unsupervised learning} per NLP, per identificare o derivare le \textit{latent representations} dalle sequenze ottenute.\\
+Si utilizza infine \textit{Skip-Gram}, una tecnica di \textit{unsupervised learning} per NLP, per identificare o derivare le \textit{latent representations} dalle sequenze ottenute.
 
-A \textit{struc2vec} è possibile applicare una serie di ottimizzazioni (a partire dall'implementazione di DTW, che raggiunge una complessità di $O(l)$ a fronte dell'$O(l^2)$ iniziale) che permettono di raggiungere una complessità di $O(k^*n^3)$ grazie alla riduzione della lunghezza delle sequenze dei gradi e del numero dei layer.\\
+A \textit{struc2vec} è possibile applicare una serie di ottimizzazioni (a partire dall'implementazione di DTW, complessità di $O(l)$ a fronte dell'$O(l^2)$ iniziale) che permettono di raggiungere una complessità totale di $O(k^*n^3)$ grazie alla riduzione della lunghezza delle sequenze dei gradi e del numero dei layer.
 
+\subsection{\textit{struc2vec} vs \textit{DeepWalk} e \textit{node2vec}}
 \textit{struc2vec} è stato testato in diversi scenari e confrontato con gli algoritmi allo stato dell'arte (\textit{DeepWalk} e \textit{node2vec}) per l'apprendimento di \textit{latent representations}.
 
 Il primo test ha previsto la costruzione di un particolare tipo di grafo, denominato \textit{barbell graph}, costituito da due grafi completi connessi da un \textit{path graph}. Ogni coppia di nodi che è strutturalmente equivalente dovrebbe avere \textit{latent representations} simili (che a loro volta dovrebbero essere in grado di descrivere, nel miglior modo possibile, la gerarchia strutturale).
 
 \begin{center}
-\includegraphics[scale=0.6]{struc6}
+\includegraphics[scale=0.65]{struc6}
 
 \begin{small}\textit{\textbf{Figura 9.2}: Barbell graph}.\end{small}
 \end{center}
 
-Anche in seguito ad un tuning dei parametri, \textit{DeepWalk} fallisce nell'individuare le equivalenze strutturali, mentre \textit{node2vec} non riconosce le identità strutturali; \textit{struc2vec} invece individua le \textit{latent representations} posizionando inoltre i nodi strutturalmente equivalenti gli uni vicino agli altri (si veda la \textit{\textbf{Figura 9.3}}).
+Anche in seguito ad un tuning dei parametri, \textit{DeepWalk} fallisce nell'individuare le equivalenze strutturali, mentre \textit{node2vec} non riconosce le identità strutturali; \textit{struc2vec} invece individua le \textit{latent representations} posizionando i nodi strutturalmente equivalenti gli uni vicino agli altri (si veda la \textit{\textbf{Figura 9.3}}).
 
 \begin{center}
 \includegraphics[scale=0.4]{struc2}
@@ -584,7 +586,7 @@ Un secondo test ha previsto l'utilizzo della \textit{Zachary's Karate Club netwo
 \begin{small}\textit{\textbf{Figura 9.4}: Zachary's Karate Club network con nodi specchio}.\end{small}
 \end{center}
 
-Anche in questo esempio \textit{DeepWalk} e \textit{node2vec} falliscono nell'individuare le \textit{latent representations} di nodi strutturalmente equivalenti (inclusi i nodi \textit{specchio}), mentre \textit{struc2vec} fornisce i risultati migliori.
+Anche in questo caso \textit{DeepWalk} e \textit{node2vec} falliscono nell'individuare le \textit{latent representations} di nodi strutturalmente equivalenti (inclusi i nodi \textit{specchio}), mentre \textit{struc2vec} fornisce i risultati migliori.
 
 \begin{center}
 \includegraphics[scale=0.35]{a4}
@@ -592,7 +594,7 @@ Anche in questo esempio \textit{DeepWalk} e \textit{node2vec} falliscono nell'in
 \begin{small}\textit{\textbf{Figura 9.5}: Secondo test: confronto di struc2vec con i due algoritmi allo stato dell'arte}.\end{small}
 \end{center}
 
-Per concludere, ci teniamo a sottolineare il fatto che \textit{struc2vec} è stato citato 302 volte (fonte: Google Scholar) e per gli ambiti più differenti. \`E stato confrontato con un metodo sviluppato l'anno successivo, \textit{Deep Recursive Network Embedding} (DRNE), sullo stesso dataset; le prestazioni rimangono tutt'ora molto elevate.
+Per concludere, ci teniamo a sottolineare il fatto che \textit{struc2vec} è stato citato 302 volte (fonte: \textbf{Google Scholar}) e per gli ambiti più differenti. \`E stato confrontato con un metodo sviluppato l'anno successivo, \textit{Deep Recursive Network Embedding} (DRNE), sullo stesso dataset; le prestazioni rimangono tutt'ora molto elevate.
 
 \pagebreak
 \section{L-GRAAL}
@@ -669,9 +671,7 @@ Tutti i test, eseguiti su di un computer desktop con processore Intel Core i7-26
 
 I metodi considerati sono stati inizialmente confrontati in base alla loro capacità di mappare le proteine che sono collegate in modo simile in entrambe le reti PPI. Nel primo grafico viene mostrata la percentuale di interazioni dalla rete più piccola mappate ad interazioni nell'altra rete. Poiché questa percentuale può essere ottenuta mappando regioni sparse della rete più piccola in regioni densamente connesse di quella più grande, misuriamo, contemporaneamente, anche quanto sono topologicamente simili  le regioni mappate usando \textit{symmetric sub-structure score}, che è la percentuale degli archi conservati tra la rete più piccola e la sottorete dalla rete più grande indotta dall'allineamento (si veda il secondo grafico). Infine, utilizziamo la dimensione del componente connesso più grande (\textit{largest connected component}, LCC) per garantire che gli allineamenti corrispondano ad una grande sottostruttura, comune, connessa, invece che a diverse piccole sottostrutture disconnesse.\\
 
-In tutti i test svolti, il metodo L-GRAAL (citato 95 volte su Google Scholar negli ultimi anni 5 anni) ha mostrato una percentuale di successo non indifferente e uguale (a volte addirittura superiore) a tutti gli altri (si pensi ad esempio ad IsoRank, presentato nella \textit{\textbf{Sezione 8}}), in particolare con metodi testati per lo stesso problema e sullo stesso dataset.\\
-
-
+In tutti i test svolti L-GRAAL (citato 95 volte in \textbf{Google Scholar} negli ultimi anni 5 anni) ha mostrato una percentuale di successo non indifferente ed uguale (a volte addirittura superiore) a tutti gli altri metodi con cui è stato confrontato (si pensi ad esempio ad IsoRank, presentato nella \textit{\textbf{Sezione 8}}).
 
 \pagebreak
 \section{Conclusioni}
