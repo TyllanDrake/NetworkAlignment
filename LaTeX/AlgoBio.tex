@@ -398,7 +398,7 @@ Ad ogni \textbf{iterazione} viene calcolata una coppia $(C, \Phi)$, in particola
 \begin{small}\textit{\textbf{Figura 7.6}: Riassegnamento di un nodo}.\end{small}
 \end{center}
 
-Per valutare se la \textbf{convergenza} è stata raggiunta o meno si utilizzano due funzioni: \textit{modularità} ($Q$) e \textit{Quality GO} ($QGO$): $Q$ valuta la qualità globale della partizione $C$, $QGO$ valuta la corrispondenza e il conseguente \textit{overlapping} tra $C$ e $\Phi$. Idealmente, $C$ e $\Phi$ dovrebbero essere soggette ad \textit{overlapping}.
+Per valutare se la \textbf{convergenza} è stata raggiunta o meno si utilizzano due funzioni: \textit{modularità} ($Q$) e \textit{Quality GO} ($QGO$): $Q$ valuta la qualità globale della partizione $C$, $QGO$ valuta invece la corrispondenza e il conseguente \textit{overlapping} tra $C$ e $\Phi$. Idealmente, $C$ e $\Phi$ dovrebbero essere soggette ad \textit{overlapping}.
 
 La formula di $Q$ è:
 
@@ -418,7 +418,7 @@ IsoRank è un metodo per l'allineamento globale di più PPIN. L'intuizione da te
 
 I sottografi individuati con questi allineamenti sono più grandi e più vari di quelli prodotti da metodi precedenti che hanno dimostrato la loro efficacia nell'identificare pattern localizzati confrontando tra di loro solamente due reti. Questo metodo rappresenta un grande passo avanti per l'allineamento di più reti PPI ed è applicabile in molti settori scientifici.
 
-IsoRank rappresenta un approccio di analisi comparativa delle reti PPI al fine di trovare una soluzione al problema di allineamento ottimo \textit{globale} tra due o più PPIN, mirando a trovare la corrispondenza tra i nodi e gli archi delle reti in input che massimizzi il \textit{match} totale tra le reti.
+IsoRank rappresenta un approccio di analisi comparativa delle reti PPI al fine di trovare una soluzione al problema di allineamento ottimo \textit{globale} tra due o più PPIN, mirando ad identificare la corrispondenza tra i nodi e gli archi delle reti in input che massimizzi il \textit{match} totale tra le reti.
 
 \subsection{\textit{Global} vs. \textit{Local Network Alignment}}
 In generale, l'obiettivo in un problema di allineamento di rete è quello di trovare un sottografo comune (cioè un insieme di archi "conservati") tra le reti in input. Corrispondentemente a questi archi conservati, esiste una mappatura (\textit{mapping}) tra i nodi delle reti. Per esempio, quando la proteina $a_1$ dalla rete $G_1$ viene mappata sulle proteine $a_2$ in $G_2$ e $a_3$ in $G_3$, allora $a_1$, $a_2$ e $a_3$ si riferiscono allo stesso nodo nell'insieme degli archi conservati. Ciò che rende difficile il problema è il compromesso (\textit{trade-off}) da ottenere: massimizzare la sovrapposizione (\textit{overlap}) tra le reti (cioè il numero di archi conservati), garantendo al tempo stesso che le proteine mappate siano il più possibile correlate.
