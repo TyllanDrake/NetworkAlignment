@@ -464,6 +464,83 @@ Il sottografo corrispondente all'allineamento globale possiede 1663 archi in com
 IsoRank è stato citato ben 505 volte (fonte: \textbf{Google Scholar}) dallo sviluppo nel 2008; proposto in moltissime varianti, costituisce un "baluardo" per il GNA.
 
 \pagebreak
+\section{L-GRAAL}
+Sviluppato nel 2015, L-GRAAL -\textit{Lagrangian graphlet-based network aligner} - è un metodo basato sull'idea di mappare insieme nodi che costituiscono un pattern (presenza di sottografi chiamati \textit{graphlet}\footnote{I \textit{graphlet} sono sottografi di piccole dimensioni, connessi, non-isomorfici, indotti da un grafo più grande (sono indicati come G$_0$,...,G$_{29}$ nella \textit{\textbf{Figura 10.1}}).}) definito da una grande quantità di interazioni condivise. L-GRAAL ottimizza una funzione obiettivo, che fonde le informazioni derivanti dalle sequenze di proteine con le interazioni tra i vari \textit{graphlet}, risolta con la Programmazione Intera. L-GRAAL è in grado di individuare l'\textit{overlap} tra le reti e fornisce risultati migliori di tutti gli altri metodi GO-based a livello di \textit{mapping} delle proteine e delle interazioni tra le stesse.\\
+
+Date due PPIN, $N_1 = (V_1, E_1)$ e $N_2 = (V_2, E_2)$ (con $|V_1| \leq |V_2|$, un \textit{allineamento globale}, $f: V_1 \rightarrow V_2$, è un mapping 1-a-1 dei nodi di $V_1$ con quelli di $V_2$. Ad un \textit{allineamento globale} viene associato uno score $S$:
+\begin{center}
+$S(f) = \displaystyle{\sum_{u \in V_1}n(u,f(u))} + \displaystyle{\sum_{(u,v) \in E_1}e(u,f(u),v,f(v))}$
+\end{center}
+dove $n : V_1 \times V_2 \rightarrow \mathbb{R}^+$ corrisponde allo score del mapping tra un nodo di $V_1$ e uno di $V_2$, mentre $e : E_1 \times E_2 \rightarrow \mathbb{R}^+$ corrisponde allo score del mapping tra un arco di $E_1$ e uno di $E_2$. Il \textit{Global Network Alignment problem} cerca di trovare un allineamento globale in grado di massimizzare $S$.
+
+\subsection{\textit{Similarity scores} e funzione obiettivo}
+In L-GRAAL si misura la relazione tra due proteine mappate $u$ e $f(u)$ utilizzando il loro allineamento di sequenza BLAST\footnote{BLAST è un algoritmo usato per comparare le informazioni contenute nelle strutture biologiche primarie.}:
+\begin{center}
+$n(u,f(u)) = \displaystyle{\frac{seqsim(u,f(u))}{max_{i,j}seqsim(i,j)}}$
+\end{center}
+dove $seqsim$ può essere un qualsiasi tipo di \textit{sequence-based similarity score}. Viene successivamente misurata la \textit{topological similarity} fra due proteine $u$ e $f(u)$ utilizzando il loro da 2- a 4-\textit{node graphlet degree similarity}\footnote{I \textit{graphlet} generalizzano il concetto di "grado di un nodo": il \textit{graphlet degree} di un nodo $v$, indicato con $d^i_v$ è il numero di volte che il nodo $v$ tocca un \textit{graphlet} all'orbita $i$. Vengono utilizzati per misurare la distanza tra due reti e le \textit{topological similarities} tra i nodi nelle reti.} $t$:
+\begin{center}
+$t(u,f(u)) = \frac{1}{15}\displaystyle{\sum \limits_{i=0}^{14}\frac{min(d_u^i,d_{f(u)}^i)}{max(d_u^i,d_{f(u)}^i}}$
+\end{center}
+Viene calcolata la \textit{topological similarity} fra due interazioni mappate (archi), $(u,v)$ e $(f(u),f(v))$, in base al loro \textit{graphlet degree similarity} dei loro nodi terminali mappati:
+
+\begin{center}
+$e(u,f(u),v,f(v)) = \displaystyle{\frac{1}{2}(t(u,f(u))+t(v,f(v)))}$
+\end{center}
+Lo score $e(u,f(u),v,f(v)) \in [0,1]$ e rewards mapping edges that are involved in similar local wiring patterns.
+
+\begin{center}
+\includegraphics[scale=0.33]{graal1}
+
+\begin{small}\textit{\textbf{Figura 10.1}: 2- to 5- graphlets e le loro automorphism orbits}.\end{small}
+\end{center}
+
+La funzione obiettivo di L-GRAAL, $S$, favorisce la relazione tra le proteine che vengono mappate o tra la \textit{topological similarity} tra le interazioni mappate, in accordo ad un parametro di \textit{balancing} $\alpha \in [0,1]$:
+\begin{center}
+$S(f) = \alpha \times \displaystyle{\sum_{u}n(u,f(u)) + (1- \alpha) \times \sum_{u,v}e(u,f(u),v,f(v))}$
+\end{center}
+
+\subsection{Strategia di ricerca \textit{two-step alignment}}
+A causa della grande dimensione delle PPIN, risolvere il problema dell'allineamento delle reti cercando di considerare tutti i possibili mapping tra i nodi è, dal punto di vista computazionale, impossibile. L-GRAAL utilizza \textit{sequence} e \textit{graphlet degree similarities} per selezionare un sottoinsieme di nodi mappati $u \longleftrightarrow v$ di modo che $\alpha n(u,v) + (1-\alpha)t(u,v) \geq 0.5$. L'algoritmo applica successivamente un algoritmo \textit{greedy} per estendere la ricerca degli allineamenti. Il \textit{network alignment problem} può essere espresso tramite la seguente formula:
+
+\begin{center}
+IP $= max_{x,y} \displaystyle{\Big( \alpha \sum n(i,k) \times x_{ik} + (1- \alpha) \sum e(i,j,k,l) \times y_{ijkl}} \Big)$
+\end{center}
+soggetta ai vincoli:
+\begin{center}
+$\displaystyle{\sum_{k \in V_2}x_{ik} \leq 1}$, $\forall i \in V_1$,
+
+$\displaystyle{\sum_{i \in V_1}x_{ik} \leq 1}$, $\forall k \in V_2$,
+
+$x_{ij} - y_{ijkl} \geq 0$, $\forall (i,j) \in E_1, \forall (k,l) \in E_2$,
+
+$x_{ik} - y_{ijkl} \geq 0$, $\forall (i,j) \in E_1, \forall (k,l) \in E_2$
+\end{center}
+
+dove, al \textit{node mapping} selezionato, $i \longleftrightarrow k$ con $i \in V_1$, $k \in V_2$, viene associata una variabile binaria $x_{ik} = 1$ se il \textit{node mapping} appartiene all'allineamento, 0 altrimenti. In modo del tutto simile, associamo ad ogni \textit{edge mapping} selezionato $(i,j) \longleftrightarrow (k,l)$, $(i,j) \in E_1$, $(k,l) \in E_2$, una variabile binaria $y_{ijkl} = 1$ se l'\textit{edge mapping} appartiene all'allineamento, 0 altrimenti. I primi due vincoli obbligano un nodo in $V_1$ ad essere mappato al massimo in un nodo di $V_2$ e viceversa, mentre gli ultimi due vincoli obbligano l'\textit{edge mapping} $(i,j) \longleftrightarrow (k,l)$ ad avere gli \textit{end-nodes} mappati: $i \longleftrightarrow k$ e $j \longleftrightarrow l$.
+
+Si risolve l'equazione
+\begin{center}
+$LR(\lambda) = max_{x,y} \displaystyle{\sum n^{\lambda}(i,k) \times x_{ik} + \sum e^{\lambda}(i,j,k,l) \times y_{ijkl}}$
+\end{center}
+
+con la Programmazione Intera in $O(|V|^3 + |V|^2 \times d^3)$, dove $|V|$ è il numero di nodi nelle reti e $d$ è il valore del grado (di un nodo) massimo. Risolvere $LR(\lambda)$ genera una soluzione rilassata del problema, che corrisponde ad un \textit{upper bound} alla Programmazione Intera. 
+
+Per risolvere tale problema nella sua interezza è necessario ricondursi alla formulazione duale per minimizzazare $LR(\lambda)$ su $\lambda)$ con la tecnica del \textit{gradient descent}. Sfortunatamente, anche questo problema è $\mathcal{NP}$-completo e, in pratica, si risolve generando una sequenza finita di interazioni. L'algoritmo restituisce il risultato dopo un determinato limite temporale o dopo un numero di iterazioni fissato.\\
+
+Tutti i test, eseguiti su di un computer desktop con processore Intel Core i7-2600 a 3.40 GHz e una memoria RAM da 64 GB, hanno mostrato il grande potenziale di L-GRAAL (come mostrato dalla \textit{\textbf{Figura 10.2}}).
+
+\begin{center}
+\includegraphics[scale=0.33]{graal2}
+
+\begin{small}\textit{\textbf{Figura 10.2}: Confronto L-GRAAL vs altri metodi}.\end{small}
+\end{center}
+
+I metodi considerati sono stati inizialmente confrontati in base alla loro capacità di mappare le proteine che sono collegate in modo simile in entrambe le reti PPI. Nel primo grafico viene mostrata la percentuale di interazioni dalla rete più piccola mappate ad interazioni nell'altra rete. Poiché questa percentuale può essere ottenuta mappando regioni sparse della rete più piccola in regioni densamente connesse di quella più grande, misuriamo, contemporaneamente, anche quanto sono topologicamente simili  le regioni mappate usando \textit{symmetric sub-structure score}, che è la percentuale degli archi conservati tra la rete più piccola e la sottorete dalla rete più grande indotta dall'allineamento (si veda il secondo grafico). Infine, utilizziamo la dimensione del componente connesso più grande (\textit{largest connected component}, LCC) per garantire che gli allineamenti corrispondano ad una grande sottostruttura, comune, connessa, invece che a diverse piccole sottostrutture disconnesse.\\
+
+In tutti i test svolti L-GRAAL (citato 95 volte in \textbf{Google Scholar} negli ultimi anni 5 anni) ha mostrato una percentuale di successo non indifferente ed uguale (a volte addirittura superiore) a tutti gli altri metodi con cui è stato confrontato (si pensi ad esempio ad IsoRank, presentato nella \textit{\textbf{Sezione 8}}).
+
+\pagebreak
 \section{\textit{struc2vec}}
 La \textit{structural identity} (traducibile con \textit{identità strutturale}) corrisponde ad un concetto di simmetria nel quale i nodi di una rete vengono identificati in base alla struttura della rete stessa e tramite relazioni con altri nodi. \\
 
@@ -595,83 +672,6 @@ Anche in questo caso \textit{DeepWalk} e \textit{node2vec} falliscono nell'indiv
 \end{center}
 
 Per concludere, ci teniamo a sottolineare il fatto che \textit{struc2vec} è stato citato 302 volte (fonte: \textbf{Google Scholar}) e per gli ambiti più differenti. \`E stato confrontato con un metodo sviluppato l'anno successivo, \textit{Deep Recursive Network Embedding} (DRNE), sullo stesso dataset; le prestazioni rimangono tutt'ora molto elevate.
-
-\pagebreak
-\section{L-GRAAL}
-Sviluppato nel 2015, L-GRAAL -\textit{Lagrangian graphlet-based network aligner} - è un metodo basato sull'idea di mappare insieme nodi che costituiscono un pattern (presenza di sottografi chiamati \textit{graphlet}\footnote{I \textit{graphlet} sono sottografi di piccole dimensioni, connessi, non-isomorfici, indotti da un grafo più grande (sono indicati come G$_0$,...,G$_{29}$ nella \textit{\textbf{Figura 10.1}}).}) definito da una grande quantità di interazioni condivise. L-GRAAL ottimizza una funzione obiettivo, che fonde le informazioni derivanti dalle sequenze di proteine con le interazioni tra i vari \textit{graphlet}, risolta con la Programmazione Intera. L-GRAAL è in grado di individuare l'\textit{overlap} tra le reti e fornisce risultati migliori di tutti gli altri metodi GO-based a livello di \textit{mapping} delle proteine e delle interazioni tra le stesse.\\
-
-Date due PPIN, $N_1 = (V_1, E_1)$ e $N_2 = (V_2, E_2)$ (con $|V_1| \leq |V_2|$, un \textit{allineamento globale}, $f: V_1 \rightarrow V_2$, è un mapping 1-a-1 dei nodi di $V_1$ con quelli di $V_2$. Ad un \textit{allineamento globale} viene associato uno score $S$:
-\begin{center}
-$S(f) = \displaystyle{\sum_{u \in V_1}n(u,f(u))} + \displaystyle{\sum_{(u,v) \in E_1}e(u,f(u),v,f(v))}$
-\end{center}
-dove $n : V_1 \times V_2 \rightarrow \mathbb{R}^+$ corrisponde allo score del mapping tra un nodo di $V_1$ e uno di $V_2$, mentre $e : E_1 \times E_2 \rightarrow \mathbb{R}^+$ corrisponde allo score del mapping tra un arco di $E_1$ e uno di $E_2$. Il \textit{Global Network Alignment problem} cerca di trovare un allineamento globale in grado di massimizzare $S$.
-
-\subsection{\textit{Similarity scores} e funzione obiettivo}
-In L-GRAAL si misura la relazione tra due proteine mappate $u$ e $f(u)$ utilizzando il loro allineamento di sequenza BLAST\footnote{BLAST è un algoritmo usato per comparare le informazioni contenute nelle strutture biologiche primarie.}:
-\begin{center}
-$n(u,f(u)) = \displaystyle{\frac{seqsim(u,f(u))}{max_{i,j}seqsim(i,j)}}$
-\end{center}
-dove $seqsim$ può essere un qualsiasi tipo di \textit{sequence-based similarity score}. Viene successivamente misurata la \textit{topological similarity} fra due proteine $u$ e $f(u)$ utilizzando il loro da 2- a 4-\textit{node graphlet degree similarity}\footnote{I \textit{graphlet} generalizzano il concetto di "grado di un nodo": il \textit{graphlet degree} di un nodo $v$, indicato con $d^i_v$ è il numero di volte che il nodo $v$ tocca un \textit{graphlet} all'orbita $i$. Vengono utilizzati per misurare la distanza tra due reti e le \textit{topological similarities} tra i nodi nelle reti.} $t$:
-\begin{center}
-$t(u,f(u)) = \frac{1}{15}\displaystyle{\sum \limits_{i=0}^{14}\frac{min(d_u^i,d_{f(u)}^i)}{max(d_u^i,d_{f(u)}^i}}$
-\end{center}
-Viene calcolata la \textit{topological similarity} fra due interazioni mappate (archi), $(u,v)$ e $(f(u),f(v))$, in base al loro \textit{graphlet degree similarity} dei loro nodi terminali mappati:
-
-\begin{center}
-$e(u,f(u),v,f(v)) = \displaystyle{\frac{1}{2}(t(u,f(u))+t(v,f(v)))}$
-\end{center}
-Lo score $e(u,f(u),v,f(v)) \in [0,1]$ e rewards mapping edges that are involved in similar local wiring patterns.
-
-\begin{center}
-\includegraphics[scale=0.33]{graal1}
-
-\begin{small}\textit{\textbf{Figura 10.1}: 2- to 5- graphlets e le loro automorphism orbits}.\end{small}
-\end{center}
-
-La funzione obiettivo di L-GRAAL, $S$, favorisce la relazione tra le proteine che vengono mappate o tra la \textit{topological similarity} tra le interazioni mappate, in accordo ad un parametro di \textit{balancing} $\alpha \in [0,1]$:
-\begin{center}
-$S(f) = \alpha \times \displaystyle{\sum_{u}n(u,f(u)) + (1- \alpha) \times \sum_{u,v}e(u,f(u),v,f(v))}$
-\end{center}
-
-\subsection{Strategia di ricerca \textit{two-step alignment}}
-A causa della grande dimensione delle PPIN, risolvere il problema dell'allineamento delle reti cercando di considerare tutti i possibili mapping tra i nodi è, dal punto di vista computazionale, impossibile. L-GRAAL utilizza \textit{sequence} e \textit{graphlet degree similarities} per selezionare un sottoinsieme di nodi mappati $u \longleftrightarrow v$ di modo che $\alpha n(u,v) + (1-\alpha)t(u,v) \geq 0.5$. L'algoritmo applica successivamente un algoritmo \textit{greedy} per estendere la ricerca degli allineamenti. Il \textit{network alignment problem} può essere espresso tramite la seguente formula:
-
-\begin{center}
-IP $= max_{x,y} \displaystyle{\Big( \alpha \sum n(i,k) \times x_{ik} + (1- \alpha) \sum e(i,j,k,l) \times y_{ijkl}} \Big)$
-\end{center}
-soggetta ai vincoli:
-\begin{center}
-$\displaystyle{\sum_{k \in V_2}x_{ik} \leq 1}$, $\forall i \in V_1$,
-
-$\displaystyle{\sum_{i \in V_1}x_{ik} \leq 1}$, $\forall k \in V_2$,
-
-$x_{ij} - y_{ijkl} \geq 0$, $\forall (i,j) \in E_1, \forall (k,l) \in E_2$,
-
-$x_{ik} - y_{ijkl} \geq 0$, $\forall (i,j) \in E_1, \forall (k,l) \in E_2$
-\end{center}
-
-dove, al \textit{node mapping} selezionato, $i \longleftrightarrow k$ con $i \in V_1$, $k \in V_2$, viene associata una variabile binaria $x_{ik} = 1$ se il \textit{node mapping} appartiene all'allineamento, 0 altrimenti. In modo del tutto simile, associamo ad ogni \textit{edge mapping} selezionato $(i,j) \longleftrightarrow (k,l)$, $(i,j) \in E_1$, $(k,l) \in E_2$, una variabile binaria $y_{ijkl} = 1$ se l'\textit{edge mapping} appartiene all'allineamento, 0 altrimenti. I primi due vincoli obbligano un nodo in $V_1$ ad essere mappato al massimo in un nodo di $V_2$ e viceversa, mentre gli ultimi due vincoli obbligano l'\textit{edge mapping} $(i,j) \longleftrightarrow (k,l)$ ad avere gli \textit{end-nodes} mappati: $i \longleftrightarrow k$ e $j \longleftrightarrow l$.
-
-Si risolve l'equazione
-\begin{center}
-$LR(\lambda) = max_{x,y} \displaystyle{\sum n^{\lambda}(i,k) \times x_{ik} + \sum e^{\lambda}(i,j,k,l) \times y_{ijkl}}$
-\end{center}
-
-con la Programmazione Intera in $O(|V|^3 + |V|^2 \times d^3)$, dove $|V|$ è il numero di nodi nelle reti e $d$ è il valore del grado (di un nodo) massimo. Risolvere $LR(\lambda)$ genera una soluzione rilassata del problema, che corrisponde ad un \textit{upper bound} alla Programmazione Intera. 
-
-Per risolvere tale problema nella sua interezza è necessario ricondursi alla formulazione duale per minimizzazare $LR(\lambda)$ su $\lambda)$ con la tecnica del \textit{gradient descent}. Sfortunatamente, anche questo problema è $\mathcal{NP}$-completo e, in pratica, si risolve generando una sequenza finita di interazioni. L'algoritmo restituisce il risultato dopo un determinato limite temporale o dopo un numero di iterazioni fissato.\\
-
-Tutti i test, eseguiti su di un computer desktop con processore Intel Core i7-2600 a 3.40 GHz e una memoria RAM da 64 GB, hanno mostrato il grande potenziale di L-GRAAL (come mostrato dalla \textit{\textbf{Figura 10.2}}).
-
-\begin{center}
-\includegraphics[scale=0.33]{graal2}
-
-\begin{small}\textit{\textbf{Figura 10.2}: Confronto L-GRAAL vs altri metodi}.\end{small}
-\end{center}
-
-I metodi considerati sono stati inizialmente confrontati in base alla loro capacità di mappare le proteine che sono collegate in modo simile in entrambe le reti PPI. Nel primo grafico viene mostrata la percentuale di interazioni dalla rete più piccola mappate ad interazioni nell'altra rete. Poiché questa percentuale può essere ottenuta mappando regioni sparse della rete più piccola in regioni densamente connesse di quella più grande, misuriamo, contemporaneamente, anche quanto sono topologicamente simili  le regioni mappate usando \textit{symmetric sub-structure score}, che è la percentuale degli archi conservati tra la rete più piccola e la sottorete dalla rete più grande indotta dall'allineamento (si veda il secondo grafico). Infine, utilizziamo la dimensione del componente connesso più grande (\textit{largest connected component}, LCC) per garantire che gli allineamenti corrispondano ad una grande sottostruttura, comune, connessa, invece che a diverse piccole sottostrutture disconnesse.\\
-
-In tutti i test svolti L-GRAAL (citato 95 volte in \textbf{Google Scholar} negli ultimi anni 5 anni) ha mostrato una percentuale di successo non indifferente ed uguale (a volte addirittura superiore) a tutti gli altri metodi con cui è stato confrontato (si pensi ad esempio ad IsoRank, presentato nella \textit{\textbf{Sezione 8}}).
 
 \pagebreak
 \section{Conclusioni}
