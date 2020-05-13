@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.6)  22 APR 2020 17:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.6)  13 MAY 2020 15:41
 entering extended mode
 **./AlgoBio.tex
 (AlgoBio.tex
@@ -678,111 +678,111 @@ Overfull \hbox (0.38496pt too wide) in paragraph at lines 584--585
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 596--597
+Underfull \hbox (badness 10000) in paragraph at lines 598--599
 
  []
 
 [23]
-Underfull \hbox (badness 10000) in paragraph at lines 612--613
+Underfull \hbox (badness 10000) in paragraph at lines 614--615
 
  []
 
 <struc6.jpg, id=127, 628.59843pt x 268.75406pt>
 File: struc6.jpg Graphic file (type jpg)
 <use struc6.jpg>
-Package pdftex.def Info: struc6.jpg  used on input line 645.
+Package pdftex.def Info: struc6.jpg  used on input line 647.
 (pdftex.def)             Requested size: 408.58414pt x 174.68806pt.
 [24]
 <struc2.jpg, id=132, 1193.96063pt x 322.95656pt>
 File: struc2.jpg Graphic file (type jpg)
 <use struc2.jpg>
-Package pdftex.def Info: struc2.jpg  used on input line 653.
+Package pdftex.def Info: struc2.jpg  used on input line 655.
 (pdftex.def)             Requested size: 477.57579pt x 129.18033pt.
 
-Overfull \hbox (7.82077pt too wide) in paragraph at lines 653--654
+Overfull \hbox (7.82077pt too wide) in paragraph at lines 655--656
  [] 
  []
 
 <struc4.jpg, id=133, 599.23875pt x 663.98062pt>
 File: struc4.jpg Graphic file (type jpg)
 <use struc4.jpg>
-Package pdftex.def Info: struc4.jpg  used on input line 661.
+Package pdftex.def Info: struc4.jpg  used on input line 663.
 (pdftex.def)             Requested size: 335.57141pt x 371.8266pt.
 [25 <./struc6.jpg> <./struc2.jpg>]
 <a4.jpg, id=137, 1332.47812pt x 342.5297pt>
 File: a4.jpg Graphic file (type jpg)
 <use a4.jpg>
-Package pdftex.def Info: a4.jpg  used on input line 669.
+Package pdftex.def Info: a4.jpg  used on input line 671.
 (pdftex.def)             Requested size: 466.37433pt x 119.88718pt.
  [26 <./struc4.jpg> <./a4.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 682--683
+Underfull \hbox (badness 10000) in paragraph at lines 684--685
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 684--694
+Underfull \hbox (badness 10000) in paragraph at lines 686--696
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 684--694
+Underfull \hbox (badness 10000) in paragraph at lines 686--696
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 684--694
+Underfull \hbox (badness 10000) in paragraph at lines 686--696
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 684--694
+Underfull \hbox (badness 10000) in paragraph at lines 686--696
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 684--694
+Underfull \hbox (badness 10000) in paragraph at lines 686--696
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 684--694
+Underfull \hbox (badness 10000) in paragraph at lines 686--696
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 684--694
+Underfull \hbox (badness 10000) in paragraph at lines 686--696
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 684--694
+Underfull \hbox (badness 10000) in paragraph at lines 686--696
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 684--694
+Underfull \hbox (badness 10000) in paragraph at lines 686--696
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 684--694
+Underfull \hbox (badness 10000) in paragraph at lines 686--696
 
  []
 
 [27]
-Overfull \hbox (43.1923pt too wide) in paragraph at lines 702--703
+Overfull \hbox (43.1923pt too wide) in paragraph at lines 704--705
 []\OT1/cmr/m/n/10.95 https://www.ebi.ac.uk/training/online/course/network-analy
 sis-protein-interaction-data-introduction 
  []
 
 
-Overfull \hbox (41.43822pt too wide) in paragraph at lines 706--707
+Overfull \hbox (41.43822pt too wide) in paragraph at lines 708--709
 \OT1/cmr/m/n/10.95 Func-tio-nal Mo-du-le Iden-ti-fi-ca-tion. Sci Rep 8, 5499 (2
 018). https://doi.org/10.1038/s41598-018-23672-0 
  []
 
 
-Overfull \hbox (36.3739pt too wide) in paragraph at lines 708--709
+Overfull \hbox (36.3739pt too wide) in paragraph at lines 710--711
 \OT1/cmr/m/n/10.95 struc-tu-re in bio-lo-gi-cal net-works. Nat Rev Ge-net 14, 7
 19{732 (2013). https://doi.org/10.1038/nrg3552 
  []
@@ -822,7 +822,7 @@ nts/cm/cmti10.pfb><C:/Users/lagge/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
 /public/amsfonts/cm/cmti12.pfb><C:/Users/lagge/AppData/Local/Programs/MiKTeX 2.
 9/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/lagge/AppData/Local/Progra
 ms/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on AlgoBio.pdf (29 pages, 3009105 bytes).
+Output written on AlgoBio.pdf (29 pages, 3009057 bytes).
 PDF statistics:
  215 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

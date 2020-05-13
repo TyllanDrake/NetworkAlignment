@@ -49,7 +49,7 @@
 \vfill
 \textbf{Anno Accademico 2019-2020}
  \\
-18 Giugno 2020
+10 Giugno 2020
 \end{center}
 \end{titlepage}
 \setcounter{page}{1}
@@ -306,7 +306,7 @@ I principali limiti dell'\textit{annotation enrichment analysis} derivano dalle 
 
 Date due reti, \textbf{allinearle} significa trovare un mapping nodo-a-nodo (= \textit{alignment}) tra le reti in grado di ottimizzare due obiettivi: (1) massimizzare il numero di proteine mappate (corrispondenti ai nodi nel grafo) che sono correlate da un punto di vista funzionale e (2) massimizzare il numero di interazioni comuni (archi) tra le reti.
 
-Il problema del \textit{Network alignment} è un problema intrattabile dovuto all'$\mathcal{NP}$-completezza sottostante al \textit{sub-graph isomorphism problem}\footnote{Problema computazionale nel quale, dati due grafi $G$ e $H$ in input, si vuole determinare se $G$ contiene un sottografo isomorfico ad $H$, deve cioè esistere una corrispondenza biunivoca tra gli elementi dei grafi.}, individuato da Spephen Cook nel 1971.
+Il problema del \textit{Network Alignment} è un problema intrattabile dovuto all'$\mathcal{NP}$-completezza sottostante al \textit{sub-graph isomorphism problem}\footnote{Problema computazionale nel quale, dati due grafi $G$ e $H$ in input, si vuole determinare se $G$ contiene un sottografo isomorfico ad $H$, deve cioè esistere una corrispondenza biunivoca tra gli elementi dei grafi.}, individuato da Spephen Cook nel 1971.
 
 \section{MTGO}
 Il metodo MTGO - \textit{Module detection via Topological information and GO knowledge} - costituisce un nuovo approccio di identificazione dei moduli funzionali nelle PPIN. Questo metodo combina le informazioni provenienti dalla topologia delle reti con la conoscenza biologica relativa alle proteine.
@@ -403,7 +403,7 @@ Per valutare se la \textbf{convergenza} è stata raggiunta o meno si utilizzano 
 La formula di $Q$ è:
 
 \begin{center}
-$Q(C^k) = \displaystyle{\sum_{1<h<H_k}\frac{e^k_h}{|E|} - \left(\frac{d^k_h}{2 \times |E|}\right)^2}$
+$Q(C^k) = \displaystyle{\sum_{1<h<H_k}\frac{e^k_h}{|E|} - \left(\frac{d^k_h}{2 \times |E|}\right)^2}$.
 \end{center}
 
 Questa formula serve a valutare le partizioni dei grafi. L'indice $k$ indica la $k$-esima iterazione dell'algoritmo. $C^k$ è la $k$-esima partizione, $H^k$ è il numero di moduli topologici, $e^k_h$ è il numero totale di archi nell'$h$-esimo modulo topologico mentre $d^k_h$ è la somma dei gradi dei nodi dell'$h$-esimo modulo topologico. 
@@ -467,7 +467,7 @@ IsoRank è stato citato ben 505 volte (fonte: \textbf{Google Scholar}) dallo svi
 \section{L-GRAAL}
 Sviluppato nel 2015, L-GRAAL -\textit{Lagrangian graphlet-based network aligner} - è un metodo basato sull'idea di mappare insieme nodi che costituiscono un pattern (presenza di sottografi chiamati \textit{graphlet}\footnote{I \textit{graphlet} sono sottografi di piccole dimensioni, connessi, non-isomorfici, indotti da un grafo più grande (sono indicati come G$_0$,...,G$_{29}$ nella \textit{\textbf{Figura 10.1}}).}) definito da una grande quantità di interazioni condivise. L-GRAAL ottimizza una funzione obiettivo, che fonde le informazioni derivanti dalle sequenze di proteine con le interazioni tra i vari \textit{graphlet}, risolta con la Programmazione Intera. L-GRAAL è in grado di individuare l'\textit{overlap} tra le reti e fornisce risultati migliori di tutti gli altri metodi GO-based a livello di \textit{mapping} delle proteine e delle interazioni tra le stesse.\\
 
-Date due PPIN, $N_1 = (V_1, E_1)$ e $N_2 = (V_2, E_2)$ (con $|V_1| \leq |V_2|$, un \textit{allineamento globale}, $f: V_1 \rightarrow V_2$, è un mapping 1-a-1 dei nodi di $V_1$ con quelli di $V_2$. Ad un \textit{allineamento globale} viene associato uno score $S$:
+Date due PPIN, $N_1 = (V_1, E_1)$ e $N_2 = (V_2, E_2)$ (con $|V_1| \leq |V_2|$), un \textit{allineamento globale}, $f: V_1 \rightarrow V_2$, è un mapping 1-a-1 dei nodi di $V_1$ con quelli di $V_2$. Ad un \textit{allineamento globale} viene associato uno score $S$:
 \begin{center}
 $S(f) = \displaystyle{\sum_{u \in V_1}n(u,f(u))} + \displaystyle{\sum_{(u,v) \in E_1}e(u,f(u),v,f(v))}$
 \end{center}
@@ -487,7 +487,7 @@ Viene calcolata la \textit{topological similarity} fra due interazioni mappate (
 \begin{center}
 $e(u,f(u),v,f(v)) = \displaystyle{\frac{1}{2}(t(u,f(u))+t(v,f(v)))}$
 \end{center}
-Lo score $e(u,f(u),v,f(v)) \in [0,1]$ e rewards mapping edges that are involved in similar local wiring patterns.
+Lo score $e(u,f(u),v,f(v)) \in [0,1]$.
 
 \begin{center}
 \includegraphics[scale=0.33]{graal1}
@@ -586,10 +586,12 @@ Tenendo presente queste due proprietà, \textit{struct2vec} può essere suddivis
 \setlength{\itemsep}{1pt}
   \setlength{\parskip}{0pt}
   \setlength{\parsep}{0pt}
-  \item Determinazione della somiglianza strutturale tra ogni coppia di vertici nel grafo per dimensioni di \textit{neighborhood} diverse; questo fatto porta alla generazione di una gerarchia che fornisce maggiori informazioni per valutare la somiglianza strutturale ad ogni livello della stessa.
-  \item Costruzione di un grafo multi-livello pesato in cui tutti i nodi della rete compaiono in ogni layer e ogni layer corrisponde ad un livello della gerarchia nella misurazione della \textit{structural similarity}.
-  \item Utilizzo del grafo multi-livello per generare (tramite \textit{random walks}) sequenze di nodi. È probabile che queste sequenze includano nodi che sono più strutturalmente simili di altri.
-  \item Data la sequenza di nodi, apprendimento della \textit{latent representation}.
+  \item \textbf{Determinazione della somiglianza strutturale} tra ogni coppia di vertici nel grafo per dimensioni di \textit{neighborhood} diverse; questo fatto porta alla generazione di una gerarchia che fornisce maggiori informazioni per valutare la somiglianza strutturale ad ogni livello della stessa.
+  \item \textbf{Costruzione di un grafo multi-livello pesato} in cui tutti i nodi della rete compaiono in ogni layer e ogni layer corrisponde ad un livello della gerarchia nella misurazione della \textit{structural similarity}.
+  \item \textbf{Utilizzo del grafo multi-livello} per generare (tramite \textit{random walks}) sequenze di nodi. 
+  
+  È probabile che queste sequenze includano nodi che sono più strutturalmente simili di altri.
+  \item Data la sequenza di nodi, \textbf{apprendimento della \textit{latent representation}}.
 \end{enumerate}
 
 \subsection{\textit{struc2vec}: descrizione delle iterazioni}
@@ -679,7 +681,7 @@ Negli ultimi anni, il corpus di dati PPI è cresciuto esponenzialmente e il rapi
 
 Scoprire e capire i pattern all'interno delle PPIN è un problema centrale in Biologia. Gli allineamenti tra queste reti permettono di scoprire informazioni su complessi proteici che fino a pochi anni fa non erano note. 
 
-Abbiamo proposto una descrizione, seppur breve, del funzionamento di quattro dei metodi più all'avanguardia proposti negli ultimi anni: MTGO, IsoRank, \textit{struc2vec} e L-GRAAL; metodi con un'elevata complessità dal punto di vista computazionale a causa dell'$\mathcal{NP}$-completezza del problema.\\
+Abbiamo proposto una descrizione, seppur breve, del funzionamento di quattro dei metodi più all'avanguardia proposti negli ultimi anni: MTGO, IsoRank, L-GRAAL e \textit{struc2vec}; metodi con un'elevata complessità dal punto di vista computazionale a causa dell'$\mathcal{NP}$-completezza del problema.\\
 
 Molte sfide sono ancora aperte e molte frontiere devono ancora essere esplorate; con questo progetto abbiamo solamente dato una vaga idea della vastità dell'argomento, di cui si è appena iniziato a parlare.\\
 \\
