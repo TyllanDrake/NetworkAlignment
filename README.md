@@ -1,7 +1,7 @@
 # Network Alignment
 
-L'obettivo del Network Aligment consiste nel trovare somiglianze tra la struttura e/o la topologia di due o più reti.  
-In particolare nel contesto biologico, confrontare le reti di due diversi organismi ,.....
+Network alignment consists of finding similarities between the structure and / or the topology of two or more networks.
+In the biological context, connected the networks of different agents (represented by graphs) is, currently, one of the most important and interesting problems in Biology. Alignments of biological networks can be very useful because, having a lot of information on some nodes of a predefined G1 network and almost nothing on topologically similar nodes in another G2, the specialized knowledge of one of those nodes can tell us something new about the corrispective. Network alignments can also be used to measure the global similarity between complete networks of different species.
 
 ...
 
