@@ -8,7 +8,10 @@ We studied 4 different methods:
  - LGRAAL
  - Struc2vec
  
- 
+[📈 Download Presentation PDF](https://github.com/ivaste/NetworkAlignment/blob/master/Presentation/Presentation.pdf)
+
+[📄 Download Paper PDF](https://github.com/ivaste/NetworkAlignment/blob/master/LaTeX/AlgoBio.pdf)
+
 ![structure](https://github.com/ivaste/NetworkAlignment/blob/master/LaTeX/Network_Alignment_Example.png?raw=true)
 
 
